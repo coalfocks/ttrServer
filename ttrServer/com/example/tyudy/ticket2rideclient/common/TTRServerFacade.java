@@ -19,16 +19,20 @@ public class TTRServerFacade implements iTTRServer
     @Override
     public DataTransferObject createGame(DataTransferObject data)
     {
-        int gameID = gameUserManager.createGame(data.getPlayerID());
-        data.setData(String.valueOf(gameID));
-        return joinGame(data);
-
+        try
+        {
+            int gameID = gameUserManager.createGame(data.getPlayerID());
+            data.setData(Serializer.serialize(gameUserManager.getGame(gameID)));
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return createjoinGame(data);
     }
 
     @Override
     public DataTransferObject startGame(DataTransferObject data)
     {
-        data.setCommand("start");
         if (gameUserManager.startGame(data.getPlayerID()))
         {
             try
@@ -68,23 +72,56 @@ public class TTRServerFacade implements iTTRServer
         return data;
     }
 
+    public DataTransferObject createjoinGame(DataTransferObject data)
+    {
+        try
+        {
+            TTRGame thegame = (TTRGame) Serializer.deserialize(data.getData());
+            boolean added = gameUserManager.joinGame(data.getData(), data.getPlayerID());
+            TTRGame game = (TTRGame) Serializer.deserialize(data.getData());
+            if (game.getNumPlayers() >= 5)
+            {
+                return startGame(data);
+            }
+            if (added)
+            {
+                game = gameUserManager.getGame(game.getGameID());
+                data.setData(Serializer.serialize(game));
+            } else
+            {
+                data.setData("");
+                data.setErrorMsg("An error occurred, game not joined");
+            }
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
     @Override
     public DataTransferObject joinGame(DataTransferObject data)
     {
-        int gameID = Integer.parseInt(data.getData());
-        boolean added = gameUserManager.joinGame(gameID, data.getPlayerID());
-        if (gameUserManager.getNumPlayers(gameID) >= 5)
+        try
         {
-            return createGame(data);
-        }
-        if(added)
+            int gameID = Integer.parseInt(data.getData());
+            boolean added = gameUserManager.joinGame(gameID, data.getPlayerID());
+            TTRGame game = gameUserManager.getGame(gameID);
+            if (game.getNumPlayers() >= 5)
+            {
+                return startGame(data);
+            }
+            if (added)
+            {
+                data.setData(Serializer.serialize(game));
+            } else
+            {
+                data.setData("");
+                data.setErrorMsg("An error occurred, game not joined");
+            }
+        } catch (Exception e)
         {
-            data.setData("Player " + data.getPlayerID() + " joined game " + gameID);
-        }
-        else
-        {
-            data.setData("");
-            data.setErrorMsg("An error occurred, game not joined");
+            e.printStackTrace();
         }
         return data;
     }
@@ -141,7 +178,7 @@ public class TTRServerFacade implements iTTRServer
         {
             userInfo.setErrorMsg(e.getMessage());
         }
-
+        userInfo.setCommand("register");
         return userInfo;
     }
 

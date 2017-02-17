@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib12">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ttrServer/out/production/ttrServer/lib/gson-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ttrServer/out/production/ttrServer/lib/sqlite-jdbc-3.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

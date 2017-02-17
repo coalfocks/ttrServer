@@ -74,10 +74,42 @@ public class GameUserManager
         return dao.getGames();
     }
 
+    public boolean joinGame(String gstring, int playerID)
+    {
+        try
+        {
+            TTRGame gameIn = (TTRGame) Serializer.deserialize(gstring);
+            int gameID = gameIn.getGameID();
+            //int gameID = dao.getGameID(gstring);
+            if (dao.getGameStatus(gameID) == 1)
+            {
+                return false;
+            }
+            TTRGame game = dao.getGame(gameID);
+            game.addPlayer(playerID);
+            dao.addPlayerToGame(gameID, Serializer.serialize(game));
+            User player = dao.getUser(playerID);
+            if (dao.updatePlayerGame(gameID, playerID))
+            {
+                player.setInGame(gameID);
+            }
+            if (game.getNumPlayers() >= 5)
+            {
+                startGame(game.getOwnerID());
+            }
+        } catch(Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
     public boolean joinGame(int gameID, int playerID)
     {
         try
         {
+            //int gameID = dao.getGameID(gstring);
             if (dao.getGameStatus(gameID) == 1)
             {
                 return false;

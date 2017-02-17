@@ -160,7 +160,10 @@ public class DAO
                System.out.println(e.getMessage());
                return false;
            }
-           db.closeTransaction(true);
+           finally
+           {
+               db.closeTransaction(true);
+           }
 
            return true;
 
@@ -178,6 +181,7 @@ public class DAO
            TTRGame game = new TTRGame();
            game.setOwnerID(ownerID);
            game.setInProgress(0);
+           game.setGameID(gameID);
 
            ResultSet rs = null;
            PreparedStatement stmt = null;
@@ -201,6 +205,20 @@ public class DAO
                stmt2.setString(1,g);
                rs = stmt2.executeQuery();
                gameID = rs.getInt(1);
+               db.closeTransaction(true);
+
+               game.setGameID(gameID);
+               String sql3 = "UPDATE games" +
+                       " SET game = ?" +
+                       " WHERE gameID = ?";
+               db.startTransaction();
+               stmt = db.connection.prepareStatement(sql3);
+               stmt.setString(1, Serializer.serialize(game));
+               stmt.setInt(2, gameID);
+
+               stmt.executeUpdate();
+
+
            }
            catch(SQLException e)
            {
@@ -211,7 +229,10 @@ public class DAO
                System.out.println(e.getMessage());
                return 0;
            }
-           db.closeTransaction(true);
+           finally
+           {
+               db.closeTransaction(true);
+           }
 
            return gameID;
        }
@@ -304,6 +325,7 @@ public class DAO
            {
                e.printStackTrace();
            }
+
        }
 
        public boolean updatePlayerGame(int gameID, int userID)
@@ -567,5 +589,39 @@ public class DAO
                 }
             }
             return 0;
+        }
+
+        public int getGameID (String gstring) throws SQLException
+        {
+            if (gstring == null)
+            {
+                return 0;
+            }
+
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            int gameID = 0;
+            try
+            {
+                db.startTransaction();
+                String sql = "SELECT gameID FROM games WHERE games.game = ?";
+                stmt = db.connection.prepareStatement(sql);
+                stmt.setString(1, gstring);
+                rs = stmt.executeQuery();
+                gameID = rs.getInt(1);
+            }
+            catch(SQLException e)
+            {
+                System.out.println(e.getMessage());
+            }
+            finally
+            {
+                if(stmt != null)
+                    stmt.close();
+                if (rs != null)
+                    rs.close();
+                db.closeTransaction(true);
+            }
+            return gameID;
         }
 }
