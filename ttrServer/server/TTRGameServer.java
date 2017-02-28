@@ -56,4 +56,7 @@ public class TTRGameServer implements iTTRServer
     {
         return null;
     }
+
+    @Override
+    public DataTransferObject listGames(DataTransferObject data) { return null; }
 }

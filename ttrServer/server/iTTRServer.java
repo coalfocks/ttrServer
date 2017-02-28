@@ -18,4 +18,6 @@ public interface iTTRServer
     public DataTransferObject login(DataTransferObject data);
 
     public DataTransferObject register(DataTransferObject data);
+
+    public DataTransferObject listGames(DataTransferObject data);
 }
