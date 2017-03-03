@@ -182,6 +182,7 @@ public class TTRServerFacade implements iTTRServer
         return userInfo;
     }
 
+    @Override
     public DataTransferObject listGames(DataTransferObject data)
     {
         try
@@ -195,6 +196,36 @@ public class TTRServerFacade implements iTTRServer
             data.setErrorMsg("An error occurred - could not get games");
             return data;
         }
+    }
+
+    @Override
+    public DataTransferObject initializeTrainCards(DataTransferObject data) {
+        //IMPLEMENT ME!
+        return null;
+    }
+
+    @Override
+    public DataTransferObject initializeDestinationCards(DataTransferObject data) {
+        //IMPLEMENT ME!
+        return null;
+    }
+
+    @Override
+    public DataTransferObject initializeChatRoom(DataTransferObject data) {
+        //IMPLEMENT ME!
+        return null;
+    }
+
+    @Override
+    public DataTransferObject sendChatMessage(DataTransferObject data) {
+        //IMPLEMENT ME!
+        return null;
+    }
+
+    @Override
+    public DataTransferObject updateGameplay(DataTransferObject data) {
+        //IMPLEMENT ME!
+        return null;
     }
 
 }
