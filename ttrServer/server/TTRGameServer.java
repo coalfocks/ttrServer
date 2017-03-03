@@ -59,4 +59,29 @@ public class TTRGameServer implements iTTRServer
 
     @Override
     public DataTransferObject listGames(DataTransferObject data) { return null; }
+
+    @Override
+    public DataTransferObject initializeTrainCards(DataTransferObject data) {
+        return null;
+    }
+
+    @Override
+    public DataTransferObject initializeDestinationCards(DataTransferObject data) {
+        return null;
+    }
+
+    @Override
+    public DataTransferObject initializeChatRoom(DataTransferObject data) {
+        return null;
+    }
+
+    @Override
+    public DataTransferObject sendChatMessage(DataTransferObject data) {
+        return null;
+    }
+
+    @Override
+    public DataTransferObject updateGameplay(DataTransferObject data) {
+        return null;
+    }
 }
