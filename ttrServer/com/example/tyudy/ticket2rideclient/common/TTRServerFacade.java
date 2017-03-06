@@ -222,7 +222,7 @@ public class TTRServerFacade implements iTTRServer
         if (chatMessage.equals("")){
             data.setErrorMsg("The string sent to the server is empty.");
         } else {
-            gameUserManager.addChat(chatMessage);
+            gameServer.addChat(chatMessage, data.getPlayerID());
         }
         return data;
     }

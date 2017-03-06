@@ -627,9 +627,42 @@ public class DAO
 
         /**
          * chatMessage is the message that the user sent to the server. Add it to the database
+         * @param username - the username of the player sending the chat
+         * @param gameID - the game to which the chat belongs
          * @param chatMessage - String in the format "userName: some message for example Cole is lame and Ty is cool"
          */
-        public void addChatMessage(String chatMessage){
+        public boolean addChatMessage(String username, int gameID, String chatMessage){
+            if (username == null || gameID == 0 || chatMessage == null)
+            {
+                return false;
+            }
+
+            PreparedStatement stmt = null;
+            try
+            {
+                String sql = "INSERT OR IGNORE INTO chat (gameID, player, chatMessage)" +
+                        "VALUES (?,?,?" +
+                        ");";
+                db.startTransaction();
+                stmt = db.connection.prepareStatement(sql);
+                stmt.setInt(1, gameID);
+                stmt.setString(2, username);
+                stmt.setString(3, chatMessage);
+
+                stmt.executeUpdate();
+
+            }
+            catch(SQLException e)
+            {
+                System.out.println(e.getMessage());
+                return false;
+            }
+            finally
+            {
+                db.closeTransaction(true);
+            }
+
+            return true;
 
         }
 }

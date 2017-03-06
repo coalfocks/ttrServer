@@ -142,7 +142,15 @@ public class Database
         PreparedStatement stmt2 = this.connection.prepareStatement(sql2);
         stmt2.executeUpdate();
 
+        String sql3 = "CREATE TABLE IF NOT EXISTS chat"+
+                "("+
+                "gameID INTEGER," +
+                "player varchar(64)," +
+                "chatMessage TEXT" +
+                ");";
 
+        PreparedStatement stmt3 = this.connection.prepareStatement(sql3);
+        stmt3.executeUpdate();
 
     }
 

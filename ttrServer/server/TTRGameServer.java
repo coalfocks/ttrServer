@@ -1,6 +1,8 @@
 package server;
 
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
+import com.example.tyudy.ticket2rideclient.common.User;
+import server.Database.DAO;
 
 /**
  * Created by colefox on 2/5/17.
@@ -9,6 +11,7 @@ public class TTRGameServer implements iTTRServer
 {
 
     private static TTRGameServer instance;
+    private DAO dao = DAO.getInstance();
 
     private TTRGameServer() {}
 
@@ -83,5 +86,19 @@ public class TTRGameServer implements iTTRServer
     @Override
     public DataTransferObject updateGameplay(DataTransferObject data) {
         return null;
+    }
+
+    public void addChat(String chatMessage, int playerID) {
+        try
+        {
+            User u = dao.getUser(playerID);
+            String username = u.getUsername();
+            int gameID = u.getInGame();
+            dao.addChatMessage(username, gameID, chatMessage);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
