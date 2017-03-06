@@ -20,12 +20,12 @@ main
         ServerCommunicator server = new ServerCommunicator();
         server.run();
 
-        SendChatCommand command = new SendChatCommand();
-        DataTransferObject dto = new DataTransferObject("sendChat", "hello test chat", "", null);
-        dto.setPlayerID(9);
-        command.setData(dto);
-        command.execute();
+//        SendChatCommand command = new SendChatCommand();
+//        DataTransferObject dto = new DataTransferObject("sendChat", "hello test chat", "", null);
+//        dto.setPlayerID(9);
+//        command.setData(dto);
+//        command.execute();
 
-        server.stop();
+        //server.stop();
     }
 }
