@@ -624,4 +624,12 @@ public class DAO
             }
             return gameID;
         }
+
+        /**
+         * chatMessage is the message that the user sent to the server. Add it to the database
+         * @param chatMessage - String in the format "userName: some message for example Cole is lame and Ty is cool"
+         */
+        public void addChatMessage(String chatMessage){
+
+        }
 }

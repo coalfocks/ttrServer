@@ -218,8 +218,13 @@ public class TTRServerFacade implements iTTRServer
 
     @Override
     public DataTransferObject sendChatMessage(DataTransferObject data) {
-        //IMPLEMENT ME!
-        return null;
+        String chatMessage = data.getData();
+        if (chatMessage.equals("")){
+            data.setErrorMsg("The string sent to the server is empty.");
+        } else {
+            gameUserManager.addChat(chatMessage);
+        }
+        return data;
     }
 
     @Override

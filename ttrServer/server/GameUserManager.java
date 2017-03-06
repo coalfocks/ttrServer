@@ -153,4 +153,8 @@ public class GameUserManager
     {
         return dao.getNumPlayers(gameID);
     }
+
+    public void addChat(String chatMessage){
+        dao.addChatMessage(chatMessage);
+    }
 }
