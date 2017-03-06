@@ -1,4 +1,7 @@
+import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
+import com.example.tyudy.ticket2rideclient.common.commands.SendChatCommand;
 import server.*;
+import server.Database.Database;
 
 /**
  * Created by colefox on 2/9/17.
@@ -17,6 +20,12 @@ main
         ServerCommunicator server = new ServerCommunicator();
         server.run();
 
-        //server.stop();
+        SendChatCommand command = new SendChatCommand();
+        DataTransferObject dto = new DataTransferObject("sendChat", "hello test chat", "", null);
+        dto.setPlayerID(9);
+        command.setData(dto);
+        command.execute();
+
+        server.stop();
     }
 }
