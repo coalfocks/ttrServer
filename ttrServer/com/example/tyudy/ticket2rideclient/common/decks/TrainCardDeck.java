@@ -1,7 +1,10 @@
-package server.decks;
+package com.example.tyudy.ticket2rideclient.common.decks;
 
 import com.example.tyudy.ticket2rideclient.common.Color;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
+import com.example.tyudy.ticket2rideclient.common.cards.iCard;
+
+import java.util.Collections;
 
 /**
  * Created by zacheaton on 3/7/17.
@@ -20,5 +23,30 @@ public class TrainCardDeck implements iDeck {
         this.addCard(newWild);
         this.addCard(newWild);
         this.shuffle();
+    }
+
+    @Override
+    public void shuffle()
+    {
+        Collections.shuffle(this.cards);
+    }
+
+    @Override
+    public void addCard(iCard card)
+    {
+        this.cards.add(card);
+    }
+
+    @Override
+    public iCard getCard()
+    {
+        if(cards.size()>0) {
+            iCard myCard = cards.get(cards.size());
+            cards.remove(cards.size());
+            return myCard;
+        }
+        else{
+            return null;
+        }
     }
 }

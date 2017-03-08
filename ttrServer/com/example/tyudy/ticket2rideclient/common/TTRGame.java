@@ -1,10 +1,9 @@
 package com.example.tyudy.ticket2rideclient.common;
 
-import server.decks.DestinationCardDeck;
-import server.decks.TrainCardDeck;
+import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
+import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 

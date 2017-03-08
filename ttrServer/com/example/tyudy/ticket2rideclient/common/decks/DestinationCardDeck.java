@@ -1,25 +1,34 @@
-package server.decks;
+package com.example.tyudy.ticket2rideclient.common.decks;
 
 import com.example.tyudy.ticket2rideclient.common.cards.iCard;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by zacheaton on 3/7/17.
  */
-public interface iDeck {
-    List<iCard> cards = new ArrayList<iCard>();
+public class DestinationCardDeck implements iDeck {
 
-    public default void shuffle(){
+    //initialize a deck TODO: figure out wtf to do here.
+    public DestinationCardDeck(){
+
+    }
+
+    @Override
+    public void shuffle()
+    {
         Collections.shuffle(this.cards);
-    };
+    }
 
-    public default void addCard(iCard card){
+    @Override
+    public void addCard(iCard card)
+    {
         this.cards.add(card);
     }
-    public default iCard getCard(){
+
+    @Override
+    public iCard getCard()
+    {
         if(cards.size()>0) {
             iCard myCard = cards.get(cards.size());
             cards.remove(cards.size());
