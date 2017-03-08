@@ -665,4 +665,9 @@ public class DAO
             return true;
 
         }
-}
+
+        public boolean addDeck() {
+            // do whatever you do here
+            return false;
+        }
+    }

@@ -153,4 +153,9 @@ public class GameUserManager
     {
         return dao.getNumPlayers(gameID);
     }
+
+    public boolean addDeck(TTRGame u) {
+        dao.addDeck();
+        return false;
+    }
 }
