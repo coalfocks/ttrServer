@@ -1,5 +1,8 @@
 package com.example.tyudy.ticket2rideclient.common;
 
+import server.decks.DestinationCardDeck;
+import server.decks.TrainCardDeck;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -16,8 +19,27 @@ public class TTRGame implements Serializable
     private String ownerUsername;
     private Set<Integer> players = new TreeSet<Integer>();
 
+    private TrainCardDeck myTrainDeck;
+    private DestinationCardDeck myDestDeck;
+
     public TTRGame()
     {
+    }
+
+    public void setMyTrainDeck(TrainCardDeck myTrainDeck) {
+        this.myTrainDeck = myTrainDeck;
+    }
+
+    public void setMyDestDeck(DestinationCardDeck myDestDeck) {
+        this.myDestDeck = myDestDeck;
+    }
+
+    public TrainCardDeck getMyTrainDeck() {
+        return myTrainDeck;
+    }
+
+    public DestinationCardDeck getMyDestDeck() {
+        return myDestDeck;
     }
 
     public int getInProgress()

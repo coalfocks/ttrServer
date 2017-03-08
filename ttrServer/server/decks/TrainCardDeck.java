@@ -9,7 +9,7 @@ import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 public class TrainCardDeck implements iDeck {
 
     //initialize the deck
-    TrainCardDeck(){
+    public TrainCardDeck(){
         for (Color c : Color.values()){
             for(int i = 0; i < 12; i++){
                 TrainCard newCard = new TrainCard(c);
