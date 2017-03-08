@@ -2,6 +2,7 @@ package com.example.tyudy.ticket2rideclient.common.commands;
 
 import com.example.tyudy.ticket2rideclient.common.Command;
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
+import com.example.tyudy.ticket2rideclient.common.TTRServerFacade;
 import com.example.tyudy.ticket2rideclient.common.iCommand;
 
 import java.io.Serializable;
@@ -19,6 +20,10 @@ public class InitializeTrainCardsCommand extends Command implements iCommand, Se
 
     @Override
     public DataTransferObject execute() {
-        return null;
+
+        TTRServerFacade facade = new TTRServerFacade();
+        data = facade.initializeTrainCards(data);
+        return data;
+
     }
 }
