@@ -12,6 +12,7 @@ import java.io.Serializable;
 public class InitializeDestinationCardsCommand extends Command implements iCommand, Serializable {
     private DataTransferObject data;
 
+
     @Override
     public void setData(DataTransferObject d) {
         data = d;
@@ -19,6 +20,8 @@ public class InitializeDestinationCardsCommand extends Command implements iComma
 
     @Override
     public DataTransferObject execute() {
+
         return null;
+
     }
 }

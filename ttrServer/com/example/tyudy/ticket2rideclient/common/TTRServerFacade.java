@@ -200,7 +200,12 @@ public class TTRServerFacade implements iTTRServer
 
     @Override
     public DataTransferObject initializeTrainCards(DataTransferObject data) {
-        //IMPLEMENT ME!
+        //we need to get the game the person is in from here and then find it in the database
+        User loginUser = gson.fromJson(data.getData(), User.class);
+        User u = gameUserManager.getUser(loginUser.getUsername());
+        TTRGame game = gameUserManager.getGame(u.getInGame());
+        gameUserManager.addDeck(game);
+
         return null;
     }
 
