@@ -14,7 +14,7 @@ public class TTRGame implements Serializable
     private int gameID;
     private int ownerID;
     private String ownerUsername;
-    private Set<Integer> players = new TreeSet<Integer>();
+    private Set<User> players = new TreeSet<User>();
 
     public TTRGame()
     {
@@ -40,9 +40,9 @@ public class TTRGame implements Serializable
         this.ownerID = ownerID;
     }
 
-    public void addPlayer(int playerID)
+    public void addPlayer(User player)
     {
-        players.add(playerID);
+        players.add(player);
     }
 
     public int getNumPlayers()
@@ -60,12 +60,12 @@ public class TTRGame implements Serializable
         this.ownerUsername = ownerUsername;
     }
 
-    public Set<Integer> getPlayers()
+    public Set<User> getPlayers()
     {
         return players;
     }
 
-    public void setPlayers(Set<Integer> players)
+    public void setPlayers(Set<User> players)
     {
         this.players = players;
     }

@@ -1,6 +1,7 @@
 package server;
 
 
+import com.example.tyudy.ticket2rideclient.common.Color;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
 import server.Database.DAO;
@@ -86,12 +87,33 @@ public class GameUserManager
                 return false;
             }
             TTRGame game = dao.getGame(gameID);
-            game.addPlayer(playerID);
-            dao.addPlayerToGame(gameID, Serializer.serialize(game));
             User player = dao.getUser(playerID);
-            if (dao.updatePlayerGame(gameID, playerID))
+            if (player.getInGame() == 0 && dao.updatePlayerGame(gameID, playerID))
             {
+                int turn = game.getNumPlayers() + 1;
+
+                switch(turn)
+                {
+                    case 1:
+                        player.setColor(-65536);
+                        break;
+                    case 2:
+                        player.setColor(-256);
+                        break;
+                    case 3:
+                        player.setColor(-65281);
+                        break;
+                    case 4:
+                        player.setColor(-16711936);
+                        break;
+                    case 5:
+                        player.setColor(-16776961);
+                        break;
+                }
+
                 player.setInGame(gameID);
+                game.addPlayer(player);
+                dao.addPlayerToGame(gameID, Serializer.serialize(game));
             }
             if (game.getNumPlayers() >= 5)
             {
@@ -115,9 +137,29 @@ public class GameUserManager
                 return false;
             }
             TTRGame game = dao.getGame(gameID);
-            game.addPlayer(playerID);
-            dao.addPlayerToGame(gameID, Serializer.serialize(game));
             User player = dao.getUser(playerID);
+            int turn = game.getNumPlayers() + 1;
+
+            switch(turn)
+            {
+                case 1:
+                    player.setColor(-65536);
+                    break;
+                case 2:
+                    player.setColor(-256);
+                    break;
+                case 3:
+                    player.setColor(-65281);
+                    break;
+                case 4:
+                    player.setColor(-16711936);
+                    break;
+                case 5:
+                    player.setColor(-16776961);
+                    break;
+            }
+            game.addPlayer(player);
+            dao.addPlayerToGame(gameID, Serializer.serialize(game));
             if (dao.updatePlayerGame(gameID, playerID))
             {
                 player.setInGame(gameID);
