@@ -76,6 +76,7 @@ public class TTRServerFacade implements iTTRServer
     {
         try
         {
+            TTRGame thegame = (TTRGame) Serializer.deserialize(data.getData());
             boolean added = gameUserManager.joinGame(data.getData(), data.getPlayerID());
             TTRGame game = (TTRGame) Serializer.deserialize(data.getData());
             if (game.getNumPlayers() >= 5)
