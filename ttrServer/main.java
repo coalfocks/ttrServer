@@ -6,8 +6,7 @@ import server.Database.Database;
 /**
  * Created by colefox on 2/9/17.
  */
-public class
-main
+public class main
 {
     /* add username to User data field,
        only list games not in progress,
