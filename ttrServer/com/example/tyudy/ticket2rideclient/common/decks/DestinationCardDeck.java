@@ -1,4 +1,4 @@
-package server.decks;
+package com.example.tyudy.ticket2rideclient.common.decks;
 
 import com.example.tyudy.ticket2rideclient.common.cards.iCard;
 
@@ -9,17 +9,20 @@ import java.util.List;
 /**
  * Created by zacheaton on 3/7/17.
  */
-public interface iDeck {
-    List<iCard> cards = new ArrayList<iCard>();
+public class DestinationCardDeck implements iDeck{
 
-    public default void shuffle(){
-        Collections.shuffle(this.cards);
-    };
+    //initialize a deck TODO: figure out wtf to do here.
+    public DestinationCardDeck() {
 
-    public default void addCard(iCard card){
+    }
+        public void shuffle(){
+            Collections.shuffle(this.cards);
+        };
+
+    public  void addCard(iCard card){
         this.cards.add(card);
     }
-    public default iCard getCard(){
+    public  iCard getCard(){
         if(cards.size()>0) {
             iCard myCard = cards.get(cards.size());
             cards.remove(cards.size());
@@ -29,4 +32,5 @@ public interface iDeck {
             return null;
         }
     }
+
 }

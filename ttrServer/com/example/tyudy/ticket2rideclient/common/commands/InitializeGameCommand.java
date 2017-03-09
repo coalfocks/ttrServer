@@ -2,6 +2,7 @@ package com.example.tyudy.ticket2rideclient.common.commands;
 
 import com.example.tyudy.ticket2rideclient.common.Command;
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
+import com.example.tyudy.ticket2rideclient.common.TTRServerFacade;
 import com.example.tyudy.ticket2rideclient.common.iCommand;
 
 import java.io.Serializable;
@@ -9,7 +10,7 @@ import java.io.Serializable;
 /**
  * Created by tyudy on 3/3/17.
  */
-public class InitializeChatRoomCommand extends Command implements iCommand, Serializable {
+public class InitializeGameCommand extends Command implements iCommand, Serializable {
     private DataTransferObject data;
 
     @Override
@@ -19,6 +20,10 @@ public class InitializeChatRoomCommand extends Command implements iCommand, Seri
 
     @Override
     public DataTransferObject execute() {
-        return null;
+
+        TTRServerFacade facade = new TTRServerFacade();
+        data = facade.initializeGame(data);
+        return data;
+
     }
 }

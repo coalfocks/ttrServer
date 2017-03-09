@@ -3,6 +3,8 @@ package server;
 
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
+import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
+import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
 import server.Database.DAO;
 
 import java.util.ArrayList;
@@ -86,9 +88,9 @@ public class GameUserManager
                 return false;
             }
             TTRGame game = dao.getGame(gameID);
-            game.addPlayer(playerID);
-            dao.addPlayerToGame(gameID, Serializer.serialize(game));
             User player = dao.getUser(playerID);
+            game.addPlayer(player);
+            dao.addPlayerToGame(gameID, Serializer.serialize(game));
             if (dao.updatePlayerGame(gameID, playerID))
             {
                 player.setInGame(gameID);
@@ -115,9 +117,9 @@ public class GameUserManager
                 return false;
             }
             TTRGame game = dao.getGame(gameID);
-            game.addPlayer(playerID);
-            dao.addPlayerToGame(gameID, Serializer.serialize(game));
             User player = dao.getUser(playerID);
+            game.addPlayer(player);
+            dao.addPlayerToGame(gameID, Serializer.serialize(game));
             if (dao.updatePlayerGame(gameID, playerID))
             {
                 player.setInGame(gameID);
@@ -154,8 +156,26 @@ public class GameUserManager
         return dao.getNumPlayers(gameID);
     }
 
-    public boolean addDeck(TTRGame u) {
-        dao.addDeck();
-        return false;
+
+    public TTRGame initializeGame(TTRGame game) {
+        game.setMyTrainDeck( new TrainCardDeck());
+        game.setMyDestDeck( new DestinationCardDeck());
+
+
+        ArrayList<User> myUsers = (ArrayList<User>) game.getUsers();
+        for (User u :
+                myUsers) {
+        for(int i = 0; i<3; i++) {
+            game.dealDestCard(u);
+        }
+            for(int i = 0; i<5; i++) {
+                game.dealTrainCard(u);
+            }
+        }
+
+        game.setUsers(myUsers);
+        //TODO: update in the dao this game
+        return game;
+
     }
 }

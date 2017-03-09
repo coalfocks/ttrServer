@@ -5,6 +5,8 @@ import com.google.gson.JsonParser;
 import com.google.gson.Gson;
 import server.*;
 
+import javax.xml.crypto.Data;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -199,27 +201,28 @@ public class TTRServerFacade implements iTTRServer
     }
 
     @Override
-    public DataTransferObject initializeTrainCards(DataTransferObject data) {
+    public DataTransferObject initializeGame(DataTransferObject data) {
         //we need to get the game the person is in from here and then find it in the database
-        User loginUser = gson.fromJson(data.getData(), User.class);
-        User u = gameUserManager.getUser(loginUser.getUsername());
-        TTRGame game = gameUserManager.getGame(u.getInGame());
-        gameUserManager.addDeck(game);
+        TTRGame game = null;
+        try {
+            game = (TTRGame) Serializer.deserialize(data.getData());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        game = gameUserManager.initializeGame(game);
+        try {
+            data = new DataTransferObject("initialize", Serializer.serialize(game), "", null);
+            return data;
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
 
-        return null;
     }
 
-    @Override
-    public DataTransferObject initializeDestinationCards(DataTransferObject data) {
-        //IMPLEMENT ME!
-        return null;
-    }
-
-    @Override
-    public DataTransferObject initializeChatRoom(DataTransferObject data) {
-        //IMPLEMENT ME!
-        return null;
-    }
 
     @Override
     public DataTransferObject sendChatMessage(DataTransferObject data) {

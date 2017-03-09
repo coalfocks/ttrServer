@@ -1,6 +1,7 @@
 package server;
 
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
+import com.example.tyudy.ticket2rideclient.common.TTRGame;
 
 /**
  * Created by colefox on 2/5/17.
@@ -20,11 +21,7 @@ public interface iTTRServer {
 
     public DataTransferObject listGames(DataTransferObject data);
 
-    public DataTransferObject initializeTrainCards(DataTransferObject data);
-
-    public DataTransferObject initializeDestinationCards(DataTransferObject data);
-
-    public DataTransferObject initializeChatRoom(DataTransferObject data);
+    public DataTransferObject initializeGame(DataTransferObject data);
 
     public DataTransferObject sendChatMessage(DataTransferObject data);
 
