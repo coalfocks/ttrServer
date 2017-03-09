@@ -68,15 +68,6 @@ public class TTRGameServer implements iTTRServer
         return null;
     }
 
-    @Override
-    public DataTransferObject initializeDestinationCards(DataTransferObject data) {
-        return null;
-    }
-
-    @Override
-    public DataTransferObject initializeChatRoom(DataTransferObject data) {
-        return null;
-    }
 
     @Override
     public DataTransferObject sendChatMessage(DataTransferObject data) {
