@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class CommandQueue {
     public static final CommandQueue SINGLETON = new CommandQueue();
-    ArrayList<Command> commandsSinceGameStarted;
+    private ArrayList<Command> commandsSinceGameStarted;
 
     private CommandQueue(){
         commandsSinceGameStarted = new ArrayList<>();
@@ -25,6 +25,14 @@ public class CommandQueue {
 
     public Command getLatestCommand(){
         return commandsSinceGameStarted.get(commandsSinceGameStarted.size() - 1);
+    }
+
+    public int getCurrentIndex() {
+        return getSize();
+    }
+
+    public Command getCommand (int i) {
+        return commandsSinceGameStarted.get(i);
     }
 
 }

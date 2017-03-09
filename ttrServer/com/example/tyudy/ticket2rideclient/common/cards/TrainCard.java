@@ -3,6 +3,8 @@ package com.example.tyudy.ticket2rideclient.common.cards;
 
 import com.example.tyudy.ticket2rideclient.common.Color;
 
+import java.io.Serializable;
+
 /**
  * Created by zacheaton on 3/2/17.
  */
@@ -12,7 +14,7 @@ import com.example.tyudy.ticket2rideclient.common.Color;
  * the num corresponds to how many of the specific color you have
  *
  */
-public class TrainCard implements iCard{
+public class TrainCard implements iCard, Serializable {
     public Color color;
     public int num;
     public TrainCard(Color color){

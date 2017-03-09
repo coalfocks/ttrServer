@@ -1,13 +1,17 @@
 package server;
 
 
+import com.example.tyudy.ticket2rideclient.common.Color;
+import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
+import com.example.tyudy.ticket2rideclient.common.commands.InitializeGameCommand;
 import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
 import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
 import server.Database.DAO;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 /**
  * Created by colefox on 2/6/17.
@@ -143,7 +147,24 @@ public class GameUserManager
 
     public boolean startGame(int ownerID)
     {
-        return dao.startGame(ownerID);
+        DataTransferObject dto = new DataTransferObject();
+        try
+        {
+            dao.startGame(ownerID);
+            TTRGame game = dao.getGameByOwner(ownerID);
+            game = initializeGame(game);
+            InitializeGameCommand command = new InitializeGameCommand();
+            dto.setCommand("initGame");
+            dto.setData(Serializer.serialize(game));
+            dto.setPlayerID(-1);
+            command.setData(dto);
+            CommandQueue.SINGLETON.addCommand(command);
+
+        } catch (Exception e) {
+            dto.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return true;
     }
 
     public boolean endGame(int ownerID)
@@ -162,19 +183,38 @@ public class GameUserManager
         game.setMyDestDeck( new DestinationCardDeck());
 
 
-        ArrayList<User> myUsers = (ArrayList<User>) game.getUsers();
-        for (User u :
-                myUsers) {
-        for(int i = 0; i<3; i++) {
-            game.dealDestCard(u);
-        }
-            for(int i = 0; i<5; i++) {
+        ArrayList<User> myUsers = new ArrayList<User> (game.getUsers());
+        for (User u : myUsers) {
+            for(int i = 0; i < 3; i++) {
+                game.dealDestCard(u);
+            }
+            for(int i = 0; i < 5; i++) {
                 game.dealTrainCard(u);
             }
         }
 
-        game.setUsers(myUsers);
-        //TODO: update in the dao this game
+        for(int i = 0; i < myUsers.size(); i++) {
+            switch (i) {
+                case 0:
+                    myUsers.get(i).setColor(Color.RED);
+                    break;
+                case 1:
+                    myUsers.get(i).setColor(Color.YELLOW);
+                    break;
+                case 2:
+                    myUsers.get(i).setColor(Color.PURPLE);
+                    break;
+                case 3:
+                    myUsers.get(i).setColor(Color.BLUE);
+                    break;
+                case 4:
+                    myUsers.get(i).setColor(Color.GREEN);
+                    break;
+            }
+        }
+
+        game.setUsers(new TreeSet<User>(myUsers));
+
         return game;
 
     }

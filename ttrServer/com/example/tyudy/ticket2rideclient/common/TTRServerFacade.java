@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.Gson;
 import server.*;
+import server.Database.DAO;
 
 import javax.xml.crypto.Data;
 import java.io.IOException;
@@ -39,7 +40,7 @@ public class TTRServerFacade implements iTTRServer
         {
             try
             {
-                TTRGame game = gameUserManager.getGame(data.getPlayerID());
+                TTRGame game = DAO.getInstance().getGameByOwner(data.getPlayerID());
                 String gstring = Serializer.serialize(game);
                 data.setData(gstring);
             } catch(Exception e)
@@ -206,13 +207,7 @@ public class TTRServerFacade implements iTTRServer
         TTRGame game = null;
         try {
             game = (TTRGame) Serializer.deserialize(data.getData());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        game = gameUserManager.initializeGame(game);
-        try {
+            game = gameUserManager.initializeGame(game);
             data = new DataTransferObject("initialize", Serializer.serialize(game), "", null);
             return data;
         }catch(Exception e)
