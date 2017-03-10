@@ -12,8 +12,9 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Stack;
 
-import static com.example.tyudy.ticket2rideclient.common.Color.BLACK;
-import static com.example.tyudy.ticket2rideclient.common.Color.WHITE;
+import static com.example.tyudy.ticket2rideclient.common.ColorENUM.BLACK;
+import static com.example.tyudy.ticket2rideclient.common.ColorENUM.WHITE;
+
 /**
  * Created by tyudy on 2/7/17.
  */
@@ -24,9 +25,11 @@ public class User implements Serializable, Comparable<User> {
     private int playerID;
     private int inGame;
     private int points = 0;
-    private Color color;
+
+    private ColorENUM color;
+
     private ArrayList<Path> claimedPaths;
-    private Map<Color, TrainCard> colorCards = new HashMap<Color, TrainCard>();;
+    private Map<ColorENUM, TrainCard> colorCards;
     private ArrayList<DestinationCard> destCards;
 
 
@@ -38,7 +41,7 @@ public class User implements Serializable, Comparable<User> {
         inGame = 0;
         points = 0;
         destCards = new ArrayList<>();
-        colorCards = new HashMap<Color, TrainCard>();
+        colorCards = new HashMap<ColorENUM, TrainCard>();
         this.color = BLACK;
     }
 
@@ -48,11 +51,17 @@ public class User implements Serializable, Comparable<User> {
         this.password = password;
         this.playerID = playerID;
         this.inGame = inGame;
+
+
+        destCards = new ArrayList<>();
+        //claimedPaths = new ArrayList<>();
+        colorCards = new HashMap<ColorENUM, TrainCard>();
+
         TrainCard myCard = new TrainCard();
         myCard.setColor(WHITE);
         this.addTrainCard(myCard);
         destCards = new ArrayList<>();
-        colorCards = new HashMap<Color, TrainCard>();
+        colorCards = new HashMap<ColorENUM, TrainCard>();
         this.color = BLACK;
     }
 
@@ -141,8 +150,7 @@ public class User implements Serializable, Comparable<User> {
         return arrayOfCards;
     }
 
-    public TrainCard getNumCardsOfColor(Color c) { return colorCards.get(c); }
-
+    public TrainCard getNumCardsOfColor(ColorENUM c) { return colorCards.get(c); }
 
     public void increasePoints(int addPoints) {
         points += Math.abs(addPoints);
@@ -164,16 +172,81 @@ public class User implements Serializable, Comparable<User> {
     }
 
 
-    public Color getColor() {
+    public ColorENUM getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(ColorENUM color) {
         this.color = color;
     }
 
+    // public void claimPath(Path p) { claimedPaths.add(p); }
+
     public boolean haveCompletedRoute(DestinationCard card) {
+        // Make sure the given card is a card the player has
+        if (destCards.contains(card))
+        {
+            HashSet<City> citiesInRoute = new HashSet<>();
+            City source = new City();
+            City dest = new City();
+            boolean connectsToDest = false;
+            boolean connectsToSource = false;
+
+            // Iterate through each path the user has claimed
+            for (Path path: claimedPaths)
+            {
+                if (path.containsCity(source))
+                {
+                    connectsToSource = true;
+                }
+                else if (path.containsCity(dest))
+                {
+                    connectsToDest = true;
+                }
+
+                if (connectsToSource && connectsToDest)
+                    break;
+            }
+
+            // Player does not own a path connected to one of the necessary cities
+            if (!(connectsToSource && connectsToDest))
+                return false;
+
+            // DFS to find the SCC of the source city
+            // tldr; if the source city is in the same set as
+            //  the destination city after the loop exist,
+            //  there exists a path from src to dest
+            Stack<City> citySCC = new Stack<>();
+            citySCC.push(source);
+            while(!citySCC.empty())
+            {
+                City nextCity = citySCC.pop();
+                if (!citiesInRoute.contains(nextCity))
+                {
+                    citiesInRoute.add(nextCity);
+
+                    for (Path path : nextCity.getPaths())
+                    {
+                        City c1 = path.getCities().get(0);
+                        City c2 = path.getCities().get(1);
+
+                        if (!c1.equals(nextCity))
+                            citySCC.push(c1);
+                        else
+                            citySCC.push(c2);
+                    }
+                }
+            }
+
+            if (citiesInRoute.contains(source) && citiesInRoute.contains(dest))
+                return true;
+        }
+
         return false;
     }
 
+
+    public void removeDestinationCard(DestinationCard card) {
+        this.destCards.remove(card);
+    }
 }

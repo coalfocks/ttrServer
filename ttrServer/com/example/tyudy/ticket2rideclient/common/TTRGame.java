@@ -24,7 +24,6 @@ public class TTRGame implements Serializable
     private int mTurnIndex = 0;
     private TrainCardDeck myTrainDeck;
     private DestinationCardDeck myDestDeck;
-    private Set<Path> paths = new TreeSet<>();
 
     public TTRGame()
     {
@@ -117,11 +116,7 @@ public class TTRGame implements Serializable
     }
 
     public void claimPath(Path path) {
-        for (Path p : this.paths) {
-            if (p.getCities().equals(path.getCities())) {
-                p.setOwner(path.getOwner());
-            }
-        }
+        return;
     }
 
     public void dealTrainCard(User u){

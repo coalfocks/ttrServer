@@ -1,6 +1,6 @@
 package com.example.tyudy.ticket2rideclient.common.cities;
 
-import com.example.tyudy.ticket2rideclient.common.Color;
+import com.example.tyudy.ticket2rideclient.common.ColorENUM;
 import com.example.tyudy.ticket2rideclient.common.User;
 
 import java.io.Serializable;
@@ -12,24 +12,28 @@ import java.util.TreeSet;
  */
 
 public class Path implements Serializable {
-    public Color pathColor;
-    public int distance;
-    public ArrayList<City> connectedCities;
+    private ColorENUM pathColor;
+    private int distance;
+    private ArrayList<City> connectedCities;
     private User owner;
+    private String name;
 
-    public Path(Color c, int dist, City city1, City city2) {
+    public Path(ColorENUM c, int dist, City city1, City city2, String n) {
         pathColor = c;
         distance = dist;
         connectedCities = new ArrayList<>();
         connectedCities.add(city1);
         connectedCities.add(city2);
         owner = null;
+        name = n;
     }
 
     public void setOwner(User p) { owner = p; }
     public User getOwner() { return owner; }
     public ArrayList<City> getCities() { return connectedCities; }
-
+    public int getPoints() {
+        return this.distance;
+    }
 
     /**
      * A method to find if a path contains the given city
@@ -42,19 +46,7 @@ public class Path implements Serializable {
         return cities.contains(city);
     }
 
-//    @Override
-//    public String toString() {
-//        String color = "Color: " + pathColor.toString();
-//        String length = ", Length: " + distance;
-//        String cities = ", Cities: " + connectedCities.first.getCityName()
-//                + " <-> " + connectedCities.second.getCityName();
-//        String ownr = "\nOwner: ";
-//
-//        if (owner != null)
-//            ownr += owner.getUsername();
-//        else
-//            ownr += "none";
-//
-//        return color + length + cities + ownr;
-//    }
+    public String getName() {
+        return this.name;
+    }
 }

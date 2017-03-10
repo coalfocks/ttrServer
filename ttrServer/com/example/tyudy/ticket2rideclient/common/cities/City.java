@@ -89,7 +89,7 @@ public class City implements Serializable {
      */
     public int getDistTo(City city) {
         if (isConnectedTo(city))
-            return mConnectedCities.get(city).distance;
+            return mConnectedCities.get(city).getPoints();
 
         return -1;
     }

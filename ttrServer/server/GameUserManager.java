@@ -1,12 +1,11 @@
 package server;
 
 
-import com.example.tyudy.ticket2rideclient.common.Color;
+import com.example.tyudy.ticket2rideclient.common.ColorENUM;
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
-import com.example.tyudy.ticket2rideclient.common.commands.InitializeGameCommand;
 import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
 import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
 import server.Database.DAO;
@@ -189,19 +188,19 @@ public class GameUserManager
         for(int i = 0; i < myUsers.size(); i++) {
             switch (i) {
                 case 0:
-                    myUsers.get(i).setColor(Color.RED);
+                    myUsers.get(i).setColor(ColorENUM.RED);
                     break;
                 case 1:
-                    myUsers.get(i).setColor(Color.YELLOW);
+                    myUsers.get(i).setColor(ColorENUM.YELLOW);
                     break;
                 case 2:
-                    myUsers.get(i).setColor(Color.PURPLE);
+                    myUsers.get(i).setColor(ColorENUM.PURPLE);
                     break;
                 case 3:
-                    myUsers.get(i).setColor(Color.BLUE);
+                    myUsers.get(i).setColor(ColorENUM.BLUE);
                     break;
                 case 4:
-                    myUsers.get(i).setColor(Color.GREEN);
+                    myUsers.get(i).setColor(ColorENUM.GREEN);
                     break;
             }
         }
@@ -218,6 +217,11 @@ public class GameUserManager
             User user = dao.getUser(playerID);
             path.setOwner(user);
             game.claimPath(path);
+            for (User u : game.getUsers()) {
+                if (u.getPlayerID() == path.getOwner().getPlayerID()) {
+                    u.addPoints(path.getPoints());
+                }
+            }
             dao.updateGame(game);
         }
         catch (Exception e) {
