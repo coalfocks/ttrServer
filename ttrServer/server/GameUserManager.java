@@ -5,6 +5,7 @@ import com.example.tyudy.ticket2rideclient.common.Color;
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
+import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.commands.InitializeGameCommand;
 import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
 import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
@@ -208,6 +209,20 @@ public class GameUserManager
         game.setUsers(new TreeSet<User>(myUsers));
 
         return game;
+    }
 
+    public Path claimPath(int playerID, Path path) {
+        try
+        {
+            TTRGame game = dao.getGameByOwner(playerID);
+            User user = dao.getUser(playerID);
+            path.setOwner(user);
+            game.claimPath(path);
+            dao.updateGame(game);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return path;
     }
 }

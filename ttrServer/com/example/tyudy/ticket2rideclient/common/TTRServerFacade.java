@@ -1,5 +1,7 @@
 package com.example.tyudy.ticket2rideclient.common;
 
+import com.example.tyudy.ticket2rideclient.common.cities.Path;
+import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.Gson;
@@ -239,7 +241,20 @@ public class TTRServerFacade implements iTTRServer
 
     @Override
     public DataTransferObject claimPath(DataTransferObject data) {
-        return null;
+        try {
+            int playerID = data.getPlayerID();
+            Path path = (Path) Serializer.deserialize(data.getData());
+            path = gameUserManager.claimPath(playerID, path);
+            ClaimPathCommand command = new ClaimPathCommand();
+            data.setData(Serializer.serialize(path));
+            command.setData(data);
+            CommandQueue.SINGLETON.addCommand(command);
+        }
+        catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
     }
 
     @Override
