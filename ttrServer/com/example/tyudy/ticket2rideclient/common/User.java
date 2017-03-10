@@ -2,16 +2,18 @@ package com.example.tyudy.ticket2rideclient.common;
 
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
+import com.example.tyudy.ticket2rideclient.common.cities.City;
+import com.example.tyudy.ticket2rideclient.common.cities.Path;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.HashMap;
+import java.util.Stack;
 
 import static com.example.tyudy.ticket2rideclient.common.Color.BLACK;
 import static com.example.tyudy.ticket2rideclient.common.Color.WHITE;
-
 /**
  * Created by tyudy on 2/7/17.
  */
@@ -22,9 +24,8 @@ public class User implements Serializable, Comparable<User> {
     private int playerID;
     private int inGame;
     private int points = 0;
-
     private Color color;
-    private User associatedUser;
+    private ArrayList<Path> claimedPaths;
     private Map<Color, TrainCard> colorCards = new HashMap<Color, TrainCard>();;
     private ArrayList<DestinationCard> destCards;
 
@@ -171,5 +172,8 @@ public class User implements Serializable, Comparable<User> {
         this.color = color;
     }
 
+    public boolean haveCompletedRoute(DestinationCard card) {
+        return false;
+    }
 
 }
