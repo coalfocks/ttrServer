@@ -91,7 +91,10 @@ import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
                     String body = streamToString(input);
                     Command command = (Command) Serializer.deserialize(body);
                     DataTransferObject response = command.execute();
-                    sendOutData(response, httpExchange);
+                    if (response != null)
+                    {
+                        sendOutData(response, httpExchange);
+                    }
                 } catch (IOException e)
                 {
                     e.printStackTrace();

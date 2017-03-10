@@ -12,6 +12,7 @@ import java.util.TreeSet;
  */
 
 public class Path implements Serializable {
+
     private ColorENUM pathColor;
     private int distance;
     private ArrayList<City> connectedCities;
@@ -44,6 +45,18 @@ public class Path implements Serializable {
 
         TreeSet<City> cities = new TreeSet<>(connectedCities);
         return cities.contains(city);
+    }
+
+    /**
+     * Check if the path has an owner
+     * @return - true if the path is owned false if not
+     */
+    public boolean hasOwner(){
+        if(owner != null){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String getName() {
