@@ -24,7 +24,10 @@ public class CommandQueue {
     }
 
     public Command getLatestCommand(){
-        return commandsSinceGameStarted.get(commandsSinceGameStarted.size() - 1);
+        if (commandsSinceGameStarted.size() > 0) {
+            return commandsSinceGameStarted.get(commandsSinceGameStarted.size() - 1);
+        }
+        return null;
     }
 
     public int getCurrentIndex() {

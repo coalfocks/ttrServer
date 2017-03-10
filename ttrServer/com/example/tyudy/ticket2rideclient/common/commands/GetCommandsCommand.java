@@ -26,12 +26,24 @@ public class GetCommandsCommand extends Command implements iCommand, Serializabl
         try {
             ArrayList<Command> commands = new ArrayList<>();
             int index = Integer.parseInt(data.getData());
-            for (int i = index; i < CommandQueue.SINGLETON.getCurrentIndex(); i++)
+            if (index < CommandQueue.SINGLETON.getCurrentIndex())
             {
-                //TODO: check for correct game, only 1 init
-                commands.add(CommandQueue.SINGLETON.getCommand(i));
+                for (int i = index; i < CommandQueue.SINGLETON.getCurrentIndex(); i++)
+                {
+                    //TODO: check for correct game, only 1 init
+                    commands.add(CommandQueue.SINGLETON.getCommand(i));
+                }
+                data.setData(Serializer.serialize(commands));
+
             }
-            data.setData(Serializer.serialize(commands));
+            else {
+                ResetIndexCommand reset = new ResetIndexCommand();
+                data.setCommand("reset");
+                String newIndex = String.valueOf(CommandQueue.SINGLETON.getCurrentIndex() - 1);
+                data.setData(newIndex);
+                reset.setData(data);
+                commands.add(reset);
+            }
         } catch (Exception e) {
             data.setErrorMsg(e.getMessage());
             e.printStackTrace();

@@ -1,7 +1,9 @@
 package server;
 
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
+import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
+import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import server.Database.DAO;
 
 /**
@@ -101,5 +103,17 @@ public class TTRGameServer implements iTTRServer
         {
             e.printStackTrace();
         }
+    }
+
+    public TrainCard addTrainCard(int playerID, int gameID) {
+        TTRGame game = dao.getGame(gameID);
+        TrainCard card = null;
+        for (User u : game.getUsers()) {
+            if (u.getPlayerID() == playerID) {
+                card = game.dealTrainCard(u);
+            }
+        }
+        dao.updateGame(game);
+        return card;
     }
 }

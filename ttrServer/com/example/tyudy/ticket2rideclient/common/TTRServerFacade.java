@@ -1,6 +1,8 @@
 package com.example.tyudy.ticket2rideclient.common;
 
+import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
+import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.StartGameCommand;
 import com.google.gson.JsonObject;
@@ -264,6 +266,23 @@ public class TTRServerFacade implements iTTRServer
     @Override
     public DataTransferObject getCommands(DataTransferObject data) {
         return null;
+    }
+
+    public DataTransferObject addTrainCard(DataTransferObject data) {
+        try
+        {
+            int player = data.getPlayerID();
+            int gameID = Integer.parseInt(data.getData());
+            TrainCard card = gameServer.addTrainCard(player, gameID);
+            data.setData(Serializer.serialize(card));
+            AddTrainCardCommand command = new AddTrainCardCommand();
+            command.setData(data);
+            CommandQueue.SINGLETON.addCommand(command);
+        } catch(Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
     }
 
 }

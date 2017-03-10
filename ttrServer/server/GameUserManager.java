@@ -206,7 +206,7 @@ public class GameUserManager
         }
 
         game.setUsers(new TreeSet<User>(myUsers));
-
+        dao.updateGame(game);
         return game;
     }
 

@@ -119,10 +119,10 @@ public class TTRGame implements Serializable
         return;
     }
 
-    public void dealTrainCard(User u){
+    public TrainCard dealTrainCard(User u){
         TrainCard myCard = (TrainCard)  getMyTrainDeck().getCard();
         u.addTrainCard(myCard);
-
+        return myCard;
     }
     public void dealDestCard(User u){
         DestinationCard myCard = (DestinationCard) getMyDestDeck().getCard();
