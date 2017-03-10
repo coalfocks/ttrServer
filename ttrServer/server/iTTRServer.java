@@ -3,6 +3,8 @@ package server;
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 
+import javax.xml.crypto.Data;
+
 /**
  * Created by colefox on 2/5/17.
  */
@@ -27,4 +29,7 @@ public interface iTTRServer {
 
     public DataTransferObject updateGameplay(DataTransferObject data);
 
+    public DataTransferObject claimPath(DataTransferObject data);
+
+    public DataTransferObject getCommands(DataTransferObject data);
 }

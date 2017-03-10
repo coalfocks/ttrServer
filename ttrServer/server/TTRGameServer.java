@@ -79,6 +79,16 @@ public class TTRGameServer implements iTTRServer
         return null;
     }
 
+    @Override
+    public DataTransferObject claimPath(DataTransferObject data) {
+        return null;
+    }
+
+    @Override
+    public DataTransferObject getCommands(DataTransferObject data) {
+        return null;
+    }
+
     public void addChat(String chatMessage, int playerID) {
         try
         {

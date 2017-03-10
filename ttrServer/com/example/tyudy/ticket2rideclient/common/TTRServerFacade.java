@@ -237,4 +237,14 @@ public class TTRServerFacade implements iTTRServer
         return null;
     }
 
+    @Override
+    public DataTransferObject claimPath(DataTransferObject data) {
+        return null;
+    }
+
+    @Override
+    public DataTransferObject getCommands(DataTransferObject data) {
+        return null;
+    }
+
 }
