@@ -1,97 +1,127 @@
-//package com.example.tyudy.ticket2rideclient.common.cities;
-//
-//import android.graphics.PointF;
-//import java.util.Pair;
-//
-//import com.example.tyudy.ticket2rideclient.model.ClientModel;
-//
-//import java.io.Serializable;
-//import java.util.ArrayList;
-//import java.util.List;
-//import java.util.Map;
-//import java.util.TreeMap;
-//
-//import static com.example.tyudy.ticket2rideclient.common.Color.BLACK;
-//import static com.example.tyudy.ticket2rideclient.common.Color.BLUE;
-//import static com.example.tyudy.ticket2rideclient.common.Color.COLORLESS;
-//import static com.example.tyudy.ticket2rideclient.common.Color.GREEN;
-//import static com.example.tyudy.ticket2rideclient.common.Color.ORANGE;
-//import static com.example.tyudy.ticket2rideclient.common.Color.PURPLE;
-//import static com.example.tyudy.ticket2rideclient.common.Color.RED;
-//import static com.example.tyudy.ticket2rideclient.common.Color.WHITE;
-//import static com.example.tyudy.ticket2rideclient.common.Color.YELLOW;
-//
-///**
-// * Created by Trevor on 3/8/2017.
-// */
-//
-//public class City implements Serializable {
-//    /**
-//     * A map of the cities this city is connected to, with the
-//     * values being the class Path
-//     */
-//    private String mCityName;
-//    private ArrayList<Path> mPaths;
-//    private PointF mCoordinates;
-//
-//    public City(String cityName) {
-//        mCityName = cityName;
-//        mPaths = new ArrayList<>();
-//        mCoordinates = null;
-//    }
-//
-//    public void setCoordinate(PointF coordinate) { mCoordinates = coordinate; }
-//    public PointF getCoordinates() { return mCoordinates; }
-//    public String getCityName() { return mCityName; }
-//
-//    public void setPaths(ArrayList<Path> paths) { this.mPaths = paths; }
-//    public ArrayList<Path> getPaths() { return mPaths; }
-//
-//    /**
-//     * A function to findif a city is connected to another
-//     * @param city The city the question is about
-//     * @return True if the two are connected, false otherwise
-//     */
-//    public boolean isConnectedTo(City city) {
-//        if (city.equals(this))
-//            return true;
-//
-//        for (Path path : mPaths)
-//        {
-//            if (path.containsCity(city))
-//                return true;
-//        }
-//
-//        return false;
-//    }
-//
-//    /**
-//     * Getter function to return the path between the two cities
-//     * @param city The connected city to get the path to
-//     * @return Path to the given city, if connected. Null if no connection exists,
-//     *  or if the given city is the current city
-//     */
-//    public Path getPathTo(City city) {
-//        if (city.equals(this))
-//            return null;
-//
-//        if (isConnectedTo(city))
-//        {
-//            for (Path path : mPaths)
-//            {
-//                if (path.containsCity(city))
-//                    return path;
-//            }
-//        }
-//
-//        return null;
-//    }
-//
-//    /**
-//     * Needs to be called during game set-up
-//     * Todo: Still need to get points attached to cities
-//     */
-//    public static void initAllCities() {
+package com.example.tyudy.ticket2rideclient.common.cities;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Map;
+
+
+/**
+ * Created by Trevor on 3/8/2017.
+ */
+
+public class City implements Serializable {
+    /**
+     * A map of the cities this city is connected to, with the
+     * values being the class Path
+     */
+    private String mCityName;
+    private Map<City, Path> mConnectedCities;
+    private ArrayList<Path> mPaths;
+    private float xPosScale;
+    private float yPosScale;
+
+    public City(String cityName, Map<City, Path> connectedCities) {
+        mConnectedCities = connectedCities;
+        mCityName = cityName;
+    }
+
+    /**
+     * Initialize a city
+     * @param cityName - Name of the city
+     * @param xPercentage - horizontal percentage of the screen where the city sits
+     * @param yPercentage - vertical percentage of the screen where the city sits
+     */
+    public City(String cityName, float xPercentage, float yPercentage) {
+        mConnectedCities = null;
+        mCityName = cityName;
+        xPosScale = xPercentage;
+        yPosScale = yPercentage;
+        mPaths = new ArrayList<>();
+    }
+
+    public City(){
+
+    }
+
+
+    public float getxPosScale(){
+        return xPosScale;
+    }
+
+    public float getyPosScale(){
+        return yPosScale;
+    }
+
+    public void setConnectedCities(Map<City, Path> cc) { mConnectedCities = cc; }
+
+    /**
+     * A function to find if a city is connected to another
+     */
+    public String getCityName() { return mCityName; }
+
+    public void setPaths(ArrayList<Path> paths) { this.mPaths = paths; }
+    public ArrayList<Path> getPaths() { return mPaths; }
+
+    /**
+     * A function to findif a city is connected to another
+     * @param city The city the question is about
+     * @return True if the two are connected, false otherwise
+     */
+    public boolean isConnectedTo(City city) {
+        if (mConnectedCities.containsKey(city))
+            return true;
+
+        if (city.equals(this))
+            return true;
+
+        for (Path path : mPaths)
+        {
+            if (path.containsCity(city))
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * A function to find the path length between 2 cities
+     * @param city The connected city to find length to
+     * @return Distance to city, if connected. -1 if no connection exists
+     */
+    public int getDistTo(City city) {
+        if (isConnectedTo(city))
+            return mConnectedCities.get(city).distance;
+
+        return -1;
+    }
+
+    /* Getter function to return the path between the two cities
+    * @param city The connected city to get the path to
+    * @return Path to the given city, if connected. Null if no connection exists,
+    *  or if the given city is the current city
+    */
+    public Path getPathTo(City city) {
+        if (city.equals(this))
+            return null;
+
+        if (isConnectedTo(city))
+        {
+            for (Path path : mPaths)
+            {
+                if (path.containsCity(city))
+                    return path;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * COMMENTED OUT BECAUSE THIS NEEDS TO HAPPEN IN THE ClientModel.
+     * Each individual city should initialize all the cities.
+     * Needs to be called during game set-up
+     * Todo: Still need to get points attached to cities
+     */
+    public static void initAllCities() {
 //        TreeMap<String, City> cities = new TreeMap<>();
 //        ArrayList<Path> cityPaths = new ArrayList<Path>();
 //
@@ -584,23 +614,23 @@
 //        cities.put(Winnipeg.getCityName(), Winnipeg);
 //
 //        ClientModel.SINGLETON.setCitiesList(cities);
-//    }
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (!(obj instanceof City)) return false;
-//
-//        City city = (City) obj;
-//        if (!city.mPaths.equals(this.mPaths)) return false;
-//        if (!city.mCityName.equals(this.mCityName)) return false;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof City)) return false;
+
+        City city = (City) obj;
+        if (!city.mPaths.equals(this.mPaths)) return false;
+        if (!city.mCityName.equals(this.mCityName)) return false;
 //        if (city.mCoordinates != null && this.mCoordinates != null)
 //            if (!city.mCoordinates.equals(this.mCoordinates)) return false;
-//
-//        return super.equals(obj);
-//    }
-//
-//    @Override
-//    public String toString() {
+
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
 //        StringBuilder sb = new StringBuilder();
 //        String name = mCityName.toUpperCase() + " | Connected Cities:";
 //        sb.append(name);
@@ -617,5 +647,7 @@
 //        }
 //
 //        return sb.toString();
-//    }
-//}
+        return "";
+    }
+}
+
