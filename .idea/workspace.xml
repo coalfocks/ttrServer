@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fa21d40-1f14-4292-aaac-c61d229c224b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/database.sqlite" afterPath="$PROJECT_DIR$/db/database.sqlite" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/Color.class" afterPath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/Color.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/TTRGame.class" afterPath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/TTRGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/cards/DestinationCard.class" afterPath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/cards/DestinationCard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/Color.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/Color.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cards/DestinationCard.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cards/DestinationCard.java" />
-    </list>
+    <list default="true" id="5fa21d40-1f14-4292-aaac-c61d229c224b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
