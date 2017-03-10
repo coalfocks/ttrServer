@@ -26,7 +26,7 @@ public class User implements Serializable, Comparable<User> {
     private int points = 0;
     private Color color;
     private ArrayList<Path> claimedPaths;
-    private Map<Color, TrainCard> colorCards = new HashMap<Color, TrainCard>();;
+    private Map<Color, TrainCard> colorCards;
     private ArrayList<DestinationCard> destCards;
 
 
@@ -38,7 +38,8 @@ public class User implements Serializable, Comparable<User> {
         inGame = 0;
         points = 0;
         destCards = new ArrayList<>();
-        colorCards = new HashMap<Color, TrainCard>();
+        colorCards = new HashMap<>();
+        claimedPaths = new ArrayList<>();
         this.color = BLACK;
     }
 
@@ -175,5 +176,10 @@ public class User implements Serializable, Comparable<User> {
     public boolean haveCompletedRoute(DestinationCard card) {
         return false;
     }
+
+    public void removeDestinationCard(DestinationCard card) {
+        this.destCards.remove(card);
+    }
+
 
 }
