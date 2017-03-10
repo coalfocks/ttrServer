@@ -28,6 +28,7 @@ public class GetCommandsCommand extends Command implements iCommand, Serializabl
             int index = Integer.parseInt(data.getData());
             for (int i = index; i < CommandQueue.SINGLETON.getCurrentIndex(); i++)
             {
+                //TODO: check for correct game, only 1 init
                 commands.add(CommandQueue.SINGLETON.getCommand(i));
             }
             data.setData(Serializer.serialize(commands));

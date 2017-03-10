@@ -29,4 +29,3 @@ public class Destination {
         this.dest = dest;
     }
 }
-

@@ -41,6 +41,7 @@ public class TTRServerFacade implements iTTRServer
             try
             {
                 TTRGame game = DAO.getInstance().getGameByOwner(data.getPlayerID());
+                game = GameUserManager.getInstance().initializeGame(game);
                 String gstring = Serializer.serialize(game);
                 data.setData(gstring);
             } catch(Exception e)

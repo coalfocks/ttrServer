@@ -152,13 +152,6 @@ public class GameUserManager
         {
             dao.startGame(ownerID);
             TTRGame game = dao.getGameByOwner(ownerID);
-            game = initializeGame(game);
-            InitializeGameCommand command = new InitializeGameCommand();
-            dto.setCommand("initGame");
-            dto.setData(Serializer.serialize(game));
-            dto.setPlayerID(-1);
-            command.setData(dto);
-            CommandQueue.SINGLETON.addCommand(command);
 
         } catch (Exception e) {
             dto.setErrorMsg(e.getMessage());
@@ -181,8 +174,7 @@ public class GameUserManager
     public TTRGame initializeGame(TTRGame game) {
         game.setMyTrainDeck( new TrainCardDeck());
         game.setMyDestDeck( new DestinationCardDeck());
-
-
+        game.setInProgress(1);
         ArrayList<User> myUsers = new ArrayList<User> (game.getUsers());
         for (User u : myUsers) {
             for(int i = 0; i < 3; i++) {
