@@ -2,6 +2,7 @@ package com.example.tyudy.ticket2rideclient.common;
 
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
+import com.example.tyudy.ticket2rideclient.common.commands.StartGameCommand;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.Gson;
@@ -46,6 +47,9 @@ public class TTRServerFacade implements iTTRServer
                 game = GameUserManager.getInstance().initializeGame(game);
                 String gstring = Serializer.serialize(game);
                 data.setData(gstring);
+                StartGameCommand start = new StartGameCommand();
+                start.setData(data);
+                CommandQueue.SINGLETON.addCommand(start);
             } catch(Exception e)
             {
                 e.printStackTrace();

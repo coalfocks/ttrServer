@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fa21d40-1f14-4292-aaac-c61d229c224b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/Color.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/Color.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/ColorENUM.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/database.sqlite" afterPath="$PROJECT_DIR$/db/database.sqlite" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/TTRGame.class" afterPath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/TTRGame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.class" afterPath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/User.class" afterPath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/cities/City.class" afterPath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/cities/City.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/cities/Path.class" afterPath="$PROJECT_DIR$/out/production/TTRSserver/com/example/tyudy/ticket2rideclient/common/cities/Path.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTRSserver/server/GameUserManager.class" afterPath="$PROJECT_DIR$/out/production/TTRSserver/server/GameUserManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTRSserver/server/TTRGameServer.class" afterPath="$PROJECT_DIR$/out/production/TTRSserver/server/TTRGameServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TTRSserver/server/iTTRServer.class" afterPath="$PROJECT_DIR$/out/production/TTRSserver/server/iTTRServer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/User.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cards/TrainCard.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cards/TrainCard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/City.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/City.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/Path.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/Path.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/TrainCardDeck.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/TrainCardDeck.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/GameUserManager.java" afterPath="$PROJECT_DIR$/ttrServer/server/GameUserManager.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,11 +21,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="City.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/City.java">
+      <file leaf-file-name="SendChatCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/SendChatCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+            <state relative-caret-position="270">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -50,8 +34,8 @@
       <file leaf-file-name="ClaimPathCommand.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/ClaimPathCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,18 +64,18 @@
       <file leaf-file-name="ServerCommunicator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/server/ServerCommunicator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state relative-caret-position="454">
+              <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TTRServerFacade.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TTRServerFacade.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="250" column="0" lean-forward="false" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
+            <state relative-caret-position="418">
+              <caret line="51" column="57" lean-forward="false" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -100,18 +84,28 @@
       <file leaf-file-name="GameUserManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/server/GameUserManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="216" column="46" lean-forward="false" selection-start-line="216" selection-start-column="46" selection-end-line="216" selection-end-column="46" />
+            <state relative-caret-position="-107">
+              <caret line="149" column="58" lean-forward="true" selection-start-line="149" selection-start-column="58" selection-end-line="149" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetCommandsCommand.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GetCommandsCommand.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetCommandsCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartGameCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/StartGameCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -143,16 +137,6 @@
                 <element signature="e#1374#1375#0" expanded="true" />
                 <element signature="e#1406#1407#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/DAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="653" column="13" lean-forward="true" selection-start-line="653" selection-start-column="13" selection-end-line="653" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -199,7 +183,6 @@
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/DestinationCardDeck.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cards/DestinationCard.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cards/TrainCard.java" />
-        <option value="$PROJECT_DIR$/ttrServer/server/CommandQueue.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/Destination.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetCommandsCommand.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/Color.java" />
@@ -210,10 +193,11 @@
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/User.java" />
         <option value="$PROJECT_DIR$/ttrServer/server/Database/DAO.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/City.java" />
-        <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" />
-        <option value="$PROJECT_DIR$/ttrServer/server/GameUserManager.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/Path.java" />
+        <option value="$PROJECT_DIR$/ttrServer/server/GameUserManager.java" />
+        <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" />
+        <option value="$PROJECT_DIR$/ttrServer/server/CommandQueue.java" />
       </list>
     </option>
   </component>
@@ -299,6 +283,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TTRSserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TTRSserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ttrServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commands" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -660,7 +666,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="68" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/SendChatCommand.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="91" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -771,13 +785,6 @@
     <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/InitializeDestinationCardsCommand.java" />
     <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/InitializeChatRoomCommand.java" />
     <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/InitializeTrainCardsCommand.java" />
-    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/RegisterCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/LoginCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -796,14 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
           <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/SendChatCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,13 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/StartGameCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ttrServer/server/Serializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -924,10 +916,10 @@
         <state relative-caret-position="930">
           <caret line="88" column="19" lean-forward="false" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
           <folding>
-            <element signature="e#1751#1752#0" expanded="true" />
-            <element signature="e#1778#1779#0" expanded="true" />
-            <element signature="e#1862#1863#0" expanded="true" />
-            <element signature="e#1889#1890#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="false" />
+            <element signature="e#1778#1779#0" expanded="false" />
+            <element signature="e#1862#1863#0" expanded="false" />
+            <element signature="e#1889#1890#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -969,8 +961,8 @@
         <state relative-caret-position="645">
           <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
           <folding>
-            <element signature="e#1067#1068#0" expanded="true" />
-            <element signature="e#1096#1097#0" expanded="true" />
+            <element signature="e#1067#1068#0" expanded="false" />
+            <element signature="e#1096#1097#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -999,40 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/server/ServerCommunicator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/ClaimPathCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/server/GameUserManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="216" column="46" lean-forward="false" selection-start-line="216" selection-start-column="46" selection-end-line="216" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="250" column="0" lean-forward="false" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
@@ -1042,6 +1000,54 @@
             <element signature="e#2466#2467#0" expanded="true" />
             <element signature="e#2488#2489#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/Path.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1013#1014#0" expanded="true" />
+            <element signature="e#1374#1375#0" expanded="true" />
+            <element signature="e#1406#1407#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/server/GameUserManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-107">
+          <caret line="149" column="58" lean-forward="true" selection-start-line="149" selection-start-column="58" selection-end-line="149" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/RegisterCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/ClaimPathCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/SendChatCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1061,24 +1067,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/Path.java">
+    <entry file="file://$PROJECT_DIR$/ttrServer/server/ServerCommunicator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-            <element signature="e#1013#1014#0" expanded="true" />
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1406#1407#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="454">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetCommandsCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="315">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/StartGameCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="51" column="57" lean-forward="false" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
           <folding />
         </state>
       </provider>
