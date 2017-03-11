@@ -110,7 +110,7 @@ public class TTRGameServer implements iTTRServer
         TrainCard card = null;
         for (User u : game.getUsers()) {
             if (u.getPlayerID() == playerID) {
-                card = game.dealTrainCard(u);
+                card = game.dealTrainCard(u.getPlayerID());
             }
         }
         dao.updateGame(game);

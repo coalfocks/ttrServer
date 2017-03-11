@@ -181,7 +181,7 @@ public class GameUserManager
                 game.dealDestCard(u);
             }
             for(int i = 0; i < 5; i++) {
-                game.dealTrainCard(u);
+                game.dealTrainCard(u.getPlayerID());
             }
         }
 
