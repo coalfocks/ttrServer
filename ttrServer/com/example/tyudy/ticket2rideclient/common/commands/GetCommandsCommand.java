@@ -26,7 +26,7 @@ public class GetCommandsCommand extends Command implements iCommand, Serializabl
         try {
             ArrayList<Command> commands = new ArrayList<>();
             int index = Integer.parseInt(data.getData());
-            if (index < CommandQueue.SINGLETON.getCurrentIndex())
+            if (index <= CommandQueue.SINGLETON.getCurrentIndex())
             {
                 for (int i = index; i < CommandQueue.SINGLETON.getCurrentIndex(); i++)
                 {
@@ -39,7 +39,10 @@ public class GetCommandsCommand extends Command implements iCommand, Serializabl
             else {
                 ResetIndexCommand reset = new ResetIndexCommand();
                 data.setCommand("reset");
-                String newIndex = String.valueOf(CommandQueue.SINGLETON.getCurrentIndex() - 1);
+                String newIndex = String.valueOf(CommandQueue.SINGLETON.getCurrentIndex());
+                if (Integer.parseInt(newIndex) < 0) {
+                    newIndex = "0";
+                }
                 data.setData(newIndex);
                 reset.setData(data);
                 commands.add(reset);
