@@ -20,6 +20,8 @@ public class DestinationCardDeck implements iDeck, Serializable {
             cards.add(new DestinationCard());
         }
     }
+
+
         public void shuffle(){
             Collections.shuffle(this.cards);
         };
