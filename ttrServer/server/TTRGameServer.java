@@ -1,8 +1,10 @@
 package server;
 
+import com.example.tyudy.ticket2rideclient.common.ColorENUM;
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
+import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import server.Database.DAO;
 
@@ -115,5 +117,19 @@ public class TTRGameServer implements iTTRServer
         }
         dao.updateGame(game);
         return card;
+    }
+
+    public TTRGame maskGame(TTRGame game, int playerID) {
+        for (User u : game.getUsers()) {
+            if (u.getPlayerID() != playerID) {
+                for (int i = 0; i < u.getTrainCards().size(); i++) {
+                    u.getTrainCards().set(i, new TrainCard(ColorENUM.COLORLESS));
+                }
+                for (int i = 0; i < u.getDestCards().size(); i++) {
+                    u.getDestCards().set(i, new DestinationCard(null, 0));
+                }
+            }
+        }
+        return game;
     }
 }

@@ -177,10 +177,10 @@ public class GameUserManager
         game.setInProgress(1);
         ArrayList<User> myUsers = new ArrayList<User> (game.getUsers());
         for (User u : myUsers) {
-            for(int i = 0; i < 3; i++) {
+            while(u.getDestCards().size() < 3) {
                 game.dealDestCard(u);
             }
-            for(int i = 0; i < 5; i++) {
+            while(u.getTrainCards().size() < 4) {
                 game.dealTrainCard(u.getPlayerID());
             }
         }
