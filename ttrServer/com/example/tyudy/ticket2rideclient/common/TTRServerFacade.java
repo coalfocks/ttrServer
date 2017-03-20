@@ -1,10 +1,18 @@
 package com.example.tyudy.ticket2rideclient.common;
 
+import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
+import com.example.tyudy.ticket2rideclient.common.cities.Path;
+import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
+import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
+import com.example.tyudy.ticket2rideclient.common.commands.StartGameCommand;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.Gson;
 import server.*;
+import server.Database.DAO;
 
+import javax.xml.crypto.Data;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -37,9 +45,14 @@ public class TTRServerFacade implements iTTRServer
         {
             try
             {
-                TTRGame game = gameUserManager.getGame(data.getPlayerID());
+                TTRGame game = DAO.getInstance().getGameByOwner(data.getPlayerID());
+                game = gameUserManager.initializeGame(game);
+                game = gameServer.maskGame(game, data.getPlayerID());
                 String gstring = Serializer.serialize(game);
                 data.setData(gstring);
+                StartGameCommand start = new StartGameCommand();
+                start.setData(data);
+                CommandQueue.SINGLETON.addCommand(start);
             } catch(Exception e)
             {
                 e.printStackTrace();
@@ -76,6 +89,7 @@ public class TTRServerFacade implements iTTRServer
     {
         try
         {
+            TTRGame thegame = (TTRGame) Serializer.deserialize(data.getData());
             boolean added = gameUserManager.joinGame(data.getData(), data.getPlayerID());
             TTRGame game = (TTRGame) Serializer.deserialize(data.getData());
             if (game.getNumPlayers() >= 5)
@@ -198,33 +212,78 @@ public class TTRServerFacade implements iTTRServer
     }
 
     @Override
-    public DataTransferObject initializeTrainCards(DataTransferObject data) {
-        //IMPLEMENT ME!
-        return null;
+    public DataTransferObject initializeGame(DataTransferObject data) {
+        //we need to get the game the person is in from here and then find it in the database
+        TTRGame game = null;
+        try {
+            game = (TTRGame) Serializer.deserialize(data.getData());
+            game = gameUserManager.initializeGame(game);
+            data = new DataTransferObject("initialize", Serializer.serialize(game), "", null);
+            return data;
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
-    @Override
-    public DataTransferObject initializeDestinationCards(DataTransferObject data) {
-        //IMPLEMENT ME!
-        return null;
-    }
-
-    @Override
-    public DataTransferObject initializeChatRoom(DataTransferObject data) {
-        //IMPLEMENT ME!
-        return null;
-    }
 
     @Override
     public DataTransferObject sendChatMessage(DataTransferObject data) {
-        //IMPLEMENT ME!
-        return null;
+        String chatMessage = data.getData();
+        if (chatMessage.equals("")){
+            data.setErrorMsg("The string sent to the server is empty.");
+        } else {
+            gameServer.addChat(chatMessage, data.getPlayerID());
+        }
+        return data;
     }
 
     @Override
     public DataTransferObject updateGameplay(DataTransferObject data) {
         //IMPLEMENT ME!
         return null;
+    }
+
+    @Override
+    public DataTransferObject claimPath(DataTransferObject data) {
+        try {
+            int playerID = data.getPlayerID();
+            Path path = gson.fromJson(data.getData(), Path.class);
+            path = gameUserManager.claimPath(playerID, path);
+            ClaimPathCommand command = new ClaimPathCommand();
+            data.setData(Serializer.serialize(path));
+            command.setData(data);
+            CommandQueue.SINGLETON.addCommand(command);
+        }
+        catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    @Override
+    public DataTransferObject getCommands(DataTransferObject data) {
+        return null;
+    }
+
+    public DataTransferObject addTrainCard(DataTransferObject data) {
+        try
+        {
+            int player = data.getPlayerID();
+            int gameID = Integer.parseInt(data.getData());
+            TrainCard card = gameServer.addTrainCard(player, gameID);
+            data.setData(Serializer.serialize(card));
+            AddTrainCardCommand command = new AddTrainCardCommand();
+            command.setData(data);
+            CommandQueue.SINGLETON.addCommand(command);
+        } catch(Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
     }
 
 }

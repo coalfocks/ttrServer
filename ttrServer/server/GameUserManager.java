@@ -1,11 +1,17 @@
 package server;
 
 
+import com.example.tyudy.ticket2rideclient.common.ColorENUM;
+import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
+import com.example.tyudy.ticket2rideclient.common.cities.Path;
+import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
+import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
 import server.Database.DAO;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 /**
  * Created by colefox on 2/6/17.
@@ -86,9 +92,9 @@ public class GameUserManager
                 return false;
             }
             TTRGame game = dao.getGame(gameID);
-            game.addPlayer(playerID);
-            dao.addPlayerToGame(gameID, Serializer.serialize(game));
             User player = dao.getUser(playerID);
+            game.addPlayer(player);
+            dao.addPlayerToGame(gameID, Serializer.serialize(game));
             if (dao.updatePlayerGame(gameID, playerID))
             {
                 player.setInGame(gameID);
@@ -115,9 +121,9 @@ public class GameUserManager
                 return false;
             }
             TTRGame game = dao.getGame(gameID);
-            game.addPlayer(playerID);
-            dao.addPlayerToGame(gameID, Serializer.serialize(game));
             User player = dao.getUser(playerID);
+            game.addPlayer(player);
+            dao.addPlayerToGame(gameID, Serializer.serialize(game));
             if (dao.updatePlayerGame(gameID, playerID))
             {
                 player.setInGame(gameID);
@@ -141,7 +147,17 @@ public class GameUserManager
 
     public boolean startGame(int ownerID)
     {
-        return dao.startGame(ownerID);
+        DataTransferObject dto = new DataTransferObject();
+        try
+        {
+            dao.startGame(ownerID);
+            TTRGame game = dao.getGameByOwner(ownerID);
+
+        } catch (Exception e) {
+            dto.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return true;
     }
 
     public boolean endGame(int ownerID)
@@ -152,5 +168,65 @@ public class GameUserManager
     public int getNumPlayers(int gameID)
     {
         return dao.getNumPlayers(gameID);
+    }
+
+
+    public TTRGame initializeGame(TTRGame game) {
+        game.setMyTrainDeck( new TrainCardDeck());
+        game.setMyDestDeck( new DestinationCardDeck());
+        game.setInProgress(1);
+        ArrayList<User> myUsers = new ArrayList<User> (game.getUsers());
+        for (User u : myUsers) {
+            while(u.getDestCards().size() < 3) {
+                game.dealDestCard(u);
+            }
+            while(u.getTrainCards().size() < 4) {
+                game.dealTrainCard(u.getPlayerID());
+            }
+        }
+
+        for(int i = 0; i < myUsers.size(); i++) {
+            switch (i) {
+                case 0:
+                    myUsers.get(i).setColor(ColorENUM.RED);
+                    break;
+                case 1:
+                    myUsers.get(i).setColor(ColorENUM.YELLOW);
+                    break;
+                case 2:
+                    myUsers.get(i).setColor(ColorENUM.PURPLE);
+                    break;
+                case 3:
+                    myUsers.get(i).setColor(ColorENUM.BLUE);
+                    break;
+                case 4:
+                    myUsers.get(i).setColor(ColorENUM.GREEN);
+                    break;
+            }
+        }
+
+        game.setUsers(new TreeSet<User>(myUsers));
+        dao.updateGame(game);
+        return game;
+    }
+
+    public Path claimPath(int playerID, Path path) {
+        try
+        {
+            TTRGame game = dao.getGameByOwner(playerID);
+            User user = dao.getUser(playerID);
+            path.setOwner(user);
+            game.claimPath(path);
+            for (User u : game.getUsers()) {
+                if (u.getPlayerID() == path.getOwner().getPlayerID()) {
+                    u.addPoints(path.getPoints());
+                }
+            }
+            dao.updateGame(game);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return path;
     }
 }

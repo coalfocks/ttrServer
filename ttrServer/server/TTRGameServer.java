@@ -1,6 +1,12 @@
 package server;
 
+import com.example.tyudy.ticket2rideclient.common.ColorENUM;
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
+import com.example.tyudy.ticket2rideclient.common.TTRGame;
+import com.example.tyudy.ticket2rideclient.common.User;
+import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
+import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
+import server.Database.DAO;
 
 /**
  * Created by colefox on 2/5/17.
@@ -9,6 +15,7 @@ public class TTRGameServer implements iTTRServer
 {
 
     private static TTRGameServer instance;
+    private DAO dao = DAO.getInstance();
 
     private TTRGameServer() {}
 
@@ -61,19 +68,10 @@ public class TTRGameServer implements iTTRServer
     public DataTransferObject listGames(DataTransferObject data) { return null; }
 
     @Override
-    public DataTransferObject initializeTrainCards(DataTransferObject data) {
+    public DataTransferObject initializeGame(DataTransferObject data) {
         return null;
     }
 
-    @Override
-    public DataTransferObject initializeDestinationCards(DataTransferObject data) {
-        return null;
-    }
-
-    @Override
-    public DataTransferObject initializeChatRoom(DataTransferObject data) {
-        return null;
-    }
 
     @Override
     public DataTransferObject sendChatMessage(DataTransferObject data) {
@@ -83,5 +81,55 @@ public class TTRGameServer implements iTTRServer
     @Override
     public DataTransferObject updateGameplay(DataTransferObject data) {
         return null;
+    }
+
+    @Override
+    public DataTransferObject claimPath(DataTransferObject data) {
+        return null;
+    }
+
+    @Override
+    public DataTransferObject getCommands(DataTransferObject data) {
+        return null;
+    }
+
+    public void addChat(String chatMessage, int playerID) {
+        try
+        {
+            User u = dao.getUser(playerID);
+            String username = u.getUsername();
+            int gameID = u.getInGame();
+            dao.addChatMessage(username, gameID, chatMessage);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public TrainCard addTrainCard(int playerID, int gameID) {
+        TTRGame game = dao.getGame(gameID);
+        TrainCard card = null;
+        for (User u : game.getUsers()) {
+            if (u.getPlayerID() == playerID) {
+                card = game.dealTrainCard(u.getPlayerID());
+            }
+        }
+        dao.updateGame(game);
+        return card;
+    }
+
+    public TTRGame maskGame(TTRGame game, int playerID) {
+        for (User u : game.getUsers()) {
+            if (u.getPlayerID() != playerID) {
+                for (int i = 0; i < u.getTrainCards().size(); i++) {
+                    u.getTrainCards().set(i, new TrainCard(ColorENUM.COLORLESS));
+                }
+                for (int i = 0; i < u.getDestCards().size(); i++) {
+                    u.getDestCards().set(i, new DestinationCard(null, 0));
+                }
+            }
+        }
+        return game;
     }
 }
