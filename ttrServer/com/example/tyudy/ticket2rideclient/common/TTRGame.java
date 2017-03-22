@@ -123,6 +123,7 @@ public class TTRGame implements Serializable
         }
     }
 
+
     public TrainCard dealTrainCard(int playerID){
         TrainCard myCard = null;
         for (User u : players)
@@ -134,6 +135,12 @@ public class TTRGame implements Serializable
             }
         }
         return myCard;
+    }
+
+    // Deal card used by the client
+    public void dealTrainCard(User u){
+        TrainCard myCard = (TrainCard)  getMyTrainDeck().getCard();
+        u.addTrainCard(myCard);
     }
 
     public void dealDestCard(User u){

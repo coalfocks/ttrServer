@@ -42,7 +42,7 @@ public class User implements Serializable, Comparable<User> {
         inGame = 0;
         points = 0;
         destCards = new ArrayList<>();
-        colorCards = new HashMap<ColorENUM, TrainCard>();
+        colorCards = new HashMap<>();
         claimedPaths = new ArrayList<>();
         this.color = BLACK;
     }
