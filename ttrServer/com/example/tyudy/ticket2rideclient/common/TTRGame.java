@@ -134,16 +134,6 @@ public class TTRGame implements Serializable
 
     }
 
-    // dealTrainCard used by the server
-    public void dealTrainCard(int playerID){
-        TrainCard card = (TrainCard) myTrainDeck.getCard();
-        for (User u : players) {
-            if (u.getPlayerID() == playerID) {
-                u.addTrainCard(card);
-            }
-        }
-    }
-
 
     public TrainCard dealTrainCard(int playerID){
         TrainCard myCard = null;
