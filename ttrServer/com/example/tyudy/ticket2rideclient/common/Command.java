@@ -14,6 +14,8 @@ public class Command implements iCommand, Serializable
         this.data = d;
     }
 
+    public DataTransferObject getData() { return data; }
+
     @Override
     public DataTransferObject execute()
     {

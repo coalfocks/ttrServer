@@ -26,6 +26,7 @@ private DataTransferObject data;
 
     public void setData(DataTransferObject d)
     {
+        super.setData(d);
         this.data = d;
     }
 }
