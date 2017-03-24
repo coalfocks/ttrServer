@@ -27,6 +27,7 @@ public class LoginCommand extends Command implements iCommand, Serializable
 
     public void setData(DataTransferObject d)
     {
+        super.setData(d);
         this.data = d;
     }
 }
