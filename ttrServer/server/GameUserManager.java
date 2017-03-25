@@ -188,19 +188,19 @@ public class GameUserManager
         for(int i = 0; i < myUsers.size(); i++) {
             switch (i) {
                 case 0:
-                    myUsers.get(i).setColor(ColorENUM.RED);
+                    myUsers.get(i).setColor(ColorENUM.GREEN);
                     break;
                 case 1:
-                    myUsers.get(i).setColor(ColorENUM.YELLOW);
+                    myUsers.get(i).setColor(ColorENUM.BLUE);
                     break;
                 case 2:
                     myUsers.get(i).setColor(ColorENUM.PURPLE);
                     break;
                 case 3:
-                    myUsers.get(i).setColor(ColorENUM.BLUE);
+                    myUsers.get(i).setColor(ColorENUM.RED);
                     break;
                 case 4:
-                    myUsers.get(i).setColor(ColorENUM.GREEN);
+                    myUsers.get(i).setColor(ColorENUM.YELLOW);
                     break;
             }
         }
