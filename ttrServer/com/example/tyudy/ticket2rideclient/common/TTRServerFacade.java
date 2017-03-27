@@ -246,16 +246,15 @@ public class TTRServerFacade implements iTTRServer
     public DataTransferObject updateGameplay(DataTransferObject data) {
         //IMPLEMENT ME!
         try {
+            // DTO coming in should contain the gameID in the data field
             int gameID = gson.fromJson(data.getData(), int.class);
             TTRGame currentGame = gameUserManager.getGame(gameID);
             currentGame.changeTurn();
             int nextPlayerID = currentGame.getWhoTurn();
-            NextTurnCommand command = new NextTurnCommand();
 
-            // DTO contains the id of the player who's turn is next
-            data.setData(Serializer.serialize(nextPlayerID));
-            command.setData(data);
-            CommandQueue.SINGLETON.addCommand(command);
+            // DTO going out contains the id of the player who's turn is next
+            //  in playerID field
+            data.setPlayerID(nextPlayerID);
         }
         catch (Exception e) {
             data.setErrorMsg(e.getMessage());

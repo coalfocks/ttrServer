@@ -7,6 +7,8 @@ import com.example.tyudy.ticket2rideclient.common.iCommand;
 
 import java.io.Serializable;
 
+import server.CommandQueue;
+
 /**
  * Created by Trevor on 3/24/2017.
  */
@@ -19,7 +21,8 @@ public class NextTurnCommand extends Command implements iCommand, Serializable {
     {
         TTRServerFacade ttrServerFacade = new TTRServerFacade();
         data = ttrServerFacade.updateGameplay(data);
-        return data;
+        CommandQueue.SINGLETON.addCommand(this);
+        return null;
     }
 
 
