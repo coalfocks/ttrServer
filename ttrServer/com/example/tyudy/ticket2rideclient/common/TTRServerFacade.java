@@ -1,5 +1,6 @@
 package com.example.tyudy.ticket2rideclient.common;
 
+import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
@@ -281,6 +282,24 @@ public class TTRServerFacade implements iTTRServer
             CommandQueue.SINGLETON.addCommand(command);
         } catch(Exception e) {
             data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    @Override
+    public DataTransferObject drawDestCard (DataTransferObject data) {
+        try {
+            ArrayList<DestinationCard> cards = new ArrayList<>();
+            int gameID = Integer.parseInt(data.getData());
+            TTRGame game = GameUserManager.getInstance().getGame(gameID);
+            for (int i = 0; i < 3; i++) {
+                cards.add((DestinationCard) game.getMyDestDeck().getCard());
+            }
+            DAO.getInstance().updateGame(game);
+            data.setData(Serializer.serialize(cards));
+        } catch (Exception e) {
+            data.setData(e.getMessage());
             e.printStackTrace();
         }
         return data;
