@@ -18,7 +18,7 @@ public class DestinationCardDeck implements iDeck, Serializable {
 
         cards.add(new DestinationCard("Los Angeles", "New York", 21));
         cards.add(new DestinationCard("Duluth", "Houston", 8));
-        cards.add(new DestinationCard("Sault Ste Marie", "Nashville", 8));
+        cards.add(new DestinationCard("Sault St Marie", "Nashville", 8));
         cards.add(new DestinationCard("New York", "Atlanta", 6));
         cards.add(new DestinationCard("Portland", "Nashville", 17));
         cards.add(new DestinationCard("Vancouver", "Montreal", 20));
