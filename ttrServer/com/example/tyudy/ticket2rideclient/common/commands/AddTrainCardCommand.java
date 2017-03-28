@@ -30,4 +30,8 @@ public class AddTrainCardCommand extends Command implements iCommand, Serializab
     {
         this.data = d;
     }
+
+    public DataTransferObject getData(){
+        return data;
+    }
 }

@@ -22,12 +22,16 @@ public class NextTurnCommand extends Command implements iCommand, Serializable {
         TTRServerFacade ttrServerFacade = new TTRServerFacade();
         data = ttrServerFacade.updateGameplay(data);
         CommandQueue.SINGLETON.addCommand(this);
-        return null;
+        return data;
     }
 
 
     public void setData(DataTransferObject d)
     {
         this.data = d;
+    }
+
+    public DataTransferObject getData(){
+        return data;
     }
 }

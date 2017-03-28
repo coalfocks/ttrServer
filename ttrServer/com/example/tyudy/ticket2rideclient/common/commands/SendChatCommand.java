@@ -27,4 +27,8 @@ public class SendChatCommand extends Command implements iCommand, Serializable {
         CommandQueue.SINGLETON.addCommand(this);
         return data;
     }
+
+    public DataTransferObject getData(){
+        return data;
+    }
 }

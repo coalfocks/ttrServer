@@ -22,4 +22,8 @@ public class UpdateGamePlayCommand extends Command implements iCommand, Serializ
     public DataTransferObject execute() {
         return null;
     }
+
+    public DataTransferObject getData(){
+        return data;
+    }
 }

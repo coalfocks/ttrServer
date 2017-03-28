@@ -32,4 +32,8 @@ public class ClaimPathCommand extends Command implements iCommand, Serializable 
     {
         this.data = d;
     }
+
+    public DataTransferObject getData(){
+        return data;
+    }
 }
