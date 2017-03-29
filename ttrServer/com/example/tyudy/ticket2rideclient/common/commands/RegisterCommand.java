@@ -23,6 +23,10 @@ private DataTransferObject data;
         return data;
     }
 
+    public DataTransferObject getData(){
+        return data;
+    }
+
 
     public void setData(DataTransferObject d)
     {

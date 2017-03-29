@@ -23,10 +23,14 @@ public class TTRGame implements Serializable
     private Set<User> players = new TreeSet<User>();
     private int mTurnIndex = 0;
     private TrainCardDeck myTrainDeck;
+    private TrainCardDeck mTrainDiscardDeck;
     private DestinationCardDeck myDestDeck;
+    private DestinationCardDeck mDestDiscardDeck;
 
     public TTRGame()
     {
+        mTrainDiscardDeck = new TrainCardDeck();
+        mDestDiscardDeck = new DestinationCardDeck();
     }
 
     public void setMyTrainDeck(TrainCardDeck myTrainDeck) {
@@ -115,6 +119,7 @@ public class TTRGame implements Serializable
         this.mTurnIndex = mTurnIndex;
     }
 
+<<<<<<< HEAD
     /**
      * Updates the ClientModels given path to have an owner and adds the corresponding points to the paths owner user.
      * @param path - the path to update in the client model
@@ -133,29 +138,49 @@ public class TTRGame implements Serializable
 //        }
 
     }
+=======
+    public void claimPath(Path path) {}
+>>>>>>> oogy-boogy-2
 
     // dealTrainCard used by the server
     public void dealTrainCard(int playerID){
         TrainCard card = (TrainCard) myTrainDeck.getCard();
-        for (User u : players) {
-            if (u.getPlayerID() == playerID) {
+        for (User u : players)
+        {
+            if (u.getPlayerID() == playerID)
+            {
                 u.addTrainCard(card);
             }
         }
     }
 
     public void dealTrainCard(User u){
-        TrainCard myCard = (TrainCard)  getMyTrainDeck().getCard();
-        u.addTrainCard(myCard);
+//        TrainCard myCard = (TrainCard)  getMyTrainDeck().getCard();
+//        u.addTrainCard(myCard);
     }
 
-
+    public void addToTrainDiscard(TrainCard card)
+    {
+        mTrainDiscardDeck.addCard(card);
+    }
 
     public void dealDestCard(User u){
         DestinationCard myCard = (DestinationCard) getMyDestDeck().getCard();
         u.addDestinationCard(myCard);
-
     }
+
+    public void addToDestDiscard(DestinationCard card)
+    {
+        mDestDiscardDeck.addCard(card);
+    }
+
+    public TrainCardDeck getTrainDiscardDeck() { return mTrainDiscardDeck; }
+
+    public DestinationCardDeck getDestDiscardDeck() { return mDestDiscardDeck; }
+
+    public void clearTrainDiscardDeck() { mTrainDiscardDeck.getDeck().clear(); }
+
+    public void clearDestDiscardDeck() { mDestDiscardDeck.getDeck().clear(); }
 
     public void changeTurn() {
         this.mTurnIndex++;

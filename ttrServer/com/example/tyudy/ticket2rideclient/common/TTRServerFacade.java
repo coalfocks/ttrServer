@@ -5,7 +5,11 @@ import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
+<<<<<<< HEAD
 import com.example.tyudy.ticket2rideclient.common.commands.ReturnDestCardsCommand;
+=======
+import com.example.tyudy.ticket2rideclient.common.commands.NextTurnCommand;
+>>>>>>> oogy-boogy-2
 import com.example.tyudy.ticket2rideclient.common.commands.StartGameCommand;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -239,10 +243,26 @@ public class TTRServerFacade implements iTTRServer
         return data;
     }
 
+    // Assuming this is the method to progress from turn to turn
     @Override
     public DataTransferObject updateGameplay(DataTransferObject data) {
         //IMPLEMENT ME!
-        return null;
+        try {
+            // DTO coming in should contain the gameID in the data field
+            int gameID = gson.fromJson(data.getData(), int.class);
+            TTRGame currentGame = gameUserManager.getGame(gameID);
+            currentGame.changeTurn();
+            int nextPlayerID = currentGame.getWhoTurn();
+
+            // DTO going out contains the id of the player who's turn is next
+            //  in playerID field
+            data.setPlayerID(nextPlayerID);
+        }
+        catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
     }
 
     @Override

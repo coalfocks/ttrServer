@@ -31,4 +31,8 @@ private DataTransferObject data;
         super.setData(d);
         this.data = d;
     }
+
+    public DataTransferObject getData(){
+        return data;
+    }
 }
