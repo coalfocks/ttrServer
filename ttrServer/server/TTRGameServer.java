@@ -6,7 +6,12 @@ import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
+import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
 import server.Database.DAO;
+import sun.security.krb5.internal.crypto.Des;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * Created by colefox on 2/5/17.
@@ -93,6 +98,12 @@ public class TTRGameServer implements iTTRServer
         return null;
     }
 
+    @Override
+    public DataTransferObject drawDestCard(DataTransferObject data)
+    {
+        return null;
+    }
+
     public void addChat(String chatMessage, int playerID) {
         try
         {
@@ -131,5 +142,23 @@ public class TTRGameServer implements iTTRServer
             }
         }
         return game;
+    }
+
+    public void sendBackDestCards(ArrayList<DestinationCard> toReturn, ArrayList<DestinationCard> toUpdate, int playerID) {
+        TTRGame game = DAO.getInstance().getGameByOwner(playerID);
+        for (DestinationCard card : toReturn) {
+            game.getMyDestDeck().addCard(card);
+        }
+
+        int size = 0;
+        for (User u : game.getUsers()) {
+            if (u.getPlayerID() == playerID) {
+                for (DestinationCard card : toUpdate) {
+                    u.addDestinationCard(card);
+                }
+            }
+        }
+
+        DAO.getInstance().updateGame(game);
     }
 }

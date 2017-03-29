@@ -75,9 +75,16 @@ public class GameUserManager
         }
     }
 
-    public ArrayList<TTRGame> getGames()
+    public ArrayList<TTRGame> getGames(int playerID)
     {
-        return dao.getGames();
+        try
+        {
+            User u = dao.getUser(playerID);
+            return dao.getGames(u.getInGame());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<TTRGame>();
+        }
     }
 
     public boolean joinGame(String gstring, int playerID)
@@ -151,8 +158,6 @@ public class GameUserManager
         try
         {
             dao.startGame(ownerID);
-            TTRGame game = dao.getGameByOwner(ownerID);
-
         } catch (Exception e) {
             dto.setErrorMsg(e.getMessage());
             e.printStackTrace();
@@ -174,7 +179,7 @@ public class GameUserManager
     public TTRGame initializeGame(TTRGame game) {
         game.setMyTrainDeck( new TrainCardDeck());
         game.setMyDestDeck( new DestinationCardDeck());
-        game.setInProgress(1);
+//        game.setInProgress(1);
         ArrayList<User> myUsers = new ArrayList<User> (game.getUsers());
         for (User u : myUsers) {
             while(u.getDestCards().size() < 3) {
@@ -216,7 +221,7 @@ public class GameUserManager
             TTRGame game = dao.getGameByOwner(playerID);
             User user = dao.getUser(playerID);
             path.setOwner(user);
-            game.claimPath(path);
+            game.updateClaimedPath(path);
             for (User u : game.getUsers()) {
                 if (u.getPlayerID() == path.getOwner().getPlayerID()) {
                     u.addPoints(path.getPoints());
