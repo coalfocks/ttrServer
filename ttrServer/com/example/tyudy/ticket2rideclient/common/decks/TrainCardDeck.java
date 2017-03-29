@@ -40,6 +40,9 @@ public class TrainCardDeck implements iDeck, Serializable
         faceUpCards.setCard4((TrainCard) this.getCard());
         faceUpCards.setCard5((TrainCard) this.getCard());
     }
+
+    public List<iCard> getDeck() { return cards; }
+
     public void shuffle(){
         Collections.shuffle(this.cards);
     };
