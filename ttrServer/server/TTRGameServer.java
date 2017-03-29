@@ -5,6 +5,7 @@ import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
+import com.example.tyudy.ticket2rideclient.common.cards.FaceUpCards;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
 import server.Database.DAO;
@@ -150,7 +151,6 @@ public class TTRGameServer implements iTTRServer
             game.getMyDestDeck().addCard(card);
         }
 
-        int size = 0;
         for (User u : game.getUsers()) {
             if (u.getPlayerID() == playerID) {
                 for (DestinationCard card : toUpdate) {
@@ -160,5 +160,10 @@ public class TTRGameServer implements iTTRServer
         }
 
         DAO.getInstance().updateGame(game);
+    }
+
+    public FaceUpCards getFaceUps(int gameID) {
+        TTRGame game = dao.getGame(gameID);
+        return game.getMyTrainDeck().getFaceUpCards();
     }
 }

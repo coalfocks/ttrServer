@@ -1,6 +1,7 @@
 package com.example.tyudy.ticket2rideclient.common.decks;
 
 import com.example.tyudy.ticket2rideclient.common.ColorENUM;
+import com.example.tyudy.ticket2rideclient.common.cards.FaceUpCards;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import com.example.tyudy.ticket2rideclient.common.cards.iCard;
 
@@ -16,19 +17,28 @@ public class TrainCardDeck implements iDeck, Serializable
 {
 
     List<iCard> cards = new ArrayList<iCard>();
+    FaceUpCards faceUpCards = new FaceUpCards();
 
     //initialize the deck
     public TrainCardDeck(){
-        for (ColorENUM c : ColorENUM.values()){
+        for (ColorENUM c : ColorENUM.values()) {
+            if (c == ColorENUM.COLORLESS) {
+                continue;
+            }
             for(int i = 0; i < 12; i++){
                 TrainCard newCard = new TrainCard(c);
                 this.addCard(newCard);
             }
         }
-        TrainCard newWild = new TrainCard(ColorENUM.COLORLESS);
+        TrainCard newWild = new TrainCard(ColorENUM.WILD);
         this.addCard(newWild);
         this.addCard(newWild);
         this.shuffle();
+        faceUpCards.setCard1((TrainCard) this.getCard());
+        faceUpCards.setCard2((TrainCard) this.getCard());
+        faceUpCards.setCard3((TrainCard) this.getCard());
+        faceUpCards.setCard4((TrainCard) this.getCard());
+        faceUpCards.setCard5((TrainCard) this.getCard());
     }
     public void shuffle(){
         Collections.shuffle(this.cards);
@@ -46,5 +56,13 @@ public class TrainCardDeck implements iDeck, Serializable
         else{
             return null;
         }
+    }
+
+    public FaceUpCards getFaceUpCards() {
+        return faceUpCards;
+    }
+
+    public void setFaceUpCards(FaceUpCards faceUpCards) {
+        this.faceUpCards = faceUpCards;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.tyudy.ticket2rideclient.common;
 
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
+import com.example.tyudy.ticket2rideclient.common.cards.FaceUpCards;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
@@ -13,6 +14,7 @@ import com.google.gson.Gson;
 import server.*;
 import server.Database.DAO;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 /**
@@ -303,6 +305,20 @@ public class TTRServerFacade implements iTTRServer
         return data;
     }
 
+    public DataTransferObject drawTrainCard (DataTransferObject data) {
+        try {
+            int gameID = Integer.parseInt(data.getData());
+            TTRGame game = GameUserManager.getInstance().getGame(gameID);
+            TrainCard card = game.dealTrainCard(data.getPlayerID());
+            DAO.getInstance().updateGame(game);
+            data.setData(Serializer.serialize(card));
+        } catch (Exception e) {
+            data.setData(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
     public DataTransferObject sendBackDestCards (DataTransferObject data) {
         try {
             ArrayList<ArrayList<DestinationCard>> cardLists = (ArrayList<ArrayList<DestinationCard>>) Serializer.deserialize(data.getData());
@@ -316,6 +332,18 @@ public class TTRServerFacade implements iTTRServer
             CommandQueue.SINGLETON.addCommand(command);
         } catch (Exception e) {
             data.setData(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    public DataTransferObject getFaceUps (DataTransferObject data) {
+        try {
+            int gameID = Integer.parseInt(data.getData());
+            FaceUpCards fu = gameServer.getFaceUps(gameID);
+            data.setData(Serializer.serialize(fu));
+        } catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
             e.printStackTrace();
         }
         return data;

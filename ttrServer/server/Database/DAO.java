@@ -414,8 +414,6 @@ public class DAO
                     game = (TTRGame) Serializer.deserialize(g);
                     games.add(game);
                 }
-
-                db.closeTransaction(true);
             }
             catch(SQLException e)
             {
@@ -429,17 +427,7 @@ public class DAO
             }
             finally
             {
-                try
-                {
-                    if (stmt != null)
-                        stmt.close();
-                    if (rs != null)
-                        rs.close();
-                    db.closeTransaction(true);
-                } catch (SQLException e)
-                {
-                    e.printStackTrace();
-                }
+                db.closeTransaction(true);
             }
             return games;
         }
