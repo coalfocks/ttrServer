@@ -5,11 +5,8 @@ import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
-<<<<<<< HEAD
 import com.example.tyudy.ticket2rideclient.common.commands.ReturnDestCardsCommand;
-=======
 import com.example.tyudy.ticket2rideclient.common.commands.NextTurnCommand;
->>>>>>> oogy-boogy-2
 import com.example.tyudy.ticket2rideclient.common.commands.StartGameCommand;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

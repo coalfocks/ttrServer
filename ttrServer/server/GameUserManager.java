@@ -177,11 +177,6 @@ public class GameUserManager
 
 
     public TTRGame initializeGame(TTRGame game) {
-<<<<<<< HEAD
-        game.setMyTrainDeck( new TrainCardDeck());
-        game.setMyDestDeck( new DestinationCardDeck());
-//        game.setInProgress(1);
-=======
         TrainCardDeck trainCardDeck = new TrainCardDeck();
         trainCardDeck.initCards();
         DestinationCardDeck destCardDeck = new DestinationCardDeck();
@@ -189,8 +184,8 @@ public class GameUserManager
 
         game.setMyTrainDeck(trainCardDeck);
         game.setMyDestDeck(destCardDeck);
-        game.setInProgress(1);
->>>>>>> oogy-boogy-2
+        //game.setInProgress(1);
+
         ArrayList<User> myUsers = new ArrayList<User> (game.getUsers());
 
         for (User u : myUsers) {

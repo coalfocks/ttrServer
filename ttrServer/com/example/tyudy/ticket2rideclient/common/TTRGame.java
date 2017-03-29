@@ -119,7 +119,6 @@ public class TTRGame implements Serializable
         this.mTurnIndex = mTurnIndex;
     }
 
-<<<<<<< HEAD
     /**
      * Updates the ClientModels given path to have an owner and adds the corresponding points to the paths owner user.
      * @param path - the path to update in the client model
@@ -138,10 +137,6 @@ public class TTRGame implements Serializable
 //        }
 
     }
-=======
-    public void claimPath(Path path) {}
->>>>>>> oogy-boogy-2
-
     // dealTrainCard used by the server
     public void dealTrainCard(int playerID){
         TrainCard card = (TrainCard) myTrainDeck.getCard();
