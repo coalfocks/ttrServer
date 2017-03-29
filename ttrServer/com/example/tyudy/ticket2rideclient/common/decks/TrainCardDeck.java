@@ -19,15 +19,21 @@ public class TrainCardDeck implements iDeck, Serializable
 
     //initialize the deck
     public TrainCardDeck(){
-        for (ColorENUM c : ColorENUM.values()){
+        for (ColorENUM c : ColorENUM.values())
+        {
             for(int i = 0; i < 12; i++){
                 TrainCard newCard = new TrainCard(c);
                 this.addCard(newCard);
             }
         }
-        TrainCard newWild = new TrainCard(ColorENUM.COLORLESS);
-        this.addCard(newWild);
-        this.addCard(newWild);
+//        TrainCard newWild = new TrainCard(ColorENUM.COLORLESS);
+//        this.addCard(newWild);
+//        this.addCard(newWild);
+
+        // There are 12 locamotives in the train deck
+        for (int x = 0; x < 12; ++x)
+            this.addCard(new TrainCard(ColorENUM.WILD));
+
         this.shuffle();
     }
     public void shuffle(){
@@ -37,7 +43,8 @@ public class TrainCardDeck implements iDeck, Serializable
     public  void addCard(iCard card){
         this.cards.add(card);
     }
-    public  iCard getCard(){
+    public  iCard getCard()
+    {
         if(cards.size()>0) {
             iCard myCard = cards.get(cards.size() - 1);
             cards.remove(cards.size() - 1);

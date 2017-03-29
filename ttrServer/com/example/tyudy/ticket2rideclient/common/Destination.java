@@ -1,31 +1,26 @@
 package com.example.tyudy.ticket2rideclient.common;
 
-/**
- * Created by zacheaton on 3/2/17.
- */
+import java.io.Serializable;
 
-public class Destination {
-    int source;
-    int dest;
+public class Destination implements Serializable {
+    private String source;
+    private String dest;
 
-    public Destination(int source, int dest) {
+    public Destination(String source, String dest) {
         this.source = source;
         this.dest = dest;
     }
 
-    public int getSource() {
+    public String getSource() {
         return source;
     }
 
-    public int getDest() {
+    public String getDest() {
         return dest;
     }
 
-    public void setSource(int source) {
-        this.source = source;
-    }
-
-    public void setDest(int dest) {
-        this.dest = dest;
+    @Override
+    public String toString() {
+        return "Source: " + source + ", Dest: " + dest;
     }
 }

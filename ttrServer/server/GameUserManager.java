@@ -176,11 +176,14 @@ public class GameUserManager
         game.setMyDestDeck( new DestinationCardDeck());
         game.setInProgress(1);
         ArrayList<User> myUsers = new ArrayList<User> (game.getUsers());
+
         for (User u : myUsers) {
-            while(u.getDestCards().size() < 3) {
+            while(u.getDestCards().size() < 3)
+            {
                 game.dealDestCard(u);
             }
-            while(u.getTrainCards().size() < 4) {
+            while(u.getTrainCards().size() < 4)
+            {
                 game.dealTrainCard(u.getPlayerID());
             }
         }

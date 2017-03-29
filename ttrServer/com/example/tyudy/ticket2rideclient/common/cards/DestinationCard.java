@@ -21,19 +21,19 @@ public class DestinationCard implements iCard, Serializable {
         return pointValue;
     }
 
-    public DestinationCard() {
-
+    public DestinationCard(String src, String dest, int val) {
+        this.destination = new Destination(src, dest);
+        this.pointValue = val;
     }
 
     public DestinationCard(Destination dest, int pointVal){
-        destination = dest;
-        pointValue = pointVal;
+        this.destination = dest;
+        this.pointValue = pointVal;
     }
 
     @Override
     public String toString() {
         return destination.toString() + " Point Value: " + pointValue;
-        //return "THIS DESTCARD";
     }
 }
 
