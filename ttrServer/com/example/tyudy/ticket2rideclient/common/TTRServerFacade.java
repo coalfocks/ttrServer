@@ -1,6 +1,5 @@
 package com.example.tyudy.ticket2rideclient.common;
 
-import com.example.tyudy.ticket2rideclient.common.cards.DestCardTransferObject;
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
@@ -8,19 +7,13 @@ import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ReturnDestCardsCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.StartGameCommand;
-import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.Gson;
 import server.*;
 import server.Database.DAO;
 
-import javax.smartcardio.CommandAPDU;
-import javax.xml.crypto.Data;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.StringJoiner;
 
 /**
  * Created by colefox on 2/5/17.
