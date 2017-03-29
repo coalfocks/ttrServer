@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="locale5">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/modules/ext/locale/updater_ja.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/modules/ext/locale/updater_zh_CN.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/profiler/lib/locale/jfluid-server_ja.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/profiler/lib/locale/jfluid-server_zh_CN.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

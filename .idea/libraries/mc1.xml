@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="mc1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/mc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ttrServer/out/production/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/mc.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
