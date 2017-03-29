@@ -19,6 +19,10 @@ public class Destination implements Serializable {
         return dest;
     }
 
+    public void setSource(String src) { source = src; }
+
+    public void setDest(String dst) { dest = dst; }
+
     @Override
     public String toString() {
         return "Source: " + source + ", Dest: " + dest;
