@@ -146,7 +146,7 @@ public class TTRGame implements Serializable
     }
 
     public void dealTrainCard(User u){
-        TrainCard myCard = (TrainCard)  getMyTrainDeck().getCard();
+        TrainCard myCard = (TrainCard) getMyTrainDeck().getCard();
         u.addTrainCard(myCard);
     }
 
@@ -155,7 +155,6 @@ public class TTRGame implements Serializable
     public void dealDestCard(User u){
         DestinationCard myCard = (DestinationCard) getMyDestDeck().getCard();
         u.addDestinationCard(myCard);
-
     }
 
     public void changeTurn() {

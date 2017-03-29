@@ -349,4 +349,19 @@ public class TTRServerFacade implements iTTRServer
         return data;
     }
 
+    public DataTransferObject selectTrainCard (DataTransferObject data) {
+        try
+        {
+            String[] info = data.getData().split(",");
+            int gameID = Integer.parseInt(info[0]);
+            int cardID = Integer.parseInt(info[1]);
+            FaceUpCards fu = gameServer.selectTrainCard(gameID, data.getPlayerID(), cardID);
+            data.setData(Serializer.serialize(fu));
+        } catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
 }

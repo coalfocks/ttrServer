@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Home1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/" />
-      <root url="jar://$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

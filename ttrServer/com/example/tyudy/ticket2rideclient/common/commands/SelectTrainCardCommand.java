@@ -1,6 +1,5 @@
 package com.example.tyudy.ticket2rideclient.common.commands;
 
-
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 import com.example.tyudy.ticket2rideclient.common.TTRServerFacade;
 import com.example.tyudy.ticket2rideclient.common.iCommand;
@@ -11,8 +10,8 @@ import java.io.Serializable;
  * Created by colefox on 3/10/17.
  */
 
-public class GetFaceUpCardsCommand extends Command implements iCommand, Serializable {
-    public GetFaceUpCardsCommand(){}
+public class SelectTrainCardCommand extends Command implements iCommand, Serializable {
+    public SelectTrainCardCommand(){}
 
     @Override
     public DataTransferObject execute()
@@ -20,9 +19,11 @@ public class GetFaceUpCardsCommand extends Command implements iCommand, Serializ
         try
         {
             TTRServerFacade facade = new TTRServerFacade();
-            data = facade.getFaceUps(data);
+            data = facade.selectTrainCard(data);
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return data;
     }
+
 }

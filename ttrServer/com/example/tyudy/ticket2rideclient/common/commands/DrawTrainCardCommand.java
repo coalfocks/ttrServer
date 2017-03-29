@@ -13,7 +13,6 @@ import java.io.Serializable;
 
 public class DrawTrainCardCommand extends Command implements iCommand, Serializable {
     public DrawTrainCardCommand(){}
-    private DataTransferObject data;
 
     @Override
     public DataTransferObject execute()
@@ -23,14 +22,10 @@ public class DrawTrainCardCommand extends Command implements iCommand, Serializa
             TTRServerFacade facade = new TTRServerFacade();
             data = facade.drawTrainCard(data);
         } catch (Exception e) {
+            e.printStackTrace();
+            data.setErrorMsg(e.getMessage());
         }
         return data;
     }
 
-
-    public void setData(DataTransferObject d)
-    {
-        super.setData(d);
-        this.data = d;
-    }
 }
