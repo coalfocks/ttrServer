@@ -220,7 +220,13 @@ public class GameUserManager
         {
             TTRGame game = dao.getGameByOwner(playerID);
             User user = dao.getUser(playerID);
-            path.setOwner(user);
+            int sdfsd = user.getInGame();
+            TTRGame g = dao.getGame(sdfsd);
+            for(User u: g.getUsers()){
+                if(u.getPlayerID() == playerID){
+                    path.setOwner(u);
+                }
+            }
 
             //game.updateClaimedPath(path);
 

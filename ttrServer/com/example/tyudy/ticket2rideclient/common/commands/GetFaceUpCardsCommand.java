@@ -13,7 +13,6 @@ import java.io.Serializable;
 
 public class GetFaceUpCardsCommand extends Command implements iCommand, Serializable {
     public GetFaceUpCardsCommand(){}
-    private DataTransferObject data;
 
     @Override
     public DataTransferObject execute()
@@ -27,10 +26,4 @@ public class GetFaceUpCardsCommand extends Command implements iCommand, Serializ
         return data;
     }
 
-
-    public void setData(DataTransferObject d)
-    {
-        super.setData(d);
-        this.data = d;
-    }
 }

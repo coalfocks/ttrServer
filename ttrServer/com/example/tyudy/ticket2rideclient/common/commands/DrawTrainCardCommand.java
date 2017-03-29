@@ -13,7 +13,6 @@ import java.io.Serializable;
 
 public class DrawTrainCardCommand extends Command implements iCommand, Serializable {
     public DrawTrainCardCommand(){}
-    private DataTransferObject data;
 
     @Override
     public DataTransferObject execute()
@@ -28,9 +27,4 @@ public class DrawTrainCardCommand extends Command implements iCommand, Serializa
     }
 
 
-    public void setData(DataTransferObject d)
-    {
-        super.setData(d);
-        this.data = d;
-    }
 }
