@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 public class DestinationCard implements iCard, Serializable {
     private Destination destination;
-    private int pointValue;
+    private Integer pointValue;
 
     public Destination getDestination() {
         return destination;
@@ -31,10 +31,10 @@ public class DestinationCard implements iCard, Serializable {
         pointValue = pointVal;
     }
 
-    @Override
-    public String toString() {
-        return destination.toString() + " Point Value: " + pointValue;
-        //return "THIS DESTCARD";
-    }
+//    @Override
+//    public String toString() {
+//        return destination.toString() + " Point Value: " + pointValue;
+//        //return "THIS DESTCARD";
+//    }
 }
 

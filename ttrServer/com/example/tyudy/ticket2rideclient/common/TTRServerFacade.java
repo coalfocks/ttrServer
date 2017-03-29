@@ -1,20 +1,26 @@
 package com.example.tyudy.ticket2rideclient.common;
 
+import com.example.tyudy.ticket2rideclient.common.cards.DestCardTransferObject;
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
+import com.example.tyudy.ticket2rideclient.common.commands.ReturnDestCardsCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.StartGameCommand;
+import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.Gson;
 import server.*;
 import server.Database.DAO;
 
+import javax.smartcardio.CommandAPDU;
 import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 /**
  * Created by colefox on 2/5/17.
@@ -90,7 +96,6 @@ public class TTRServerFacade implements iTTRServer
     {
         try
         {
-            TTRGame thegame = (TTRGame) Serializer.deserialize(data.getData());
             boolean added = gameUserManager.joinGame(data.getData(), data.getPlayerID());
             TTRGame game = (TTRGame) Serializer.deserialize(data.getData());
             if (game.getNumPlayers() >= 5)
@@ -201,7 +206,7 @@ public class TTRServerFacade implements iTTRServer
     {
         try
         {
-            ArrayList<TTRGame> games = gameUserManager.getGames();
+            ArrayList<TTRGame> games = gameUserManager.getGames(data.getPlayerID());
             data.setData(Serializer.serialize(games));
             return data;
         } catch(Exception e)
@@ -298,6 +303,24 @@ public class TTRServerFacade implements iTTRServer
             }
             DAO.getInstance().updateGame(game);
             data.setData(Serializer.serialize(cards));
+        } catch (Exception e) {
+            data.setData(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    public DataTransferObject sendBackDestCards (DataTransferObject data) {
+        try {
+            ArrayList<ArrayList<DestinationCard>> cardLists = (ArrayList<ArrayList<DestinationCard>>) Serializer.deserialize(data.getData());
+            ArrayList<DestinationCard> toReturn = cardLists.get(0);
+            ArrayList<DestinationCard> toUpdate = cardLists.get(1);
+
+            gameServer.sendBackDestCards(toReturn, toUpdate, data.getPlayerID());
+            data.setData(String.valueOf(toUpdate.size()));
+            ReturnDestCardsCommand command = new ReturnDestCardsCommand();
+            command.setData(data);
+            CommandQueue.SINGLETON.addCommand(command);
         } catch (Exception e) {
             data.setData(e.getMessage());
             e.printStackTrace();

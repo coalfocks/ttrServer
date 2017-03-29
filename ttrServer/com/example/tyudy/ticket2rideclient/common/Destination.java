@@ -30,9 +30,9 @@ public class Destination implements Serializable
     public void setDest(String dest) {
         this.dest = dest;
     }
-
-    @Override
-    public String toString() {
-        return "Source: " + source + ", Dest: " + dest;
-    }
+//
+//    @Override
+//    public String toString() {
+//        return "Source: " + source + ", Dest: " + dest;
+//    }
 }

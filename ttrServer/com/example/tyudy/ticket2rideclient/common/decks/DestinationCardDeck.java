@@ -55,7 +55,7 @@ public class DestinationCardDeck implements iDeck, Serializable {
         };
 
     public  void addCard(iCard card){
-        this.cards.add(card);
+        this.cards.add(0, card);
     }
     public  iCard getCard(){
         if(cards.size()>0) {

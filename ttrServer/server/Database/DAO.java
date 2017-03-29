@@ -392,7 +392,7 @@ public class DAO
             return true;
         }
 
-        public ArrayList<TTRGame> getGames()
+        public ArrayList<TTRGame> getGames(int gameID)
         {
             PreparedStatement stmt = null;
             ResultSet rs = null;
@@ -401,8 +401,11 @@ public class DAO
             try
             {
                 db.startTransaction();
-                String sql = "SELECT game FROM games WHERE inProgress = 0";
+                String sql = "SELECT game FROM games" +
+                        " WHERE games.inProgress = 0" +
+                        " OR games.gameID = ?";
                 stmt = db.connection.prepareStatement(sql);
+                stmt.setInt(1, gameID);
                 rs = stmt.executeQuery();
 
                 while (rs.next())
@@ -411,6 +414,8 @@ public class DAO
                     game = (TTRGame) Serializer.deserialize(g);
                     games.add(game);
                 }
+
+                db.closeTransaction(true);
             }
             catch(SQLException e)
             {
