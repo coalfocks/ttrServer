@@ -1,6 +1,7 @@
 package com.example.tyudy.ticket2rideclient.common.decks;
 
 import com.example.tyudy.ticket2rideclient.common.Destination;
+import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.iCard;
 
@@ -13,10 +14,14 @@ import java.util.List;
  * Created by zacheaton on 3/7/17.
  */
 public class DestinationCardDeck implements iDeck, Serializable {
-    List<iCard> cards = new ArrayList<iCard>();
+    private List<iCard> cards;
+    private TTRGame currentGame;
 
     public DestinationCardDeck() {
+        cards = new ArrayList<>();
+    }
 
+    public void initCards(){
         DestinationCard Denver_to_ElPaso = new DestinationCard("Denver", "El Paso", 4);
         DestinationCard KansasCity_to_Houston = new DestinationCard("Kansas City", "Houston", 5);
         DestinationCard NewYork_to_Atlanta = new DestinationCard("New York", "Atlanta", 6);
@@ -98,21 +103,36 @@ public class DestinationCardDeck implements iDeck, Serializable {
         Seattle to New York (22)*/
     }
 
-
-        public void shuffle(){
+    public void shuffle(){
             Collections.shuffle(this.cards);
         };
 
-    public  void addCard(iCard card){
+    public List<iCard> getDeck() { return cards; }
+
+    public void setCurrentGame(TTRGame game) { currentGame = game; }
+
+    public void addCard(iCard card){
         this.cards.add(card);
     }
-    public  iCard getCard(){
-        if(cards.size()>0) {
+
+    public iCard getCard(){
+        if(cards.size() > 0) {
             iCard myCard = cards.get(cards.size() - 1);
             cards.remove(cards.size() - 1);
             return myCard;
         }
-        else{
+        else if (currentGame != null)
+        {
+            DestinationCardDeck newDeck = currentGame.getDestDiscardDeck();
+            newDeck.shuffle();
+            cards = newDeck.getDeck();
+
+            currentGame.clearDestDiscardDeck();
+
+            return getCard();
+        }
+        else
+        {
             return null;
         }
     }

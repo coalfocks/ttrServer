@@ -172,8 +172,13 @@ public class GameUserManager
 
 
     public TTRGame initializeGame(TTRGame game) {
-        game.setMyTrainDeck( new TrainCardDeck());
-        game.setMyDestDeck( new DestinationCardDeck());
+        TrainCardDeck trainCardDeck = new TrainCardDeck();
+        trainCardDeck.initCards();
+        DestinationCardDeck destCardDeck = new DestinationCardDeck();
+        destCardDeck.initCards();
+
+        game.setMyTrainDeck(trainCardDeck);
+        game.setMyDestDeck(destCardDeck);
         game.setInProgress(1);
         ArrayList<User> myUsers = new ArrayList<User> (game.getUsers());
 

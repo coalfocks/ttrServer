@@ -1,6 +1,7 @@
 package com.example.tyudy.ticket2rideclient.common.decks;
 
 import com.example.tyudy.ticket2rideclient.common.ColorENUM;
+import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import com.example.tyudy.ticket2rideclient.common.cards.iCard;
 
@@ -14,11 +15,21 @@ import java.util.List;
  */
 public class TrainCardDeck implements iDeck, Serializable
 {
+    private List<iCard> cards;
+    private TTRGame currentGame;
 
-    List<iCard> cards = new ArrayList<iCard>();
+    public TrainCardDeck()
+    {
+        cards = new ArrayList<iCard>();
+    }
 
-    //initialize the deck
-    public TrainCardDeck(){
+    public void setCurrentGame(TTRGame game)
+    {
+        currentGame = game;
+    }
+
+    public void initCards()
+    {
         for (ColorENUM c : ColorENUM.values())
         {
             for(int i = 0; i < 12; i++){
@@ -26,31 +37,41 @@ public class TrainCardDeck implements iDeck, Serializable
                 this.addCard(newCard);
             }
         }
-//        TrainCard newWild = new TrainCard(ColorENUM.COLORLESS);
-//        this.addCard(newWild);
-//        this.addCard(newWild);
 
-        // There are 12 locamotives in the train deck
-        for (int x = 0; x < 12; ++x)
+        // There are 14 locamotives in the train deck
+        for (int x = 0; x < 14; ++x)
             this.addCard(new TrainCard(ColorENUM.WILD));
 
         this.shuffle();
     }
+
     public void shuffle(){
         Collections.shuffle(this.cards);
     };
 
-    public  void addCard(iCard card){
+    public void addCard(iCard card){
         this.cards.add(card);
     }
-    public  iCard getCard()
+
+    public List<iCard> getDeck() { return cards; }
+
+    public iCard getCard()
     {
-        if(cards.size()>0) {
+        if(cards.size() > 0) {
             iCard myCard = cards.get(cards.size() - 1);
             cards.remove(cards.size() - 1);
             return myCard;
         }
-        else{
+        else if (currentGame != null)
+        {
+            TrainCardDeck newDeck = currentGame.getTrainDiscardDeck();
+            newDeck.shuffle();
+            cards = newDeck.getDeck();
+
+            return getCard();
+        }
+        else
+        {
             return null;
         }
     }
