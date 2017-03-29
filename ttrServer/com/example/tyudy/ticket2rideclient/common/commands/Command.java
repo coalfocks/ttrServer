@@ -1,4 +1,8 @@
-package com.example.tyudy.ticket2rideclient.common;
+package com.example.tyudy.ticket2rideclient.common.commands;
+
+import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
+import com.example.tyudy.ticket2rideclient.common.TTRServerFacade;
+import com.example.tyudy.ticket2rideclient.common.iCommand;
 
 import java.io.Serializable;
 
@@ -7,7 +11,7 @@ import java.io.Serializable;
  */
 public class Command implements iCommand, Serializable
 {
-    private DataTransferObject data;
+    protected DataTransferObject data;
 
     public void setData(DataTransferObject d)
     {

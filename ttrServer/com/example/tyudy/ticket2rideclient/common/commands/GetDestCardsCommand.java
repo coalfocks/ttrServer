@@ -1,6 +1,5 @@
 package com.example.tyudy.ticket2rideclient.common.commands;
 
-import com.example.tyudy.ticket2rideclient.common.Command;
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 import com.example.tyudy.ticket2rideclient.common.TTRServerFacade;
 import com.example.tyudy.ticket2rideclient.common.iCommand;
@@ -13,7 +12,6 @@ import java.io.Serializable;
 
 public class GetDestCardsCommand extends Command implements iCommand, Serializable {
     public GetDestCardsCommand(){}
-    private DataTransferObject data;
 
     @Override
     public DataTransferObject execute()
@@ -28,10 +26,4 @@ public class GetDestCardsCommand extends Command implements iCommand, Serializab
         return data;
     }
 
-
-    public void setData(DataTransferObject d)
-    {
-        super.setData(d);
-        this.data = d;
-    }
 }
