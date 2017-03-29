@@ -14,7 +14,7 @@ import java.util.Enumeration;
 
 import com.google.gson.Gson;
 
-import com.example.tyudy.ticket2rideclient.common.Command;
+import com.example.tyudy.ticket2rideclient.common.commands.Command;
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 
 

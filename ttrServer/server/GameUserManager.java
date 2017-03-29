@@ -221,7 +221,10 @@ public class GameUserManager
             TTRGame game = dao.getGameByOwner(playerID);
             User user = dao.getUser(playerID);
             path.setOwner(user);
-            game.updateClaimedPath(path);
+
+            //game.updateClaimedPath(path);
+
+            // Update the points for whoever claimed the path
             for (User u : game.getUsers()) {
                 if (u.getPlayerID() == path.getOwner().getPlayerID()) {
                     u.addPoints(path.getPoints());

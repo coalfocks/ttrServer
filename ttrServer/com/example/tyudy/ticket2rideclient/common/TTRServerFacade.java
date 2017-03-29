@@ -249,7 +249,7 @@ public class TTRServerFacade implements iTTRServer
     public DataTransferObject claimPath(DataTransferObject data) {
         try {
             int playerID = data.getPlayerID();
-            Path path = gson.fromJson(data.getData(), Path.class);
+            Path path = (Path) Serializer.deserialize(data.getData());
             path = gameUserManager.claimPath(playerID, path);
             ClaimPathCommand command = new ClaimPathCommand();
             data.setData(Serializer.serialize(path));

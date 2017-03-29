@@ -36,6 +36,10 @@ public class Path implements Serializable {
         return this.distance;
     }
 
+    public ColorENUM getPathColor(){
+        return pathColor;
+    }
+
     /**
      * A method to find if a path contains the given city
      * @param city The desired city

@@ -15,12 +15,6 @@ import java.util.Set;
  * Created by colefox on 3/3/17.
  */
 public class GetCommandsCommand extends Command implements iCommand, Serializable {
-    private DataTransferObject data;
-
-    @Override
-    public void setData(DataTransferObject d) {
-        data = d;
-    }
 
     @Override
     public DataTransferObject execute() {
@@ -40,7 +34,10 @@ public class GetCommandsCommand extends Command implements iCommand, Serializabl
                 for (int i = index; i < CommandQueue.SINGLETON.getCurrentIndex(); i++)
                 {
                     //TODO: check for correct game, only 1 init
-                    if (playersInGame.contains(CommandQueue.SINGLETON.getCommand(i).getData().getPlayerID()))
+                    Command c = CommandQueue.SINGLETON.getCommand(i);
+                    DataTransferObject d = c.getData();
+                    int pid = d.getPlayerID();
+                    if (playersInGame.contains(pid))
                     {
                         commands.add(CommandQueue.SINGLETON.getCommand(i));
                     }
