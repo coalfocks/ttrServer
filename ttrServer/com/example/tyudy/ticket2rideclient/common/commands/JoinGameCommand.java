@@ -22,18 +22,4 @@ public class JoinGameCommand extends Command implements iCommand, Serializable
         data = facade.joinGame(data);
         return data;
     }
-
-<<<<<<< HEAD
-=======
-
-    public void setData(DataTransferObject d)
-    {
-        super.setData(d);
-        this.data = d;
-    }
-
-    public DataTransferObject getData(){
-        return data;
-    }
->>>>>>> master
 }

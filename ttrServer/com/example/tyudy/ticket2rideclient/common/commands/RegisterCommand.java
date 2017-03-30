@@ -21,17 +21,4 @@ public class RegisterCommand extends Command implements iCommand, Serializable
         return data;
     }
 
-<<<<<<< HEAD
-=======
-    public DataTransferObject getData(){
-        return data;
-    }
-
-
-    public void setData(DataTransferObject d)
-    {
-        super.setData(d);
-        this.data = d;
-    }
->>>>>>> master
 }

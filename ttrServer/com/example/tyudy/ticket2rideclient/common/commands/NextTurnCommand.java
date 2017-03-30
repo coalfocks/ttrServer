@@ -1,6 +1,5 @@
 package com.example.tyudy.ticket2rideclient.common.commands;
 
-import com.example.tyudy.ticket2rideclient.common.Command;
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 import com.example.tyudy.ticket2rideclient.common.TTRServerFacade;
 import com.example.tyudy.ticket2rideclient.common.iCommand;
@@ -25,13 +24,4 @@ public class NextTurnCommand extends Command implements iCommand, Serializable {
         return data;
     }
 
-
-    public void setData(DataTransferObject d)
-    {
-        this.data = d;
-    }
-
-    public DataTransferObject getData(){
-        return data;
-    }
 }

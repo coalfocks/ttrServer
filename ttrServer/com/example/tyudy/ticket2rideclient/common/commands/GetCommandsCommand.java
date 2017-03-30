@@ -35,15 +35,7 @@ public class GetCommandsCommand extends Command implements iCommand, Serializabl
             {
                 for (int i = index; i < CommandQueue.SINGLETON.getCurrentIndex(); i++)
                 {
-<<<<<<< HEAD
-                    //TODO: check for correct game, only 1 init
-                    Command c = CommandQueue.SINGLETON.getCommand(i);
-                    DataTransferObject d = c.getData();
-                    int pid = d.getPlayerID();
-                    if (playersInGame.contains(pid))
-=======
                     if (playersInGame.contains(CommandQueue.SINGLETON.getCommand(i).getData().getPlayerID()))
->>>>>>> master
                     {
                         commands.add(CommandQueue.SINGLETON.getCommand(i));
                     }
@@ -84,7 +76,4 @@ public class GetCommandsCommand extends Command implements iCommand, Serializabl
         return data;
     }
 
-    public DataTransferObject getData(){
-        return data;
-    }
 }

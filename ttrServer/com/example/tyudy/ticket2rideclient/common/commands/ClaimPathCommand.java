@@ -22,16 +22,4 @@ public class ClaimPathCommand extends Command implements iCommand, Serializable 
         return data;
     }
 
-<<<<<<< HEAD
-=======
-
-    public void setData(DataTransferObject d)
-    {
-        this.data = d;
-    }
-
-    public DataTransferObject getData(){
-        return data;
-    }
->>>>>>> master
 }
