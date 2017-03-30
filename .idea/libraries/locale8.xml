@@ -1,10 +1,9 @@
 <component name="libraryTable">
   <library name="locale8">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/core/locale/org-openide-filesystems_zh_CN.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/core/locale/org-openide-filesystems_ja.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/core/locale/core_ja.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/core/locale/core_zh_CN.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/visualvm/core/locale/com-sun-tools-visualvm-modules-startup_ja.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/visualvm/core/locale/core_visualvm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/visualvm/core/locale/com-sun-tools-visualvm-modules-startup_zh_CN.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

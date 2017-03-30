@@ -1,13 +1,12 @@
 <component name="libraryTable">
   <library name="lib5">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/javafx-mx.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/dt.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/jconsole.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/packager.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/sa-jdi.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/tools.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/ant-javafx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/gimap.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/smtp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/pop3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/imap.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/dsn.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/mailapi.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

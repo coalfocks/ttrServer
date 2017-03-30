@@ -1,16 +1,8 @@
 <component name="libraryTable">
   <library name="ext">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext/zipfs.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext/sunpkcs11.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext/sunec.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext/jaccess.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext/sunjce_provider.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext/dnsns.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext/localedata.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext/cldrdata.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext/jfxrt.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext/nashorn.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/modules/ext/updater.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/modules/ext/jhall-2.0_05.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

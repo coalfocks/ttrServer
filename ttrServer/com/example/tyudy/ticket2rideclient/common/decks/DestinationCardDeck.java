@@ -50,8 +50,6 @@ public class DestinationCardDeck implements iDeck, Serializable {
         Collections.shuffle(cards);
     }
 
-    public List<iCard> getDeck() { return cards; }
-
     public void shuffle(){
             Collections.shuffle(this.cards);
         };
@@ -59,7 +57,6 @@ public class DestinationCardDeck implements iDeck, Serializable {
     public  void addCard(iCard card){
         this.cards.add(0, card);
     }
-
     public  iCard getCard(){
         if(cards.size()>0) {
             iCard myCard = cards.get(cards.size() - 1);

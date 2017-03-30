@@ -22,14 +22,9 @@ public class DrawTrainCardCommand extends Command implements iCommand, Serializa
             TTRServerFacade facade = new TTRServerFacade();
             data = facade.drawTrainCard(data);
         } catch (Exception e) {
-            e.printStackTrace();
-            data.setErrorMsg(e.getMessage());
         }
         return data;
     }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/do-train-cards
 }
