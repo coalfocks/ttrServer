@@ -28,8 +28,4 @@ public class DrawTrainCardCommand extends Command implements iCommand, Serializa
         return data;
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/do-train-cards
 }
