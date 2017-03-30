@@ -25,5 +25,8 @@ public class GetFaceUpCardsCommand extends Command implements iCommand, Serializ
         }
         return data;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/do-train-cards
 }

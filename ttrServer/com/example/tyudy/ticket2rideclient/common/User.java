@@ -1,10 +1,11 @@
 package com.example.tyudy.ticket2rideclient.common;
 
-
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
 import com.example.tyudy.ticket2rideclient.common.cities.City;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
+//import com.example.tyudy.ticket2rideclient.common.states.IState;
+//import com.example.tyudy.ticket2rideclient.common.states.PreGameState;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class User implements Serializable, Comparable<User> {
     private int playerID;
     private int inGame;
     private int points = 0;
+//    private IState currentState;
 
     private ColorENUM color;
 
@@ -42,9 +44,10 @@ public class User implements Serializable, Comparable<User> {
         inGame = 0;
         points = 0;
         destCards = new ArrayList<>();
-        colorCards = new HashMap<ColorENUM, TrainCard>();
+        colorCards = new HashMap<>();
         claimedPaths = new ArrayList<>();
         this.color = BLACK;
+//        currentState = new PreGameState();
     }
 
     public User(String username, String password, int playerID, int inGame)
@@ -53,6 +56,7 @@ public class User implements Serializable, Comparable<User> {
         this.password = password;
         this.playerID = playerID;
         this.inGame = inGame;
+//        currentState = new PreGameState();
 
 
         destCards = new ArrayList<>();
@@ -143,6 +147,7 @@ public class User implements Serializable, Comparable<User> {
             colorCards.put(card.getColor(), c);
         }
         else{
+            card.incNum();
             colorCards.put(card.getColor(), card);
         }
     }
@@ -151,7 +156,13 @@ public class User implements Serializable, Comparable<User> {
         return arrayOfCards;
     }
 
-    public TrainCard getNumCardsOfColor(ColorENUM c) { return colorCards.get(c); }
+    public int getNumCardsOfColor () {
+        int total = 0;
+        for (TrainCard card : colorCards.values()) {
+            total += card.getNum();
+        }
+        return total;
+    }
 
     public void increasePoints(int addPoints) {
         points += Math.abs(addPoints);
@@ -181,10 +192,7 @@ public class User implements Serializable, Comparable<User> {
         this.color = color;
     }
 
-    public void claimPath(Path p) {
-        claimedPaths.add(p);
-        addPoints(p.getPoints());
-    }
+    public void claimPath(Path p) { claimedPaths.add(p); }
 
     public boolean haveCompletedRoute(DestinationCard card) {
         // Make sure the given card is a card the player has
@@ -242,12 +250,17 @@ public class User implements Serializable, Comparable<User> {
                 }
             }
 
+
             if (citiesInRoute.contains(source) && citiesInRoute.contains(dest))
                 return true;
         }
 
         return false;
     }
+
+//    public IState getCurrentState() { return currentState; }
+
+//    public void changeState(IState newState) { currentState = newState; }
 
     public void removeDestinationCard(DestinationCard card) {
         this.destCards.remove(card);
@@ -261,4 +274,3 @@ public class User implements Serializable, Comparable<User> {
         destCards = new ArrayList<>();
     }
 }
-

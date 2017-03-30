@@ -12,7 +12,7 @@ import java.io.Serializable;
 /**
  * this class is more of a train card stack of specific colors rather than a single card
  * the num corresponds to how many of the specific color you have
- *
+ *=
  */
 public class TrainCard implements iCard, Serializable {
     public ColorENUM color;
@@ -43,6 +43,6 @@ public class TrainCard implements iCard, Serializable {
     }
 
     public void incNum() {
-        this.num = this.num++;
+        this.num += 1;
     }
 }

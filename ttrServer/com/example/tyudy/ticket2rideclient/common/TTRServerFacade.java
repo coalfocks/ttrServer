@@ -8,13 +8,13 @@ import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ReturnDestCardsCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.StartGameCommand;
+
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.Gson;
 import server.*;
 import server.Database.DAO;
 
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 /**
@@ -341,6 +341,21 @@ public class TTRServerFacade implements iTTRServer
         try {
             int gameID = Integer.parseInt(data.getData());
             FaceUpCards fu = gameServer.getFaceUps(gameID);
+            data.setData(Serializer.serialize(fu));
+        } catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    public DataTransferObject selectTrainCard (DataTransferObject data) {
+        try
+        {
+            String[] info = data.getData().split(",");
+            int gameID = Integer.parseInt(info[0]);
+            int cardID = Integer.parseInt(info[1]);
+            FaceUpCards fu = gameServer.selectTrainCard(gameID, data.getPlayerID(), cardID);
             data.setData(Serializer.serialize(fu));
         } catch (Exception e) {
             data.setErrorMsg(e.getMessage());
