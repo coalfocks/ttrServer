@@ -16,8 +16,8 @@ import java.util.List;
 public class TrainCardDeck implements iDeck, Serializable
 {
 
-    List<iCard> cards = new ArrayList<iCard>();
-    FaceUpCards faceUpCards = new FaceUpCards();
+    private List<iCard> cards = new ArrayList<iCard>();
+    private FaceUpCards faceUpCards = new FaceUpCards();
 
     //initialize the deck
     public TrainCardDeck(){
@@ -52,8 +52,7 @@ public class TrainCardDeck implements iDeck, Serializable
             iCard myCard = cards.get(cards.size() - 1);
             cards.remove(cards.size() - 1);
             return myCard;
-        }
-        else{
+        } else {
             return null;
         }
     }

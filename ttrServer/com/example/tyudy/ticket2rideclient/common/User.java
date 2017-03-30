@@ -151,7 +151,13 @@ public class User implements Serializable, Comparable<User> {
         return arrayOfCards;
     }
 
-    public TrainCard getNumCardsOfColor(ColorENUM c) { return colorCards.get(c); }
+    public int getNumCards () {
+        int total = 0;
+        for (TrainCard card : colorCards.values()) {
+            total += card.getNum();
+        }
+        return total;
+    }
 
     public void increasePoints(int addPoints) {
         points += Math.abs(addPoints);
