@@ -2,8 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4459e61-8664-49c9-8edc-0b81be54ebe2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/DrawTrainCardCommand.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/DrawTrainCardCommand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetFaceUpCardsCommand.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetFaceUpCardsCommand.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/cards/FaceUpCards.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/Command.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/DrawTrainCardCommand.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetFaceUpCardsCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/database.sqlite" afterPath="$PROJECT_DIR$/db/database.sqlite" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/User.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/City.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/City.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/Path.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/cities/Path.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/AddTrainCardCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/AddTrainCardCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/ClaimPathCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/ClaimPathCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/CreateGameCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/CreateGameCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/EndGameCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/EndGameCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetCommandsCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetCommandsCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetDestCardsCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetDestCardsCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/InitializeGameCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/InitializeGameCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/JoinGameCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/JoinGameCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/ListGamesCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/ListGamesCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/LoginCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/LoginCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/RegisterCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/RegisterCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/ResetIndexCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/ResetIndexCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/ReturnDestCardsCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/ReturnDestCardsCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/SendChatCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/SendChatCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/StartGameCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/StartGameCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/UpdateGamePlayCommand.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/UpdateGamePlayCommand.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/DestinationCardDeck.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/DestinationCardDeck.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/TrainCardDeck.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/TrainCardDeck.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/CommandQueue.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/CommandQueue.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/Database/DAO.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/Database/DAO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/GameUserManager.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/GameUserManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/ServerCommunicator$1.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/ServerCommunicator$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/TTRGameServer.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/TTRGameServer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer.iml" afterPath="$PROJECT_DIR$/ttrServer.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/User.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/DestinationCardDeck.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/DestinationCardDeck.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/TrainCardDeck.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/TrainCardDeck.java" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +77,8 @@
       <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1491">
-              <caret line="141" column="5" lean-forward="false" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
+            <state relative-caret-position="-1074">
+              <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2226#2227#0" expanded="true" />
@@ -67,18 +104,30 @@
                 <element signature="e#3264#3265#0" expanded="true" />
                 <element signature="e#3306#3307#0" expanded="true" />
                 <element signature="e#3824#3835#0" expanded="true" />
-                <element signature="e#4130#4131#0" expanded="true" />
-                <element signature="e#4175#4176#0" expanded="true" />
-                <element signature="e#4546#4547#0" expanded="true" />
-                <element signature="e#4574#4575#0" expanded="true" />
-                <element signature="e#4619#4620#0" expanded="true" />
-                <element signature="e#4653#4654#0" expanded="true" />
-                <element signature="e#7061#7062#0" expanded="true" />
-                <element signature="e#7104#7105#0" expanded="true" />
-                <element signature="e#7144#7145#0" expanded="true" />
-                <element signature="e#7188#7189#0" expanded="true" />
-                <element signature="e#7234#7235#0" expanded="true" />
-                <element signature="e#7279#7280#0" expanded="true" />
+                <element signature="e#4123#4124#0" expanded="true" />
+                <element signature="e#4168#4169#0" expanded="true" />
+                <element signature="e#4539#4540#0" expanded="true" />
+                <element signature="e#4567#4568#0" expanded="true" />
+                <element signature="e#4612#4613#0" expanded="true" />
+                <element signature="e#4646#4647#0" expanded="true" />
+                <element signature="e#7054#7055#0" expanded="true" />
+                <element signature="e#7097#7098#0" expanded="true" />
+                <element signature="e#7137#7138#0" expanded="true" />
+                <element signature="e#7181#7182#0" expanded="true" />
+                <element signature="e#7227#7228#0" expanded="true" />
+                <element signature="e#7272#7273#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataTransferObject.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/DataTransferObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,8 +136,8 @@
       <file leaf-file-name="DrawTrainCardCommand.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/DrawTrainCardCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            <state relative-caret-position="375">
+              <caret line="29" column="1" lean-forward="false" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -107,8 +156,8 @@
       <file leaf-file-name="TTRGameServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/server/TTRGameServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1845">
-              <caret line="201" column="0" lean-forward="false" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+            <state relative-caret-position="1875">
+              <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -118,13 +167,13 @@
         <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/TrainCardDeck.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="765">
-              <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetFaceUpCardsCommand.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GetFaceUpCardsCommand.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetFaceUpCardsCommand.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
@@ -145,8 +194,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/DrawTrainCardCommand.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetFaceUpCardsCommand.java" />
+        <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/DrawTrainCardCommand.java" />
+        <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/User.java" />
       </list>
     </option>
   </component>
@@ -321,6 +371,11 @@
       <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -541,7 +596,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -579,7 +634,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ttrServer/server/TTRGameServer.java</url>
-          <line>201</line>
+          <line>163</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
@@ -638,18 +693,18 @@
             <element signature="e#3264#3265#0" expanded="true" />
             <element signature="e#3306#3307#0" expanded="true" />
             <element signature="e#3824#3835#0" expanded="true" />
-            <element signature="e#4130#4131#0" expanded="true" />
-            <element signature="e#4175#4176#0" expanded="true" />
-            <element signature="e#4546#4547#0" expanded="true" />
-            <element signature="e#4574#4575#0" expanded="true" />
-            <element signature="e#4619#4620#0" expanded="true" />
-            <element signature="e#4653#4654#0" expanded="true" />
-            <element signature="e#7061#7062#0" expanded="true" />
-            <element signature="e#7104#7105#0" expanded="true" />
-            <element signature="e#7144#7145#0" expanded="true" />
-            <element signature="e#7188#7189#0" expanded="true" />
-            <element signature="e#7234#7235#0" expanded="true" />
-            <element signature="e#7279#7280#0" expanded="true" />
+            <element signature="e#4123#4124#0" expanded="true" />
+            <element signature="e#4168#4169#0" expanded="true" />
+            <element signature="e#4539#4540#0" expanded="true" />
+            <element signature="e#4567#4568#0" expanded="true" />
+            <element signature="e#4612#4613#0" expanded="true" />
+            <element signature="e#4646#4647#0" expanded="true" />
+            <element signature="e#7054#7055#0" expanded="true" />
+            <element signature="e#7097#7098#0" expanded="true" />
+            <element signature="e#7137#7138#0" expanded="true" />
+            <element signature="e#7181#7182#0" expanded="true" />
+            <element signature="e#7227#7228#0" expanded="true" />
+            <element signature="e#7272#7273#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -668,7 +723,7 @@
           <caret line="2" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1490974687000" expanded="true" signature="2829:3051" ph="{...}" />
+            <marker date="1490975137000" expanded="true" signature="2853:3075" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -760,18 +815,18 @@
             <element signature="e#3264#3265#0" expanded="true" />
             <element signature="e#3306#3307#0" expanded="true" />
             <element signature="e#3824#3835#0" expanded="true" />
-            <element signature="e#4130#4131#0" expanded="true" />
-            <element signature="e#4175#4176#0" expanded="true" />
-            <element signature="e#4546#4547#0" expanded="true" />
-            <element signature="e#4574#4575#0" expanded="true" />
-            <element signature="e#4619#4620#0" expanded="true" />
-            <element signature="e#4653#4654#0" expanded="true" />
-            <element signature="e#7061#7062#0" expanded="true" />
-            <element signature="e#7104#7105#0" expanded="true" />
-            <element signature="e#7144#7145#0" expanded="true" />
-            <element signature="e#7188#7189#0" expanded="true" />
-            <element signature="e#7234#7235#0" expanded="true" />
-            <element signature="e#7279#7280#0" expanded="true" />
+            <element signature="e#4123#4124#0" expanded="true" />
+            <element signature="e#4168#4169#0" expanded="true" />
+            <element signature="e#4539#4540#0" expanded="true" />
+            <element signature="e#4567#4568#0" expanded="true" />
+            <element signature="e#4612#4613#0" expanded="true" />
+            <element signature="e#4646#4647#0" expanded="true" />
+            <element signature="e#7054#7055#0" expanded="true" />
+            <element signature="e#7097#7098#0" expanded="true" />
+            <element signature="e#7137#7138#0" expanded="true" />
+            <element signature="e#7181#7182#0" expanded="true" />
+            <element signature="e#7227#7228#0" expanded="true" />
+            <element signature="e#7272#7273#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -790,7 +845,7 @@
           <caret line="2" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1490974687000" expanded="true" signature="2829:3051" ph="{...}" />
+            <marker date="1490975137000" expanded="true" signature="2853:3075" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -926,7 +981,7 @@
           <caret line="2" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1490974687000" expanded="true" signature="2829:3051" ph="{...}" />
+            <marker date="1490975137000" expanded="true" signature="2853:3075" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -950,15 +1005,15 @@
     <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/TrainCardDeck.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
-          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ttrServer/server/TTRGameServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1845">
-          <caret line="201" column="0" lean-forward="false" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+        <state relative-caret-position="1875">
+          <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -979,10 +1034,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetFaceUpCardsCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/DrawTrainCardCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="29" column="1" lean-forward="false" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1491">
-          <caret line="141" column="5" lean-forward="false" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
+        <state relative-caret-position="-1074">
+          <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2226#2227#0" expanded="true" />
@@ -1008,27 +1089,19 @@
             <element signature="e#3264#3265#0" expanded="true" />
             <element signature="e#3306#3307#0" expanded="true" />
             <element signature="e#3824#3835#0" expanded="true" />
-            <element signature="e#4130#4131#0" expanded="true" />
-            <element signature="e#4175#4176#0" expanded="true" />
-            <element signature="e#4546#4547#0" expanded="true" />
-            <element signature="e#4574#4575#0" expanded="true" />
-            <element signature="e#4619#4620#0" expanded="true" />
-            <element signature="e#4653#4654#0" expanded="true" />
-            <element signature="e#7061#7062#0" expanded="true" />
-            <element signature="e#7104#7105#0" expanded="true" />
-            <element signature="e#7144#7145#0" expanded="true" />
-            <element signature="e#7188#7189#0" expanded="true" />
-            <element signature="e#7234#7235#0" expanded="true" />
-            <element signature="e#7279#7280#0" expanded="true" />
+            <element signature="e#4123#4124#0" expanded="true" />
+            <element signature="e#4168#4169#0" expanded="true" />
+            <element signature="e#4539#4540#0" expanded="true" />
+            <element signature="e#4567#4568#0" expanded="true" />
+            <element signature="e#4612#4613#0" expanded="true" />
+            <element signature="e#4646#4647#0" expanded="true" />
+            <element signature="e#7054#7055#0" expanded="true" />
+            <element signature="e#7097#7098#0" expanded="true" />
+            <element signature="e#7137#7138#0" expanded="true" />
+            <element signature="e#7181#7182#0" expanded="true" />
+            <element signature="e#7227#7228#0" expanded="true" />
+            <element signature="e#7272#7273#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/.idea/modules.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,23 +1113,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/DrawTrainCardCommand.java">
+    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/DataTransferObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/GetFaceUpCardsCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        <state relative-caret-position="210">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ttrServer</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>com-sun-tools-visualvm-modules-startup</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

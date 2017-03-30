@@ -12,9 +12,11 @@ import java.util.List;
  * Created by zacheaton on 3/7/17.
  */
 public class DestinationCardDeck implements iDeck, Serializable {
-    List<iCard> cards = new ArrayList<iCard>();
+    private List<iCard> cards;
 
     public DestinationCardDeck() {
+
+        cards = new ArrayList<iCard>();
 
         cards.add(new DestinationCard("Los Angeles", "New York", 21));
         cards.add(new DestinationCard("Duluth", "Houston", 8));
