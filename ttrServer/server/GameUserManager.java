@@ -177,15 +177,24 @@ public class GameUserManager
 
 
     public TTRGame initializeGame(TTRGame game) {
-        game.setMyTrainDeck( new TrainCardDeck());
-        game.setMyDestDeck( new DestinationCardDeck());
-//        game.setInProgress(1);
+        TrainCardDeck trainCardDeck = new TrainCardDeck();
+        trainCardDeck.initCards();
+        DestinationCardDeck destCardDeck = new DestinationCardDeck();
+        destCardDeck.initCards();
+
+        game.setMyTrainDeck(trainCardDeck);
+        game.setMyDestDeck(destCardDeck);
+        //game.setInProgress(1);
+
         ArrayList<User> myUsers = new ArrayList<User> (game.getUsers());
+
         for (User u : myUsers) {
-            while(u.getDestCards().size() < 3) {
+            while(u.getDestCards().size() < 3)
+            {
                 game.dealDestCard(u);
             }
-            while(u.getTrainCards().size() < 4) {
+            while(u.getTrainCards().size() < 4)
+            {
                 game.dealTrainCard(u.getPlayerID());
             }
         }
@@ -193,19 +202,19 @@ public class GameUserManager
         for(int i = 0; i < myUsers.size(); i++) {
             switch (i) {
                 case 0:
-                    myUsers.get(i).setColor(ColorENUM.RED);
+                    myUsers.get(i).setColor(ColorENUM.GREEN);
                     break;
                 case 1:
-                    myUsers.get(i).setColor(ColorENUM.YELLOW);
+                    myUsers.get(i).setColor(ColorENUM.BLUE);
                     break;
                 case 2:
                     myUsers.get(i).setColor(ColorENUM.PURPLE);
                     break;
                 case 3:
-                    myUsers.get(i).setColor(ColorENUM.BLUE);
+                    myUsers.get(i).setColor(ColorENUM.RED);
                     break;
                 case 4:
-                    myUsers.get(i).setColor(ColorENUM.GREEN);
+                    myUsers.get(i).setColor(ColorENUM.YELLOW);
                     break;
             }
         }

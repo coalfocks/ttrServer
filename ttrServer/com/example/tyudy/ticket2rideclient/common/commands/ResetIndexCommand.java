@@ -19,4 +19,16 @@ public class ResetIndexCommand extends Command implements iCommand, Serializable
     }
 
 
+<<<<<<< HEAD
+=======
+    public void setData(DataTransferObject d)
+    {
+        super.setData(d);
+        this.data = d;
+    }
+
+    public DataTransferObject getData(){
+        return data;
+    }
+>>>>>>> master
 }

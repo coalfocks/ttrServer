@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.xml.crypto.Data;
+
 /**
  * Created by colefox on 3/3/17.
  */
@@ -33,11 +35,15 @@ public class GetCommandsCommand extends Command implements iCommand, Serializabl
             {
                 for (int i = index; i < CommandQueue.SINGLETON.getCurrentIndex(); i++)
                 {
+<<<<<<< HEAD
                     //TODO: check for correct game, only 1 init
                     Command c = CommandQueue.SINGLETON.getCommand(i);
                     DataTransferObject d = c.getData();
                     int pid = d.getPlayerID();
                     if (playersInGame.contains(pid))
+=======
+                    if (playersInGame.contains(CommandQueue.SINGLETON.getCommand(i).getData().getPlayerID()))
+>>>>>>> master
                     {
                         commands.add(CommandQueue.SINGLETON.getCommand(i));
                     }
@@ -45,7 +51,8 @@ public class GetCommandsCommand extends Command implements iCommand, Serializabl
                 data.setData(Serializer.serialize(commands));
 
             }
-            else {
+            else
+            {
                 ResetIndexCommand reset = new ResetIndexCommand();
                 data.setCommand("reset");
                 String newIndex = String.valueOf(CommandQueue.SINGLETON.getCurrentIndex());
@@ -55,11 +62,29 @@ public class GetCommandsCommand extends Command implements iCommand, Serializabl
                 data.setData(newIndex);
                 reset.setData(data);
                 commands.add(reset);
+
+                // Changed from above so that instead of sticking the reset command
+                // into the CommandQueue, it immediately sends the reset command to the client
+//                ResetIndexCommand resetCommand = new ResetIndexCommand();
+//                DataTransferObject newIndex = new DataTransferObject();
+//                String s = String.valueOf(CommandQueue.SINGLETON.getCurrentIndex());
+//
+//                if (Integer.parseInt(s) < 0)
+//                    s = "0";
+//
+//                newIndex.setData(s);
+//                resetCommand.setData(newIndex);
+//                commands.add(resetCommand);
+//                data.setData(Serializer.serialize(commands));
             }
         } catch (Exception e) {
             data.setErrorMsg(e.getMessage());
             e.printStackTrace();
         }
+        return data;
+    }
+
+    public DataTransferObject getData(){
         return data;
     }
 }

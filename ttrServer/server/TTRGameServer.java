@@ -132,12 +132,16 @@ public class TTRGameServer implements iTTRServer
     }
 
     public TTRGame maskGame(TTRGame game, int playerID) {
-        for (User u : game.getUsers()) {
-            if (u.getPlayerID() != playerID) {
-                for (int i = 0; i < u.getTrainCards().size(); i++) {
+        for (User u : game.getUsers())
+        {
+            if (u.getPlayerID() != playerID)
+            {
+                for (int i = 0; i < u.getTrainCards().size(); i++)
+                {
                     u.getTrainCards().set(i, new TrainCard(ColorENUM.COLORLESS));
                 }
-                for (int i = 0; i < u.getDestCards().size(); i++) {
+                for (int i = 0; i < u.getDestCards().size(); i++)
+                {
                     u.getDestCards().set(i, new DestinationCard(null, 0));
                 }
             }

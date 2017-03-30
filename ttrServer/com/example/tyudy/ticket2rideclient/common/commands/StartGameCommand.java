@@ -22,4 +22,17 @@ public class StartGameCommand extends Command implements iCommand, Serializable
         return data;
     }
 
+<<<<<<< HEAD
+=======
+
+    public void setData(DataTransferObject d)
+    {
+        super.setData(d);
+        this.data = d;
+    }
+
+    public DataTransferObject getData(){
+        return data;
+    }
+>>>>>>> master
 }

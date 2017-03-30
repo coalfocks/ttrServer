@@ -1,5 +1,7 @@
 package com.example.tyudy.ticket2rideclient.common.decks;
 
+import com.example.tyudy.ticket2rideclient.common.Destination;
+import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.iCard;
 
@@ -12,10 +14,14 @@ import java.util.List;
  * Created by zacheaton on 3/7/17.
  */
 public class DestinationCardDeck implements iDeck, Serializable {
-    List<iCard> cards = new ArrayList<iCard>();
+    private List<iCard> cards;
+    private TTRGame currentGame;
 
     public DestinationCardDeck() {
+        cards = new ArrayList<>();
+    }
 
+    public void initCards(){
         cards.add(new DestinationCard("Los Angeles", "New York", 21));
         cards.add(new DestinationCard("Duluth", "Houston", 8));
         cards.add(new DestinationCard("Sault St Marie", "Nashville", 8));
@@ -47,23 +53,56 @@ public class DestinationCardDeck implements iDeck, Serializable {
         cards.add(new DestinationCard("Sault St Marie", "Oklahoma City", 9));
         cards.add(new DestinationCard("Seattle", "Los Angeles", 9));
 
-        Collections.shuffle(cards);
-    }
+        shuffle();
 
+
+        /*
+        Denver to El Paso (4)
+        Kansas City to Houston (5)
+        New York to Atlanta (6)
+        Chicago to New Orleans (7), Calgary to Salt Lake City (7)
+        Helena to Los Angeles (8), Duluth to Houston (8), Sault Ste Marie to Nashville (8)
+        Montreal to Atlanta (9), Sault Ste. Marie to Oklahoma City (9), Seattle to Los Angeles (9), Chicago to Santa Fe (9)
+        Duluth to El Paso (10), Toronto to Miami (10)
+        Portland to Phoenix(11), Dallas to New York City (11), Denver to Pittsburgh (11), Winnipeg to Little Rock (11)
+        Winnipeg to Houston (12), Boston to Miami (12)
+        Vancouver to Santa Fe (13), Calgary to Phoenix(13), Montreal to New Orleans (13)
+        Los Angeles to Chicago (16)
+        San Francisco to Atlanta (17), Portland to Nashville (17)
+        Vancouver to Montréal (20), Los Angeles to Miami (20)
+        Los Angeles to New York City (21)
+        Seattle to New York (22)*/
+    }
     public void shuffle(){
             Collections.shuffle(this.cards);
         };
 
-    public  void addCard(iCard card){
-        this.cards.add(0, card);
+    public List<iCard> getDeck() { return cards; }
+
+    public void setCurrentGame(TTRGame game) { currentGame = game; }
+
+    public void addCard(iCard card){
+        this.cards.add(card);
     }
-    public  iCard getCard(){
-        if(cards.size()>0) {
+
+    public iCard getCard(){
+        if(cards.size() > 0) {
             iCard myCard = cards.get(cards.size() - 1);
             cards.remove(cards.size() - 1);
             return myCard;
         }
-        else{
+        else if (currentGame != null)
+        {
+            DestinationCardDeck newDeck = currentGame.getDestDiscardDeck();
+            newDeck.shuffle();
+            cards = newDeck.getDeck();
+
+            currentGame.clearDestDiscardDeck();
+
+            return getCard();
+        }
+        else
+        {
             return null;
         }
     }

@@ -1,14 +1,11 @@
 package com.example.tyudy.ticket2rideclient.common;
 import java.io.Serializable;
 
-/**
- * Created by zacheaton on 3/2/17.
- */
+import java.io.Serializable;
 
-public class Destination implements Serializable
-{
-    String source;
-    String dest;
+public class Destination implements Serializable {
+    private String source;
+    private String dest;
 
     public Destination(String source, String dest) {
         this.source = source;
@@ -30,9 +27,8 @@ public class Destination implements Serializable
     public void setDest(String dest) {
         this.dest = dest;
     }
-//
-//    @Override
-//    public String toString() {
-//        return "Source: " + source + ", Dest: " + dest;
-//    }
+    @Override
+    public String toString() {
+        return "Source: " + source + ", Dest: " + dest;
+    }
 }

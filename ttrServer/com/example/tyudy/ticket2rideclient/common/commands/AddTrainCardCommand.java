@@ -21,4 +21,16 @@ public class AddTrainCardCommand extends Command implements iCommand, Serializab
         return data;
     }
 
+<<<<<<< HEAD
+=======
+
+    public void setData(DataTransferObject d)
+    {
+        this.data = d;
+    }
+
+    public DataTransferObject getData(){
+        return data;
+    }
+>>>>>>> master
 }

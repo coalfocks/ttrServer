@@ -27,14 +27,13 @@ public class DestinationCard implements iCard, Serializable {
     }
 
     public DestinationCard(Destination dest, int pointVal){
-        destination = dest;
-        pointValue = pointVal;
+        this.destination = dest;
+        this.pointValue = pointVal;
     }
 
     @Override
     public String toString() {
         return destination.toString() + " Point Value: " + pointValue;
-        //return "THIS DESTCARD";
     }
 }
 
