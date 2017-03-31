@@ -2,7 +2,7 @@ package com.example.tyudy.ticket2rideclient.common;
 
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.FaceUpCards;
-import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
+import com.example.tyudy.ticket2rideclient.common.cards.TrainCardCollection;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
@@ -275,7 +275,7 @@ public class TTRServerFacade implements iTTRServer
         {
             int player = data.getPlayerID();
             int gameID = Integer.parseInt(data.getData());
-            TrainCard card = gameServer.addTrainCard(player, gameID);
+            TrainCardCollection card = gameServer.addTrainCard(player, gameID);
             data.setData(Serializer.serialize(card));
             AddTrainCardCommand command = new AddTrainCardCommand();
             command.setData(data);
@@ -309,7 +309,7 @@ public class TTRServerFacade implements iTTRServer
         try {
             int gameID = Integer.parseInt(data.getData());
             TTRGame game = GameUserManager.getInstance().getGame(gameID);
-            TrainCard card = game.dealTrainCard(data.getPlayerID());
+            TrainCardCollection card = game.dealTrainCard(data.getPlayerID());
             DAO.getInstance().updateGame(game);
             data.setData(Serializer.serialize(card));
         } catch (Exception e) {
