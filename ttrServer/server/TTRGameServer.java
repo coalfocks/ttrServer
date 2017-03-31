@@ -145,7 +145,7 @@ public class TTRGameServer implements iTTRServer
     public void sendBackDestCards(ArrayList<DestinationCard> toReturn, ArrayList<DestinationCard> toUpdate, int playerID) {
         TTRGame game = DAO.getInstance().getGameByOwner(playerID);
         for (DestinationCard card : toReturn) {
-            game.getMyDestDeck().addCard(card);
+            game.getDestDiscardDeck().addCard(card);
         }
 
         for (User u : game.getUsers()) {
@@ -155,7 +155,6 @@ public class TTRGameServer implements iTTRServer
                 }
             }
         }
-
         DAO.getInstance().updateGame(game);
     }
 

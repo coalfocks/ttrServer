@@ -139,6 +139,10 @@ public class User implements Serializable, Comparable<User> {
 
     public ArrayList<DestinationCard> getDestCards() { return destCards; }
 
+    public void setDestCards(ArrayList<DestinationCard> cards) {
+        this.destCards = cards;
+    }
+
     //Cards stuff
     public void addTrainCard(TrainCardCollection card){
         TrainCardCollection c = colorCards.get(card.getColor());
@@ -156,9 +160,21 @@ public class User implements Serializable, Comparable<User> {
         return arrayOfCards;
     }
 
-    // Used on the client side
+    /**
+     * Get the TrainCardCollection(s) object for a specific color
+     * @param - the color of card to search for
+     * @throws - throws TrainCardDoesNotExist exception if the user has no train card object that has the params given color
+     * @return - TrainCardCollection object that has the given color
+     */
     public TrainCardCollection getTrainCardsOfColor(ColorENUM color) {
-        return new TrainCardCollection();
+        ArrayList<TrainCardCollection> arrayOfCards = getTrainCards();
+        for(TrainCardCollection trainCardCollection : arrayOfCards){
+            if (color == trainCardCollection.getColor()) {
+                return trainCardCollection;
+            }
+        }
+        return new TrainCardCollection(color);
+        //throw new TrainCardDoesNotExist("User.getTrainCardsOfColor() could not find  a " + color.toString() + " colored card");
     }
 
     public int getNumCards () {

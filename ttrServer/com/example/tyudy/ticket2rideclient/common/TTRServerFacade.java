@@ -326,7 +326,12 @@ public class TTRServerFacade implements iTTRServer
             ArrayList<DestinationCard> toUpdate = cardLists.get(1);
 
             gameServer.sendBackDestCards(toReturn, toUpdate, data.getPlayerID());
-            data.setData(String.valueOf(toUpdate.size()));
+            // if init cards, need to send back number to discard
+            if (data.getCommand().equals("sendBackInitDestCards")) {
+                data.setData(String.valueOf(toUpdate.size()) + "," + String.valueOf(toReturn.size()));
+            } else {
+                data.setData(String.valueOf(toUpdate.size()));
+            }
             ReturnDestCardsCommand command = new ReturnDestCardsCommand();
             command.setData(data);
             CommandQueue.SINGLETON.addCommand(command);
