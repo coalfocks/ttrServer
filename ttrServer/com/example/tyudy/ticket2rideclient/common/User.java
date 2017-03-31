@@ -2,7 +2,7 @@ package com.example.tyudy.ticket2rideclient.common;
 
 
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
-import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
+import com.example.tyudy.ticket2rideclient.common.cards.TrainCardCollection;
 import com.example.tyudy.ticket2rideclient.common.cities.City;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
 
@@ -30,7 +30,7 @@ public class User implements Serializable, Comparable<User> {
     private ColorENUM color;
 
     private ArrayList<Path> claimedPaths;
-    private Map<ColorENUM, TrainCard> colorCards;
+    private Map<ColorENUM, TrainCardCollection> colorCards;
     private ArrayList<DestinationCard> destCards;
 
 
@@ -42,7 +42,7 @@ public class User implements Serializable, Comparable<User> {
         inGame = 0;
         points = 0;
         destCards = new ArrayList<>();
-        colorCards = new HashMap<ColorENUM, TrainCard>();
+        colorCards = new HashMap<ColorENUM, TrainCardCollection>();
         claimedPaths = new ArrayList<>();
         this.color = BLACK;
     }
@@ -57,12 +57,12 @@ public class User implements Serializable, Comparable<User> {
 
         destCards = new ArrayList<>();
         //claimedPaths = new ArrayList<>();
-        colorCards = new HashMap<ColorENUM, TrainCard>();
-        TrainCard myCard = new TrainCard();
+        colorCards = new HashMap<ColorENUM, TrainCardCollection>();
+        TrainCardCollection myCard = new TrainCardCollection();
         myCard.setColor(WHITE);
         this.addTrainCard(myCard);
         destCards = new ArrayList<>();
-        colorCards = new HashMap<ColorENUM, TrainCard>();
+        colorCards = new HashMap<ColorENUM, TrainCardCollection>();
         this.color = BLACK;
     }
 
@@ -136,8 +136,8 @@ public class User implements Serializable, Comparable<User> {
     public ArrayList<DestinationCard> getDestCards() { return destCards; }
 
     //Cards stuff
-    public void addTrainCard(TrainCard card){
-        TrainCard c = colorCards.get(card.getColor());
+    public void addTrainCard(TrainCardCollection card){
+        TrainCardCollection c = colorCards.get(card.getColor());
         if(c != null) {
             c.incNum();
             colorCards.put(card.getColor(), c);
@@ -146,14 +146,19 @@ public class User implements Serializable, Comparable<User> {
             colorCards.put(card.getColor(), card);
         }
     }
-    public ArrayList<TrainCard> getTrainCards(){
-        ArrayList<TrainCard> arrayOfCards = new ArrayList<TrainCard>(colorCards.values());
+    public ArrayList<TrainCardCollection> getTrainCards(){
+        ArrayList<TrainCardCollection> arrayOfCards = new ArrayList<TrainCardCollection>(colorCards.values());
         return arrayOfCards;
+    }
+
+    // Used on the client side
+    public TrainCardCollection getTrainCardsOfColor(ColorENUM color) {
+        return new TrainCardCollection();
     }
 
     public int getNumCards () {
         int total = 0;
-        for (TrainCard card : colorCards.values()) {
+        for (TrainCardCollection card : colorCards.values()) {
             total += card.getNum();
         }
         return total;

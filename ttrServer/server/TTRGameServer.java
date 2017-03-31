@@ -6,12 +6,9 @@ import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.FaceUpCards;
-import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
-import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
+import com.example.tyudy.ticket2rideclient.common.cards.TrainCardCollection;
 import server.Database.DAO;
-import sun.security.krb5.internal.crypto.Des;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -119,9 +116,9 @@ public class TTRGameServer implements iTTRServer
         }
     }
 
-    public TrainCard addTrainCard(int playerID, int gameID) {
+    public TrainCardCollection addTrainCard(int playerID, int gameID) {
         TTRGame game = dao.getGame(gameID);
-        TrainCard card = null;
+        TrainCardCollection card = null;
         for (User u : game.getUsers()) {
             if (u.getPlayerID() == playerID) {
                 game.dealTrainCard(u.getPlayerID());
@@ -135,7 +132,7 @@ public class TTRGameServer implements iTTRServer
         for (User u : game.getUsers()) {
             if (u.getPlayerID() != playerID) {
                 for (int i = 0; i < u.getTrainCards().size(); i++) {
-                    u.getTrainCards().set(i, new TrainCard(ColorENUM.COLORLESS));
+                    u.getTrainCards().set(i, new TrainCardCollection(ColorENUM.COLORLESS));
                 }
                 for (int i = 0; i < u.getDestCards().size(); i++) {
                     u.getDestCards().set(i, new DestinationCard(null, 0));

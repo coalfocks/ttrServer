@@ -2,7 +2,7 @@ package com.example.tyudy.ticket2rideclient.common.decks;
 
 import com.example.tyudy.ticket2rideclient.common.ColorENUM;
 import com.example.tyudy.ticket2rideclient.common.cards.FaceUpCards;
-import com.example.tyudy.ticket2rideclient.common.cards.TrainCard;
+import com.example.tyudy.ticket2rideclient.common.cards.TrainCardCollection;
 import com.example.tyudy.ticket2rideclient.common.cards.iCard;
 
 import java.io.Serializable;
@@ -26,19 +26,19 @@ public class TrainCardDeck implements iDeck, Serializable
                 continue;
             }
             for(int i = 0; i < 12; i++){
-                TrainCard newCard = new TrainCard(c);
+                TrainCardCollection newCard = new TrainCardCollection(c);
                 this.addCard(newCard);
             }
         }
-        TrainCard newWild = new TrainCard(ColorENUM.WILD);
+        TrainCardCollection newWild = new TrainCardCollection(ColorENUM.WILD);
         this.addCard(newWild);
         this.addCard(newWild);
         this.shuffle();
-        faceUpCards.setCard1((TrainCard) this.getCard());
-        faceUpCards.setCard2((TrainCard) this.getCard());
-        faceUpCards.setCard3((TrainCard) this.getCard());
-        faceUpCards.setCard4((TrainCard) this.getCard());
-        faceUpCards.setCard5((TrainCard) this.getCard());
+        faceUpCards.setCard1((TrainCardCollection) this.getCard());
+        faceUpCards.setCard2((TrainCardCollection) this.getCard());
+        faceUpCards.setCard3((TrainCardCollection) this.getCard());
+        faceUpCards.setCard4((TrainCardCollection) this.getCard());
+        faceUpCards.setCard5((TrainCardCollection) this.getCard());
     }
     public void shuffle(){
         Collections.shuffle(this.cards);
