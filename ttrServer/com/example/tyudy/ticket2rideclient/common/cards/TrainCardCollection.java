@@ -18,7 +18,7 @@ public class TrainCardCollection implements iCard, Serializable {
     public ColorENUM color;
     public int num;
     public TrainCardCollection(ColorENUM color){
-        this.num = 0;
+        this.num = 1;
         this.color = color;
     }
 
