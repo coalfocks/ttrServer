@@ -31,6 +31,8 @@ public interface iTTRServer {
 
     public DataTransferObject claimPath(DataTransferObject data);
 
+    DataTransferObject changeTurn(DataTransferObject data);
+
     public DataTransferObject getCommands(DataTransferObject data);
 
     public DataTransferObject drawDestCard(DataTransferObject data);

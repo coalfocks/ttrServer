@@ -156,6 +156,10 @@ public class User implements Serializable, Comparable<User> {
         return new TrainCardCollection();
     }
 
+    public void removeTrainCardsWithColor(ColorENUM color) {
+        colorCards.remove(color);
+    }
+
     public int getNumCards () {
         int total = 0;
         for (TrainCardCollection card : colorCards.values()) {
