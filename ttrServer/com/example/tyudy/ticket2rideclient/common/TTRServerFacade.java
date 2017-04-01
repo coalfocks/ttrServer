@@ -296,8 +296,18 @@ public class TTRServerFacade implements iTTRServer
             for (int i = 0; i < 3; i++) {
                 cards.add((DestinationCard) game.getMyDestDeck().getCard());
             }
+            if (cards.get(0) == null &&
+                    cards.get(1) == null &
+                    cards.get(2) == null) {
+                cards = null;
+            }
             DAO.getInstance().updateGame(game);
-            data.setData(Serializer.serialize(cards));
+            if (cards != null)
+            {
+                data.setData(Serializer.serialize(cards));
+            } else {
+                data.setErrorMsg("No Cards Remaining!");
+            }
         } catch (Exception e) {
             data.setData(e.getMessage());
             e.printStackTrace();
@@ -311,7 +321,12 @@ public class TTRServerFacade implements iTTRServer
             TTRGame game = GameUserManager.getInstance().getGame(gameID);
             TrainCardCollection card = game.dealTrainCard(data.getPlayerID());
             DAO.getInstance().updateGame(game);
-            data.setData(Serializer.serialize(card));
+            if (card != null)
+            {
+                data.setData(Serializer.serialize(card));
+            } else {
+                data.setErrorMsg("No Cards Remaining!");
+            }
         } catch (Exception e) {
             data.setData(e.getMessage());
             e.printStackTrace();
