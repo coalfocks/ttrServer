@@ -265,6 +265,11 @@ public class TTRServerFacade implements iTTRServer
     }
 
     @Override
+    public DataTransferObject changeTurn(DataTransferObject data) {
+        return null;
+    }
+
+    @Override
     public DataTransferObject getCommands(DataTransferObject data) {
         return null;
     }
