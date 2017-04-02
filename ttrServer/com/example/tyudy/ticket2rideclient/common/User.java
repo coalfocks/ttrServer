@@ -27,6 +27,7 @@ public class User implements Serializable, Comparable<User> {
     private int playerID;
     private int inGame;
     private int points = 0;
+    private int longest = 0;
 //    private IState currentState;
 
     private ColorENUM color;
@@ -222,6 +223,10 @@ public class User implements Serializable, Comparable<User> {
 
     public void claimPath(Path p) { claimedPaths.add(p); }
 
+    public ArrayList<Path> getClaimedPaths () {
+        return claimedPaths;
+    }
+
     public boolean haveCompletedRoute(DestinationCard card) {
         // Make sure the given card is a card the player has
         if (destCards.contains(card))
@@ -300,5 +305,15 @@ public class User implements Serializable, Comparable<User> {
 
     public void removeAllDestinationCards(){
         destCards = new ArrayList<>();
+    }
+
+    public int getLongest()
+    {
+        return longest;
+    }
+
+    public void setLongest(int longest)
+    {
+        this.longest = longest;
     }
 }
