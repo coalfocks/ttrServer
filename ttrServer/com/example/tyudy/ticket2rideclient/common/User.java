@@ -177,6 +177,13 @@ public class User implements Serializable, Comparable<User> {
         //throw new TrainCardDoesNotExist("User.getTrainCardsOfColor() could not find  a " + color.toString() + " colored card");
     }
 
+    /**
+     * Remove the cards of the given color from the users total collection of cards
+     */
+    public void removeTrainCardsWithColor(ColorENUM color) {
+        colorCards.remove(color);
+    }
+
     public int getNumCards () {
         int total = 0;
         for (TrainCardCollection card : colorCards.values()) {

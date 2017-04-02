@@ -4,10 +4,7 @@ import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.FaceUpCards;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCardCollection;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
-import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
-import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
-import com.example.tyudy.ticket2rideclient.common.commands.ReturnDestCardsCommand;
-import com.example.tyudy.ticket2rideclient.common.commands.StartGameCommand;
+import com.example.tyudy.ticket2rideclient.common.commands.*;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -48,7 +45,10 @@ public class TTRServerFacade implements iTTRServer
             try
             {
                 TTRGame game = DAO.getInstance().getGameByOwner(data.getPlayerID());
-                game = gameUserManager.initializeGame(game);
+                if (game.getInProgress() == 0)
+                {
+                    game = gameUserManager.initializeGame(game);
+                }
                 game = gameServer.maskGame(game, data.getPlayerID());
                 String gstring = Serializer.serialize(game);
                 data.setData(gstring);
@@ -384,4 +384,21 @@ public class TTRServerFacade implements iTTRServer
         return data;
     }
 
+    public DataTransferObject changeTurn (DataTransferObject data) {
+        try {
+            int gameID = Integer.parseInt(data.getData());
+            TTRGame game = gameUserManager.getGame(gameID);
+            game.changeTurn();
+            DAO.getInstance().updateGame(game);
+            String gstring = Serializer.serialize(game);
+            data.setData(gstring);
+            ChangeTurnCommand command = new ChangeTurnCommand();
+            command.setData(data);
+            CommandQueue.SINGLETON.addCommand(command);
+        } catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
 }
