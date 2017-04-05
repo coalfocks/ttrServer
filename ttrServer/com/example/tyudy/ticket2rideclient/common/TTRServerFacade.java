@@ -384,8 +384,10 @@ public class TTRServerFacade implements iTTRServer
         return data;
     }
 
-    public DataTransferObject changeTurn (DataTransferObject data) {
-        try {
+    public DataTransferObject changeTurn (DataTransferObject data)
+    {
+        try
+        {
             int gameID = Integer.parseInt(data.getData());
             TTRGame game = gameUserManager.getGame(gameID);
             game.changeTurn();
@@ -395,7 +397,8 @@ public class TTRServerFacade implements iTTRServer
             ChangeTurnCommand command = new ChangeTurnCommand();
             command.setData(data);
             CommandQueue.SINGLETON.addCommand(command);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             data.setErrorMsg(e.getMessage());
             e.printStackTrace();
         }

@@ -70,9 +70,6 @@ public final class LongestRoadFinder
         for (Path p : newPaths) {
             if (p.containsCity(path.getCities().get(0)) ||
                     p.containsCity(path.getCities().get(1))) {
-                // what return?
-                // for sure no duplicates/loops
-                // what changes with iteration?
                 int newLength = followPath(p, newPaths, curLength);
                 if (newLength > longest) {
                     longest = newLength;
