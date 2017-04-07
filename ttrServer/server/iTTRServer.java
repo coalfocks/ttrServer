@@ -13,7 +13,7 @@ public interface iTTRServer {
 
     public DataTransferObject startGame(DataTransferObject data);
 
-    public DataTransferObject endGame(DataTransferObject data);
+    public DataTransferObject endGame(DataTransferObject data, TTRGame game);
 
     public DataTransferObject joinGame(DataTransferObject data);
 
@@ -31,7 +31,12 @@ public interface iTTRServer {
 
     public DataTransferObject claimPath(DataTransferObject data);
 
+    DataTransferObject changeTurn(DataTransferObject data);
+
     public DataTransferObject getCommands(DataTransferObject data);
 
     public DataTransferObject drawDestCard(DataTransferObject data);
+
+    DataTransferObject changeToLastTurn(DataTransferObject data);
+
 }

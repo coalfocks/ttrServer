@@ -1,0 +1,29 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ttrServer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ttrServer_jar</output-path>
+    <root id="archive" name="ttrServer.jar">
+      <element id="module-output" name="ttrServer" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/lib/org-openide-util-lookup.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/lib/org-openide-util.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/lib/org-openide-modules.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/platform/lib/boot.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/mailapi.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/dsn.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/pop3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/imap.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/smtp.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/missioncontrol/plugins/com.jrockit.mc.rjmx_5.5.0.165303/lib/gimap.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/gson-2.8.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/javafx-mx.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/packager.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/tools.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/dt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/jconsole.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/sa-jdi.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/ant-javafx.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/profiler/lib/jfluid-server-15.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/profiler/lib/jfluid-server.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ttrServer/lib/sqlite-jdbc-3.16.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

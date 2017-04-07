@@ -18,7 +18,7 @@ public class TrainCardCollection implements iCard, Serializable {
     public ColorENUM color;
     public int num;
     public TrainCardCollection(ColorENUM color){
-        this.num = 0;
+        this.num = 1;
         this.color = color;
     }
 
@@ -46,7 +46,22 @@ public class TrainCardCollection implements iCard, Serializable {
         this.num = this.num++;
     }
 
-    public void subtractCards(int numToSubtract){
+    public boolean isEmpty(){
+        if (this.num == 0) {
+            return true;
+        } else if (this.num < 0) {
+            System.err.print("Shouldn't be negative!");
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    /**
+     * Subtract the given amount of cards from the train cards collection
+     * @param numToSubtract - this is the number of train cards to subtract from this collection of cards
+     */
+    public void subtractCards(int numToSubtract){
+        this.num -= numToSubtract;
     }
 }

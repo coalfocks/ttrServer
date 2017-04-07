@@ -10,7 +10,7 @@ import java.util.HashSet;
  * Created by Trevor on 3/8/2017.
  */
 
-public class City implements Serializable {
+public class City implements Serializable, Comparable {
     /**
      * A map of the cities this city is connected to, with the
      * values being the class Path
@@ -84,6 +84,19 @@ public class City implements Serializable {
         if (!city.mCityName.equals(this.mCityName)) return false;
 
         return super.equals(obj);
+    }
+
+    @Override
+    public int compareTo(Object o)
+    {
+        City compare = (City) o;
+        if (this.getCityName().compareTo(compare.getCityName()) > 0) {
+            return 1;
+        }
+        else if (this.getCityName().compareTo(compare.getCityName()) < 0) {
+            return -1;
+        }
+        else return 0;
     }
 }
 

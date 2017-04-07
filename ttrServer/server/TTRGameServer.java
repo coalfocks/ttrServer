@@ -44,7 +44,7 @@ public class TTRGameServer implements iTTRServer
     }
 
     @Override
-    public DataTransferObject endGame(DataTransferObject data)
+    public DataTransferObject endGame(DataTransferObject data, TTRGame game)
     {
         return null;
     }
@@ -92,6 +92,11 @@ public class TTRGameServer implements iTTRServer
     }
 
     @Override
+    public DataTransferObject changeTurn(DataTransferObject data) {
+        return null;
+    }
+
+    @Override
     public DataTransferObject getCommands(DataTransferObject data) {
         return null;
     }
@@ -99,6 +104,11 @@ public class TTRGameServer implements iTTRServer
     @Override
     public DataTransferObject drawDestCard(DataTransferObject data)
     {
+        return null;
+    }
+
+    @Override
+    public DataTransferObject changeToLastTurn(DataTransferObject data) {
         return null;
     }
 
@@ -145,7 +155,7 @@ public class TTRGameServer implements iTTRServer
     public void sendBackDestCards(ArrayList<DestinationCard> toReturn, ArrayList<DestinationCard> toUpdate, int playerID) {
         TTRGame game = DAO.getInstance().getGameByOwner(playerID);
         for (DestinationCard card : toReturn) {
-            game.getMyDestDeck().addCard(card);
+            game.getDestDiscardDeck().addCard(card);
         }
 
         for (User u : game.getUsers()) {
@@ -155,12 +165,46 @@ public class TTRGameServer implements iTTRServer
                 }
             }
         }
-
         DAO.getInstance().updateGame(game);
     }
 
     public FaceUpCards getFaceUps(int gameID) {
         TTRGame game = dao.getGame(gameID);
+        return game.getMyTrainDeck().getFaceUpCards();
+    }
+
+    public FaceUpCards selectTrainCard(int gameID, int playerID, int cardID) {
+        TTRGame game = dao.getGame(gameID);
+        TrainCardCollection card;
+        switch (cardID) {
+            case 1 :
+                card = game.getMyTrainDeck().getFaceUpCards().getCard1();
+                break;
+            case 2 :
+                card = game.getMyTrainDeck().getFaceUpCards().getCard2();
+                break;
+            case 3 :
+                card = game.getMyTrainDeck().getFaceUpCards().getCard3();
+                break;
+            case 4 :
+                card = game.getMyTrainDeck().getFaceUpCards().getCard4();
+                break;
+            case 5 :
+                card = game.getMyTrainDeck().getFaceUpCards().getCard5();
+                break;
+            default:
+                card = new TrainCardCollection();
+                break;
+        }
+
+        for (User u : game.getUsers()) {
+            if (u.getPlayerID() == playerID) {
+                u.addTrainCard(card);
+            }
+        }
+
+        game.getMyTrainDeck().swapFaceUpCard(cardID);
+        dao.updateGame(game);
         return game.getMyTrainDeck().getFaceUpCards();
     }
 }

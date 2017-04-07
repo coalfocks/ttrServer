@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="lib11">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/profiler/lib/jfluid-server-15.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/TTRSserver/lib/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/lib/visualvm/profiler/lib/jfluid-server.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ttrServer/lib/sqlite-jdbc-3.16.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ttrServer/lib/gson-2.8.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

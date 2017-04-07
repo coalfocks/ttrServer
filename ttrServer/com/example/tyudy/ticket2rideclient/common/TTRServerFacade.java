@@ -8,6 +8,7 @@ import com.example.tyudy.ticket2rideclient.common.commands.AddTrainCardCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ReturnDestCardsCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.StartGameCommand;
+import com.example.tyudy.ticket2rideclient.common.commands.*;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.Gson;
@@ -47,8 +48,11 @@ public class TTRServerFacade implements iTTRServer
             try
             {
                 TTRGame game = DAO.getInstance().getGameByOwner(data.getPlayerID());
-                game = gameUserManager.initializeGame(game);
-                game = gameServer.maskGame(game, data.getPlayerID());
+                if (game.getInProgress() == 0)
+                {
+                    game = gameUserManager.initializeGame(game);
+                }
+//                game = gameServer.maskGame(game, data.getPlayerID());
                 String gstring = Serializer.serialize(game);
                 data.setData(gstring);
                 StartGameCommand start = new StartGameCommand();
@@ -67,22 +71,51 @@ public class TTRServerFacade implements iTTRServer
     }
 
     @Override
-    public DataTransferObject endGame(DataTransferObject data)
+    public DataTransferObject endGame(DataTransferObject data, TTRGame game)
     {
-        if (gameUserManager.endGame(data.getPlayerID()))
+        try
         {
-            try
+            User longestRoad = LongestRoadFinder.findLongestRoad(game);
+
+            int winningScore = 0;
+            String winnerID = "";
+            for (UserStats stats : game.getmUserStats())
             {
-                data.setData("Ended game");
-            } catch(Exception e)
-            {
-                e.printStackTrace();
+                int score = 0;
+                score += stats.getRoutePoints();
+                score += stats.getDestPoints();
+                score -= stats.getNegDestPoints();
+                if (stats.getName().equals(longestRoad))
+                {
+                    score += 10;
+                    stats.setLongestRoutePoints(10);
+                }
+                if (score > winningScore)
+                {
+                    winningScore = score;
+                    winnerID = stats.getName();
+                } else if (score == winningScore)
+                {
+                    //todo: if tie
+                }
             }
+            ArrayList<UserStats> statsArrayList = new ArrayList<>(game.getmUserStats());
+            data.setData(Serializer.serialize(statsArrayList));
+            data.setCommand("endGame");
+            for (User u : game.getUsers()) {
+                if (u.getUsername().equals(winnerID)) {
+                    data.setPlayerID(u.getPlayerID());
+                }
+            }
+
+            gameUserManager.endGame(data.getPlayerID());
+        } catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
         }
-        else
-        {
-            data.setErrorMsg("An error occurred, couldn't start game");
-        }
+        EndGameCommand endGameCommand = new EndGameCommand();
+        endGameCommand.setData(data);
+        CommandQueue.SINGLETON.addCommand(endGameCommand);
         return data;
     }
 
@@ -200,6 +233,11 @@ public class TTRServerFacade implements iTTRServer
     {
         try
         {
+            if (data.getPlayerID() == 0) {
+                ArrayList<TTRGame> games = new ArrayList<>();
+                data.setData(Serializer.serialize(games));
+                return data;
+            }
             ArrayList<TTRGame> games = gameUserManager.getGames(data.getPlayerID());
             data.setData(Serializer.serialize(games));
             return data;
@@ -295,13 +333,28 @@ public class TTRServerFacade implements iTTRServer
             for (int i = 0; i < 3; i++) {
                 cards.add((DestinationCard) game.getMyDestDeck().getCard());
             }
+            if (cards.get(0) == null &&
+                    cards.get(1) == null &
+                    cards.get(2) == null) {
+                cards = null;
+            }
             DAO.getInstance().updateGame(game);
-            data.setData(Serializer.serialize(cards));
+            if (cards != null)
+            {
+                data.setData(Serializer.serialize(cards));
+            } else {
+                data.setErrorMsg("No Cards Remaining!");
+            }
         } catch (Exception e) {
             data.setData(e.getMessage());
             e.printStackTrace();
         }
         return data;
+    }
+
+    @Override
+    public DataTransferObject changeToLastTurn(DataTransferObject data) {
+        return null;
     }
 
     public DataTransferObject drawTrainCard (DataTransferObject data) {
@@ -310,7 +363,12 @@ public class TTRServerFacade implements iTTRServer
             TTRGame game = GameUserManager.getInstance().getGame(gameID);
             TrainCardCollection card = game.dealTrainCard(data.getPlayerID());
             DAO.getInstance().updateGame(game);
-            data.setData(Serializer.serialize(card));
+            if (card != null)
+            {
+                data.setData(Serializer.serialize(card));
+            } else {
+                data.setErrorMsg("No Cards Remaining!");
+            }
         } catch (Exception e) {
             data.setData(e.getMessage());
             e.printStackTrace();
@@ -325,7 +383,12 @@ public class TTRServerFacade implements iTTRServer
             ArrayList<DestinationCard> toUpdate = cardLists.get(1);
 
             gameServer.sendBackDestCards(toReturn, toUpdate, data.getPlayerID());
-            data.setData(String.valueOf(toUpdate.size()));
+            // if init cards, need to send back number to discard
+            if (data.getCommand().equals("sendBackInitDestCards")) {
+                data.setData(String.valueOf(toUpdate.size()) + "," + String.valueOf(toReturn.size()));
+            } else {
+                data.setData(String.valueOf(toUpdate.size()));
+            }
             ReturnDestCardsCommand command = new ReturnDestCardsCommand();
             command.setData(data);
             CommandQueue.SINGLETON.addCommand(command);
@@ -348,4 +411,55 @@ public class TTRServerFacade implements iTTRServer
         return data;
     }
 
+
+    public DataTransferObject selectTrainCard (DataTransferObject data) {
+        try
+        {
+            String[] info = data.getData().split(",");
+            int gameID = Integer.parseInt(info[0]);
+            int cardID = Integer.parseInt(info[1]);
+            FaceUpCards fu = gameServer.selectTrainCard(gameID, data.getPlayerID(), cardID);
+            data.setData(Serializer.serialize(fu));
+        } catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    public DataTransferObject changeTurn (DataTransferObject data)
+    {
+        try
+        {
+            int gameID = Integer.parseInt(data.getData());
+            TTRGame game = gameUserManager.getGame(gameID);
+            game.changeTurn();
+            DAO.getInstance().updateGame(game);
+            String gstring = Serializer.serialize(game);
+            data.setData(gstring);
+            ChangeTurnCommand command = new ChangeTurnCommand();
+            command.setData(data);
+            CommandQueue.SINGLETON.addCommand(command);
+        } catch (Exception e)
+        {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    public DataTransferObject submitGameStats (DataTransferObject data) {
+        try {
+            UserStats stats = (UserStats) Serializer.deserialize(data.getData());
+            TTRGame game = gameUserManager.getGame(stats.getGameID());
+            game.addmUserStats(stats);
+            if (game.getmUserStats().size() == game.getUsers().size()) {
+                endGame(data, game);//send game object instead
+            }
+        } catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
 }

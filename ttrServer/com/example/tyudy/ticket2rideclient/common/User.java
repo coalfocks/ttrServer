@@ -26,6 +26,8 @@ public class User implements Serializable, Comparable<User> {
     private int playerID;
     private int inGame;
     private int points = 0;
+    private int longest = 0;
+//    private IState currentState;
 
     private ColorENUM color;
 
@@ -135,6 +137,10 @@ public class User implements Serializable, Comparable<User> {
 
     public ArrayList<DestinationCard> getDestCards() { return destCards; }
 
+    public void setDestCards(ArrayList<DestinationCard> cards) {
+        this.destCards = cards;
+    }
+
     //Cards stuff
     public void addTrainCard(TrainCardCollection card){
         TrainCardCollection c = colorCards.get(card.getColor());
@@ -151,9 +157,27 @@ public class User implements Serializable, Comparable<User> {
         return arrayOfCards;
     }
 
-    // Used on the client side
+
+    /**
+     * Get the TrainCardCollection(s) object for a specific color
+     * @param - the color of card to search for
+     * @return - TrainCardCollection object that has the given color
+     */
     public TrainCardCollection getTrainCardsOfColor(ColorENUM color) {
-        return new TrainCardCollection();
+        ArrayList<TrainCardCollection> arrayOfCards = getTrainCards();
+        for(TrainCardCollection trainCardCollection : arrayOfCards){
+            if (color == trainCardCollection.getColor()) {
+                return trainCardCollection;
+            }
+        }
+        return new TrainCardCollection(color);
+    }
+
+    /**
+     * Remove the cards of the given color from the users total collection of cards
+     */
+    public void removeTrainCardsWithColor(ColorENUM color) {
+        colorCards.remove(color);
     }
 
     public int getNumCards () {
@@ -195,6 +219,10 @@ public class User implements Serializable, Comparable<User> {
     public void claimPath(Path p) {
         claimedPaths.add(p);
         addPoints(p.getPoints());
+    }
+
+    public ArrayList<Path> getClaimedPaths () {
+        return claimedPaths;
     }
 
     public boolean haveCompletedRoute(DestinationCard card) {
@@ -270,6 +298,16 @@ public class User implements Serializable, Comparable<User> {
 
     public void removeAllDestinationCards(){
         destCards = new ArrayList<>();
+    }
+
+    public int getLongest()
+    {
+        return longest;
+    }
+
+    public void setLongest(int longest)
+    {
+        this.longest = longest;
     }
 }
 

@@ -58,6 +58,9 @@ public class Path implements Serializable {
     public ColorENUM getPathColor(){
         return pathColor;
     }
+    public void setPathColor(ColorENUM color){
+        pathColor = color;
+    }
 
     /**
      * A method to find if a path contains the given city
