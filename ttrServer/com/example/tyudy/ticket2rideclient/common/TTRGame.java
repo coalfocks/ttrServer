@@ -24,6 +24,9 @@ public class TTRGame implements Serializable
     private int mTurnIndex = 0;
     private TrainCardDeck myTrainDeck;
     private DestinationCardDeck myDestDeck;
+    private TrainCardDeck mTrainDiscardDeck;
+    private DestinationCardDeck mDestDiscardDeck;
+    private Set<UserStats> mUserStats;
 
     public TTRGame()
     {
@@ -35,6 +38,16 @@ public class TTRGame implements Serializable
 
     public void setMyDestDeck(DestinationCardDeck myDestDeck) {
         this.myDestDeck = myDestDeck;
+    }
+
+    public void addToTrainDiscard(TrainCardCollection card)
+    {
+        mTrainDiscardDeck.addCard(card);
+    }
+
+    public void addToDestDiscard(DestinationCard card)
+    {
+        mDestDiscardDeck.addCard(card);
     }
 
     public TrainCardDeck getMyTrainDeck() {
@@ -125,6 +138,15 @@ public class TTRGame implements Serializable
 
     // dealTrainCard used by the server
     public TrainCardCollection dealTrainCard(int playerID){
+        if (myTrainDeck.getDeck().size() <= 0) {
+            mTrainDiscardDeck.shuffle();
+            while(mTrainDiscardDeck.getDeck().size() > 0) {
+                myTrainDeck.addCard(mTrainDiscardDeck.getCard());
+            }
+        }
+        else if (myTrainDeck.getDeck().size() == 0 && mTrainDiscardDeck.getDeck().size() == 0) {
+            return null;
+        }
         TrainCardCollection card = (TrainCardCollection) myTrainDeck.getCard();
         for (User u : players) {
             if (u.getPlayerID() == playerID) {
@@ -153,5 +175,15 @@ public class TTRGame implements Serializable
 
     public void setUsers(Set<User> users) {
         this.players = users;
+    }
+
+    public Set<UserStats> getmUserStats()
+    {
+        return mUserStats;
+    }
+
+    public void addmUserStats(UserStats stats)
+    {
+        this.mUserStats.add(stats);
     }
 }
