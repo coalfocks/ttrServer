@@ -107,6 +107,11 @@ public class TTRGameServer implements iTTRServer
         return null;
     }
 
+    @Override
+    public DataTransferObject changeToLastTurn(DataTransferObject data) {
+        return null;
+    }
+
     public void addChat(String chatMessage, int playerID) {
         try
         {

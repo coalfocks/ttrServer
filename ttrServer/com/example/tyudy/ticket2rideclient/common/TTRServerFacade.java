@@ -309,6 +309,11 @@ public class TTRServerFacade implements iTTRServer
         return data;
     }
 
+    @Override
+    public DataTransferObject changeToLastTurn(DataTransferObject data) {
+        return null;
+    }
+
     public DataTransferObject drawTrainCard (DataTransferObject data) {
         try {
             int gameID = Integer.parseInt(data.getData());
