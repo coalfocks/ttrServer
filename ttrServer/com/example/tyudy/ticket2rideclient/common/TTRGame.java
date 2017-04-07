@@ -28,8 +28,9 @@ public class TTRGame implements Serializable
     private DestinationCardDeck mDestDiscardDeck;
     private Set<UserStats> mUserStats;
 
-    public TTRGame()
-    {
+    public TTRGame() {
+        mTrainDiscardDeck = new TrainCardDeck();
+        mDestDiscardDeck = new DestinationCardDeck();
     }
 
     public void setMyTrainDeck(TrainCardDeck myTrainDeck) {
@@ -134,6 +135,17 @@ public class TTRGame implements Serializable
      */
     public void updateClaimedPath(Path path) {
 
+//        for (Path p : ClientModel.SINGLETON.getAllPaths()) {
+//            if (p.getName().equals(path.getName())) {
+//                p.setOwner(path.getOwner());
+//                for (User u : this.getUsers()) {
+//                    if (u.getPlayerID() == path.getOwner().getPlayerID()) {
+//                        u.addPoints(path.getPoints());
+//                    }
+//                }
+//            }
+//        }
+
     }
 
     // dealTrainCard used by the server
@@ -162,10 +174,23 @@ public class TTRGame implements Serializable
     }
 
 
+
     public void dealDestCard(User u){
         DestinationCard myCard = (DestinationCard) getMyDestDeck().getCard();
         u.addDestinationCard(myCard);
+    }
 
+    public TrainCardDeck getTrainDiscardDeck() { return mTrainDiscardDeck; }
+
+    public DestinationCardDeck getDestDiscardDeck() { return mDestDiscardDeck; }
+
+    public void clearTrainDiscardDeck() { mTrainDiscardDeck.getDeck().clear(); }
+
+    public void clearDestDiscardDeck() { mDestDiscardDeck.getDeck().clear(); }
+
+    public void changeTurn() {
+        this.mTurnIndex++;
+        mTurnIndex %= this.players.size();
     }
 
     public int getWhoTurn() {
