@@ -226,66 +226,26 @@ public class User implements Serializable, Comparable<User> {
     }
 
     public boolean haveCompletedRoute(DestinationCard card) {
-        // Make sure the given card is a card the player has
-        if (destCards.contains(card))
-        {
-            HashSet<City> citiesInRoute = new HashSet<>();
-            City source = new City();
-            City dest = new City();
-            boolean connectsToDest = false;
-            boolean connectsToSource = false;
+        Boolean hasSrc = false;
+        Boolean hasDest = false;
+        Path srcPath = null;
 
-            // Iterate through each path the user has claimed
-            for (Path path: claimedPaths)
-            {
-                if (path.containsCity(source))
-                {
-                    connectsToSource = true;
-                }
-                else if (path.containsCity(dest))
-                {
-                    connectsToDest = true;
-                }
-
-                if (connectsToSource && connectsToDest)
-                    break;
-            }
-
-            // Player does not own a path connected to one of the necessary cities
-            if (!(connectsToSource && connectsToDest))
-                return false;
-
-            // DFS to find the SCC of the source city
-            // tldr; if the source city is in the same set as
-            //  the destination city after the loop exist,
-            //  there exists a path from src to dest
-            Stack<City> citySCC = new Stack<>();
-            citySCC.push(source);
-            while(!citySCC.empty())
-            {
-                City nextCity = citySCC.pop();
-                if (!citiesInRoute.contains(nextCity))
-                {
-                    citiesInRoute.add(nextCity);
-
-                    for (Path path : nextCity.getPaths())
-                    {
-                        City c1 = path.getCities().get(0);
-                        City c2 = path.getCities().get(1);
-
-                        if (!c1.equals(nextCity))
-                            citySCC.push(c1);
-                        else
-                            citySCC.push(c2);
-                    }
+        for (Path p : claimedPaths) {
+            for (City city : p.getCities()) {
+                if (city.getCityName().equals(card.getDestination().getSource())) {
+                    hasSrc = true;
+                    srcPath = p;
+                } else if (city.getCityName().equals(card.getDestination().getDest())) {
+                    hasDest = true;
                 }
             }
-
-            if (citiesInRoute.contains(source) && citiesInRoute.contains(dest))
-                return true;
         }
 
-        return false;
+        if (!hasSrc || !hasDest) {
+            return false;
+        }
+
+        return followPath(srcPath, claimedPaths, card.getDestination().getDest());
     }
 
     public void removeDestinationCard(DestinationCard card) {
@@ -308,6 +268,23 @@ public class User implements Serializable, Comparable<User> {
     public void setLongest(int longest)
     {
         this.longest = longest;
+    }
+
+    public boolean followPath(Path path, ArrayList<Path> claimedPaths, String dest) {
+        ArrayList<Path> newPaths = new ArrayList<>(claimedPaths);
+        newPaths.remove(path);
+        for (City city : path.getCities()) {
+            if (city.getCityName().equals(dest)) {
+                return true;
+            }
+        }
+        for (Path p : newPaths) {
+            if (p.containsCity(path.getCities().get(0)) ||
+                    p.containsCity(path.getCities().get(1))) {
+                return followPath(p, newPaths, dest);
+            }
+        }
+        return false;
     }
 }
 

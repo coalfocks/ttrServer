@@ -152,20 +152,34 @@ public class TTRGameServer implements iTTRServer
         return game;
     }
 
-    public void sendBackDestCards(ArrayList<DestinationCard> toReturn, ArrayList<DestinationCard> toUpdate, int playerID) {
-        TTRGame game = DAO.getInstance().getGameByOwner(playerID);
-        for (DestinationCard card : toReturn) {
-            game.getDestDiscardDeck().addCard(card);
-        }
+    public void sendBackDestCards(ArrayList<DestinationCard> toReturn, ArrayList<DestinationCard> toUpdate, int playerID, boolean init) {
+        try
+        {
+            User user = DAO.getInstance().getUser(playerID);
+            TTRGame game = DAO.getInstance().getGame(user.getInGame());
+            for (DestinationCard card : toReturn)
+            {
+                game.getDestDiscardDeck().addCard(card);
+            }
 
-        for (User u : game.getUsers()) {
-            if (u.getPlayerID() == playerID) {
-                for (DestinationCard card : toUpdate) {
-                    u.addDestinationCard(card);
+            for (User u : game.getUsers())
+            {
+                if (u.getPlayerID() == playerID)
+                {
+                    if (init)
+                    {
+                        u.setDestCards(new ArrayList<DestinationCard>());
+                    }
+                    for (DestinationCard card : toUpdate)
+                    {
+                        u.addDestinationCard(card);
+                    }
                 }
             }
+            DAO.getInstance().updateGame(game);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        DAO.getInstance().updateGame(game);
     }
 
     public FaceUpCards getFaceUps(int gameID) {
