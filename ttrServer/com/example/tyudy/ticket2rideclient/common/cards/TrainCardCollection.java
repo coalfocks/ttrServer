@@ -46,17 +46,6 @@ public class TrainCardCollection implements iCard, Serializable {
         this.num = this.num++;
     }
 
-    public boolean isEmpty() {
-        if (this.num < 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void subtractCards(int numToSubtract){
-
-    }
     public boolean isEmpty(){
         if (this.num == 0) {
             return true;
