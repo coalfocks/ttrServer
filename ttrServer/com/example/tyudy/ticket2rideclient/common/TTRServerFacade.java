@@ -68,22 +68,51 @@ public class TTRServerFacade implements iTTRServer
     }
 
     @Override
-    public DataTransferObject endGame(DataTransferObject data)
+    public DataTransferObject endGame(DataTransferObject data, TTRGame game)
     {
-        if (gameUserManager.endGame(data.getPlayerID()))
+        try
         {
-            try
+            User longestRoad = LongestRoadFinder.findLongestRoad(game);
+
+            int winningScore = 0;
+            String winnerID = "";
+            for (UserStats stats : game.getmUserStats())
             {
-                data.setData("Ended game");
-            } catch(Exception e)
-            {
-                e.printStackTrace();
+                int score = 0;
+                score += stats.getRoutePoints();
+                score += stats.getDestPoints();
+                score -= stats.getNegDestPoints();
+                if (stats.getName().equals(longestRoad))
+                {
+                    score += 10;
+                    stats.setLongestRoutePoints(10);
+                }
+                if (score > winningScore)
+                {
+                    winningScore = score;
+                    winnerID = stats.getName();
+                } else if (score == winningScore)
+                {
+                    //todo: if tie
+                }
             }
+            ArrayList<UserStats> statsArrayList = new ArrayList<>(game.getmUserStats());
+            data.setData(Serializer.serialize(statsArrayList));
+            data.setCommand("endGame");
+            for (User u : game.getUsers()) {
+                if (u.getUsername().equals(winnerID)) {
+                    data.setPlayerID(u.getPlayerID());
+                }
+            }
+
+            gameUserManager.endGame(data.getPlayerID());
+        } catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
         }
-        else
-        {
-            data.setErrorMsg("An error occurred, couldn't start game");
-        }
+        EndGameCommand endGameCommand = new EndGameCommand();
+        endGameCommand.setData(data);
+        CommandQueue.SINGLETON.addCommand(endGameCommand);
         return data;
     }
 
@@ -201,6 +230,11 @@ public class TTRServerFacade implements iTTRServer
     {
         try
         {
+            if (data.getPlayerID() == 0) {
+                ArrayList<TTRGame> games = new ArrayList<>();
+                data.setData(Serializer.serialize(games));
+                return data;
+            }
             ArrayList<TTRGame> games = gameUserManager.getGames(data.getPlayerID());
             data.setData(Serializer.serialize(games));
             return data;
@@ -399,6 +433,21 @@ public class TTRServerFacade implements iTTRServer
             CommandQueue.SINGLETON.addCommand(command);
         } catch (Exception e)
         {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    public DataTransferObject submitGameStats (DataTransferObject data) {
+        try {
+            UserStats stats = (UserStats) Serializer.deserialize(data.getData());
+            TTRGame game = gameUserManager.getGame(stats.getGameID());
+            game.addmUserStats(stats);
+            if (game.getmUserStats().size() == game.getUsers().size()) {
+                endGame(data, game);//send game object instead
+            }
+        } catch (Exception e) {
             data.setErrorMsg(e.getMessage());
             e.printStackTrace();
         }

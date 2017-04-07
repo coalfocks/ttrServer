@@ -44,7 +44,7 @@ public class TTRGameServer implements iTTRServer
     }
 
     @Override
-    public DataTransferObject endGame(DataTransferObject data)
+    public DataTransferObject endGame(DataTransferObject data, TTRGame game)
     {
         return null;
     }

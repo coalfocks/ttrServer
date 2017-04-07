@@ -23,8 +23,6 @@ public class Command implements iCommand, Serializable
     @Override
     public DataTransferObject execute()
     {
-        TTRServerFacade facade = new TTRServerFacade();
-        data = facade.endGame(data);
         return data;
     }
 }

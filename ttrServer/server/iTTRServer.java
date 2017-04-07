@@ -13,7 +13,7 @@ public interface iTTRServer {
 
     public DataTransferObject startGame(DataTransferObject data);
 
-    public DataTransferObject endGame(DataTransferObject data);
+    public DataTransferObject endGame(DataTransferObject data, TTRGame game);
 
     public DataTransferObject joinGame(DataTransferObject data);
 

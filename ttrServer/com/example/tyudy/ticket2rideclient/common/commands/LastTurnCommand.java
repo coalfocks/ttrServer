@@ -18,7 +18,8 @@ public class LastTurnCommand extends Command implements iCommand, Serializable {
     @Override
     public DataTransferObject execute()
     {
-        CommandQueue.SINGLETON.addCommand(this);
+        TTRServerFacade facade = new TTRServerFacade();
+        facade.changeTurn(data);
         return data;
     }
 

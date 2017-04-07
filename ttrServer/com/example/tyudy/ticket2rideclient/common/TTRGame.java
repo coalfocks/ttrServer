@@ -26,6 +26,7 @@ public class TTRGame implements Serializable
     private DestinationCardDeck myDestDeck;
     private TrainCardDeck mTrainDiscardDeck;
     private DestinationCardDeck mDestDiscardDeck;
+    private Set<UserStats> mUserStats;
 
     public TTRGame() {
         mTrainDiscardDeck = new TrainCardDeck();
@@ -199,5 +200,15 @@ public class TTRGame implements Serializable
 
     public void setUsers(Set<User> users) {
         this.players = users;
+    }
+
+    public Set<UserStats> getmUserStats()
+    {
+        return mUserStats;
+    }
+
+    public void addmUserStats(UserStats stats)
+    {
+        this.mUserStats.add(stats);
     }
 }
