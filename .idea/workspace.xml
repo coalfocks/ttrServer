@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bb3256b3-a7d1-4577-bd66-0b1deb4a85b9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/database.sqlite" afterPath="$PROJECT_DIR$/db/database.sqlite" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/DestinationCardDeck.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/DestinationCardDeck.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/TrainCardDeck.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/TrainCardDeck.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +19,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TTRGameServer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TTRGameServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ttrServer/server/TTRGameServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="155" column="12" lean-forward="true" selection-start-line="155" selection-start-column="12" selection-end-line="155" selection-end-column="12" />
+            <state relative-caret-position="266">
+              <caret line="160" column="25" lean-forward="false" selection-start-line="160" selection-start-column="22" selection-end-line="160" selection-end-column="26" />
               <folding>
                 <element signature="e#1250#1251#0" expanded="true" />
                 <element signature="e#1277#1278#0" expanded="true" />
@@ -67,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TTRGame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TTRGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2295">
@@ -182,13 +179,14 @@
       <file leaf-file-name="TTRServerFacade.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="304" column="0" lean-forward="false" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
+            <state relative-caret-position="235">
+              <caret line="384" column="0" lean-forward="false" selection-start-line="384" selection-start-column="0" selection-end-line="384" selection-end-column="0" />
               <folding>
-                <element signature="e#10152#10153#0" expanded="true" />
-                <element signature="e#10179#10180#0" expanded="true" />
-                <element signature="e#11897#11898#0" expanded="true" />
-                <element signature="e#11924#11925#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#10154#10155#0" expanded="true" />
+                <element signature="e#10181#10182#0" expanded="true" />
+                <element signature="e#11899#11900#0" expanded="true" />
+                <element signature="e#11926#11927#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -216,6 +214,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>changeTurn</find>
+      <find>startGame</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -233,11 +232,11 @@
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/User.java" />
         <option value="$PROJECT_DIR$/ttrServer/server/iTTRServer.java" />
         <option value="$PROJECT_DIR$/ttrServer/server/TTRGameServer.java" />
-        <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cards/TrainCardCollection.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/TrainCardDeck.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/decks/DestinationCardDeck.java" />
         <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java" />
+        <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" />
       </list>
     </option>
   </component>
@@ -344,6 +343,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ttrServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ttrServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ttrServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -353,6 +374,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="ServerFaca&#9;FILE&#9;file:///Users/tyudy/Developer/Github/ttrServer/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" />
   </component>
   <component name="RunManager" selected="Application.main">
     <configuration default="false" name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -612,7 +634,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24007745" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24007745" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -666,10 +688,11 @@
         <state relative-caret-position="3525">
           <caret line="249" column="65" lean-forward="false" selection-start-line="249" selection-start-column="65" selection-end-line="249" selection-end-column="65" />
           <folding>
-            <element signature="e#10152#10153#0" expanded="true" />
-            <element signature="e#10179#10180#0" expanded="true" />
-            <element signature="e#11897#11898#0" expanded="true" />
-            <element signature="e#11924#11925#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#10154#10155#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#11899#11900#0" expanded="true" />
+            <element signature="e#11926#11927#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -822,10 +845,11 @@
         <state relative-caret-position="2820">
           <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
           <folding>
-            <element signature="e#10152#10153#0" expanded="true" />
-            <element signature="e#10179#10180#0" expanded="true" />
-            <element signature="e#11897#11898#0" expanded="true" />
-            <element signature="e#11924#11925#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#10154#10155#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#11899#11900#0" expanded="true" />
+            <element signature="e#11926#11927#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -883,10 +907,11 @@
         <state relative-caret-position="2820">
           <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
           <folding>
-            <element signature="e#10152#10153#0" expanded="true" />
-            <element signature="e#10179#10180#0" expanded="true" />
-            <element signature="e#11897#11898#0" expanded="true" />
-            <element signature="e#11924#11925#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#10154#10155#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#11899#11900#0" expanded="true" />
+            <element signature="e#11926#11927#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -966,10 +991,11 @@
         <state relative-caret-position="30">
           <caret line="2" column="55" lean-forward="false" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
           <folding>
-            <element signature="e#10152#10153#0" expanded="true" />
-            <element signature="e#10179#10180#0" expanded="true" />
-            <element signature="e#11897#11898#0" expanded="true" />
-            <element signature="e#11924#11925#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#10154#10155#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#11899#11900#0" expanded="true" />
+            <element signature="e#11926#11927#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1086,19 +1112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="304" column="0" lean-forward="false" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
-          <folding>
-            <element signature="e#10152#10153#0" expanded="true" />
-            <element signature="e#10179#10180#0" expanded="true" />
-            <element signature="e#11897#11898#0" expanded="true" />
-            <element signature="e#11924#11925#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cards/TrainCardCollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1138,39 +1151,6 @@
         <state relative-caret-position="105">
           <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/server/TTRGameServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="155" column="12" lean-forward="true" selection-start-line="155" selection-start-column="12" selection-end-line="155" selection-end-column="12" />
-          <folding>
-            <element signature="e#1250#1251#0" expanded="true" />
-            <element signature="e#1277#1278#0" expanded="true" />
-            <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#1389#1390#0" expanded="true" />
-            <element signature="e#1471#1472#0" expanded="true" />
-            <element signature="e#1498#1499#0" expanded="true" />
-            <element signature="e#1583#1584#0" expanded="true" />
-            <element signature="e#1610#1611#0" expanded="true" />
-            <element signature="e#1794#1795#0" expanded="true" />
-            <element signature="e#1821#1822#0" expanded="true" />
-            <element signature="e#1910#1911#0" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#2024#2025#0" expanded="true" />
-            <element signature="e#2051#2052#0" expanded="true" />
-            <element signature="e#2133#2134#0" expanded="true" />
-            <element signature="e#2160#2161#0" expanded="true" />
-            <element signature="e#2243#2244#0" expanded="true" />
-            <element signature="e#2270#2271#0" expanded="true" />
-            <element signature="e#2354#2355#0" expanded="true" />
-            <element signature="e#2381#2382#0" expanded="true" />
-            <element signature="e#2470#2471#0" expanded="true" />
-            <element signature="e#2497#2498#0" expanded="true" />
-            <element signature="e#2586#2587#0" expanded="true" />
-            <element signature="e#2613#2614#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1220,6 +1200,53 @@
             <element signature="e#2847#2848#0" expanded="true" />
             <element signature="e#2891#2892#0" expanded="true" />
             <marker date="1491534469000" expanded="false" signature="5234:5245" ph=" { " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="384" column="0" lean-forward="false" selection-start-line="384" selection-start-column="0" selection-end-line="384" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10154#10155#0" expanded="true" />
+            <element signature="e#10181#10182#0" expanded="true" />
+            <element signature="e#11899#11900#0" expanded="true" />
+            <element signature="e#11926#11927#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/server/TTRGameServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="160" column="25" lean-forward="false" selection-start-line="160" selection-start-column="22" selection-end-line="160" selection-end-column="26" />
+          <folding>
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1277#1278#0" expanded="true" />
+            <element signature="e#1362#1363#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+            <element signature="e#1471#1472#0" expanded="true" />
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="e#1583#1584#0" expanded="true" />
+            <element signature="e#1610#1611#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#1821#1822#0" expanded="true" />
+            <element signature="e#1910#1911#0" expanded="true" />
+            <element signature="e#1937#1938#0" expanded="true" />
+            <element signature="e#2024#2025#0" expanded="true" />
+            <element signature="e#2051#2052#0" expanded="true" />
+            <element signature="e#2133#2134#0" expanded="true" />
+            <element signature="e#2160#2161#0" expanded="true" />
+            <element signature="e#2243#2244#0" expanded="true" />
+            <element signature="e#2270#2271#0" expanded="true" />
+            <element signature="e#2354#2355#0" expanded="true" />
+            <element signature="e#2381#2382#0" expanded="true" />
+            <element signature="e#2470#2471#0" expanded="true" />
+            <element signature="e#2497#2498#0" expanded="true" />
+            <element signature="e#2586#2587#0" expanded="true" />
+            <element signature="e#2613#2614#0" expanded="true" />
           </folding>
         </state>
       </provider>

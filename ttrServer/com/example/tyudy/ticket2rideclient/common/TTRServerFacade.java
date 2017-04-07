@@ -52,7 +52,7 @@ public class TTRServerFacade implements iTTRServer
                 {
                     game = gameUserManager.initializeGame(game);
                 }
-                game = gameServer.maskGame(game, data.getPlayerID());
+//                game = gameServer.maskGame(game, data.getPlayerID());
                 String gstring = Serializer.serialize(game);
                 data.setData(gstring);
                 StartGameCommand start = new StartGameCommand();
