@@ -7,6 +7,7 @@ import com.example.tyudy.ticket2rideclient.common.User;
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.FaceUpCards;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCardCollection;
+import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
 import server.Database.DAO;
 
 import java.util.ArrayList;
@@ -220,5 +221,18 @@ public class TTRGameServer implements iTTRServer
         game.getMyTrainDeck().swapFaceUpCard(cardID);
         dao.updateGame(game);
         return game.getMyTrainDeck().getFaceUpCards();
+    }
+
+    public void discardTrainCards (TTRGame game, TrainCardDeck toDiscard, int playerID) {
+        for (User u : game.getUsers()) {
+            if (u.getPlayerID() == playerID) {
+                while (toDiscard.getDeck().size() != 0) {
+                    TrainCardCollection card = (TrainCardCollection) toDiscard.getCard();
+                    u.getTrainCardsOfColor(card.color).subtractCards(1);
+                    game.addToTrainDiscard(card);
+                }
+            }
+        }
+        dao.updateGame(game);
     }
 }

@@ -218,24 +218,24 @@ public class GameUserManager
     public Path claimPath(int playerID, Path path) {
         try
         {
-            TTRGame game = dao.getGameByOwner(playerID);
             User user = dao.getUser(playerID);
-            int sdfsd = user.getInGame();
-            TTRGame g = dao.getGame(sdfsd);
-            for(User u: g.getUsers()){
+            int gameID = user.getInGame();
+            TTRGame game = dao.getGame(gameID);
+            for(User u: game.getUsers()){
                 if(u.getPlayerID() == playerID){
                     path.setOwner(u);
-                }
-            }
-
-            //game.updateClaimedPath(path);
-
-            // Update the points for whoever claimed the path
-            for (User u : game.getUsers()) {
-                if (u.getPlayerID() == path.getOwner().getPlayerID()) {
                     u.addPoints(path.getPoints());
                 }
             }
+
+//            //game.updateClaimedPath(path);
+//
+//            // Update the points for whoever claimed the path
+//            for (User u : game.getUsers()) {
+//                if (u.getPlayerID() == path.getOwner().getPlayerID()) {
+//                    u.addPoints(path.getPoints());
+//                }
+//            }
             dao.updateGame(game);
         }
         catch (Exception e) {

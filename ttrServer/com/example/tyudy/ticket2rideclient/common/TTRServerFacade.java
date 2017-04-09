@@ -9,6 +9,7 @@ import com.example.tyudy.ticket2rideclient.common.commands.ClaimPathCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.ReturnDestCardsCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.StartGameCommand;
 import com.example.tyudy.ticket2rideclient.common.commands.*;
+import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.Gson;
@@ -288,10 +289,13 @@ public class TTRServerFacade implements iTTRServer
     public DataTransferObject claimPath(DataTransferObject data) {
         try {
             int playerID = data.getPlayerID();
-            Path path = (Path) Serializer.deserialize(data.getData());
+            ArrayList<String> pathData = (ArrayList<String>) Serializer.deserialize(data.getData());
+            Path path = (Path) Serializer.deserialize(pathData.get(0));
             path = gameUserManager.claimPath(playerID, path);
+
             ClaimPathCommand command = new ClaimPathCommand();
-            data.setData(Serializer.serialize(path));
+            pathData.set(0, Serializer.serialize(path));
+            data.setData(Serializer.serialize(pathData));
             command.setData(data);
             CommandQueue.SINGLETON.addCommand(command);
         }
@@ -457,6 +461,20 @@ public class TTRServerFacade implements iTTRServer
             if (game.getmUserStats().size() == game.getUsers().size()) {
                 endGame(data, game);//send game object instead
             }
+            DAO.getInstance().updateGame(game);
+        } catch (Exception e) {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    public DataTransferObject discardTrainCards (DataTransferObject data) {
+        try {
+            User user = DAO.getInstance().getUser(data.getPlayerID());
+            TTRGame game = gameUserManager.getGame(user.getInGame());
+            TrainCardDeck toDiscard = (TrainCardDeck) Serializer.deserialize(data.getData());
+            gameServer.discardTrainCards(game, toDiscard, data.getPlayerID());
         } catch (Exception e) {
             data.setErrorMsg(e.getMessage());
             e.printStackTrace();
