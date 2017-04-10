@@ -43,7 +43,7 @@ public class TrainCardCollection implements iCard, Serializable {
     }
 
     public void incNum() {
-        this.num = this.num++;
+        this.num = this.num += 1;
     }
 
     public boolean isEmpty(){
