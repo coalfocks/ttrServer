@@ -2,13 +2,14 @@ package com.example.tyudy.ticket2rideclient.common;
 
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by tyudy on 3/28/17.
  */
 
-public class PlasticTrainCollection {
+public class PlasticTrainCollection implements Serializable {
 
     final int TRAIN_COLLECTION_MAX_SIZE = 45;
     ArrayList<PlasticTrain> mMyTrains;
@@ -51,7 +52,7 @@ public class PlasticTrainCollection {
 
 
     // Class for each individual train--------------------------------------------------------
-    private class PlasticTrain {
+    private class PlasticTrain implements Serializable {
 
         PlasticTrain(){
 
