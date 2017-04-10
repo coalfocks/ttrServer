@@ -1,10 +1,7 @@
 package server;
 
 
-import com.example.tyudy.ticket2rideclient.common.ColorENUM;
-import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
-import com.example.tyudy.ticket2rideclient.common.TTRGame;
-import com.example.tyudy.ticket2rideclient.common.User;
+import com.example.tyudy.ticket2rideclient.common.*;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
 import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
@@ -188,6 +185,7 @@ public class GameUserManager
             while(u.getTrainCards().size() < 4) {
                 game.dealTrainCard(u.getPlayerID());
             }
+            u.setmTrains(new PlasticTrainCollection(45));
         }
 
         for(int i = 0; i < myUsers.size(); i++) {
@@ -225,6 +223,7 @@ public class GameUserManager
                 if(u.getPlayerID() == playerID){
                     path.setOwner(u);
                     u.claimPath(path);
+                    u.getmTrains().removeTrains(path.getDistance());
                 }
             }
 

@@ -35,6 +35,7 @@ public class User implements Serializable, Comparable<User> {
     private Map<ColorENUM, TrainCardCollection> colorCards;
     private ArrayList<DestinationCard> destCards;
 
+    private PlasticTrainCollection mTrains;
 
     public User()
     {
@@ -285,6 +286,14 @@ public class User implements Serializable, Comparable<User> {
             }
         }
         return false;
+    }
+
+    public PlasticTrainCollection getmTrains() {
+        return mTrains;
+    }
+
+    public void setmTrains(PlasticTrainCollection mTrains) {
+        this.mTrains = mTrains;
     }
 }
 
