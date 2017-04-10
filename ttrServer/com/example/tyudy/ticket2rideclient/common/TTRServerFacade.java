@@ -76,7 +76,7 @@ public class TTRServerFacade implements iTTRServer
     {
         try
         {
-            User longestRoad = LongestRoadFinder.findLongestRoad(game);
+            User longestRoadUser = LongestRoadFinder.findLongestRoad(game);
 
             int winningScore = 0;
             String winnerID = "";
@@ -86,7 +86,7 @@ public class TTRServerFacade implements iTTRServer
                 score += stats.getRoutePoints();
                 score += stats.getDestPoints();
                 score -= stats.getNegDestPoints();
-                if (stats.getName().equals(longestRoad))
+                if (stats.getName().equals(longestRoadUser.getUsername()))
                 {
                     score += 10;
                     stats.setLongestRoutePoints(10);
@@ -110,13 +110,14 @@ public class TTRServerFacade implements iTTRServer
             }
 
             gameUserManager.endGame(data.getPlayerID());
+            EndGameCommand endGameCommand = new EndGameCommand();
+            endGameCommand.setData(data);
+            CommandQueue.SINGLETON.addCommand(endGameCommand);
         } catch (Exception e) {
             data.setErrorMsg(e.getMessage());
             e.printStackTrace();
         }
-        EndGameCommand endGameCommand = new EndGameCommand();
-        endGameCommand.setData(data);
-        CommandQueue.SINGLETON.addCommand(endGameCommand);
+
         return data;
     }
 
@@ -452,6 +453,28 @@ public class TTRServerFacade implements iTTRServer
         }
         return data;
     }
+
+    public DataTransferObject lastTurn (DataTransferObject data)
+    {
+        try
+        {
+            int gameID = Integer.parseInt(data.getData());
+            TTRGame game = gameUserManager.getGame(gameID);
+            game.changeTurn();
+            DAO.getInstance().updateGame(game);
+            String gstring = Serializer.serialize(game);
+            data.setData(gstring);
+            LastTurnCommand command = new LastTurnCommand();
+            command.setData(data);
+            CommandQueue.SINGLETON.addCommand(command);
+        } catch (Exception e)
+        {
+            data.setErrorMsg(e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
 
     public DataTransferObject submitGameStats (DataTransferObject data) {
         try {

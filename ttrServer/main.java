@@ -21,6 +21,7 @@ main
     public static void main(String[] args)
     {
         ServerCommunicator server = new ServerCommunicator();
+        
         server.run();
 
         //server.stop();

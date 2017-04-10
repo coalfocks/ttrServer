@@ -1,26 +1,23 @@
 package com.example.tyudy.ticket2rideclient.common.commands;
 
-
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
-import com.example.tyudy.ticket2rideclient.common.iCommand;
 import com.example.tyudy.ticket2rideclient.common.TTRServerFacade;
-import server.CommandQueue;
+import com.example.tyudy.ticket2rideclient.common.iCommand;
 
 import java.io.Serializable;
 
 /**
- * Created by Colefox on 2/10/2017.
+ * Created by tyudy on 4/10/17.
  */
-public class LastTurnCommand extends Command implements iCommand, Serializable {
 
-    public LastTurnCommand(){}
+public class SubmitGameStatsCommand extends Command implements iCommand, Serializable {
 
     @Override
     public DataTransferObject execute()
     {
         TTRServerFacade facade = new TTRServerFacade();
-        facade.lastTurn(data);
+        data = facade.submitGameStats(data);
         return data;
     }
-
 }
+
