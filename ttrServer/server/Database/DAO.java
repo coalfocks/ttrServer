@@ -17,8 +17,6 @@ public class DAO
     {
         private static DAO instance;
         private static Database db;
-        private static Cursor cursor;
-
 
         private DAO()
         {
@@ -49,47 +47,47 @@ public class DAO
             return this.db;
         }
 
-       public User getUser(String username) throws SQLException
-       {
-           if (username == null)
-           {
-               return null;
-           }
+        public User getUser(String username) throws SQLException
+        {
+            if (username == null)
+            {
+                return null;
+            }
 
-           PreparedStatement stmt = null;
-           ResultSet rs = null;
-           User user = null;
-           try
-           {
-               db.startTransaction();
-               String sql = "SELECT * FROM users WHERE users.username = ?";
-               stmt = db.connection.prepareStatement(sql);
-               stmt.setString(1, username);
-               rs = stmt.executeQuery();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            User user = null;
+            try
+            {
+                db.startTransaction();
+                String sql = "SELECT * FROM users WHERE users.username = ?";
+                stmt = db.connection.prepareStatement(sql);
+                stmt.setString(1, username);
+                rs = stmt.executeQuery();
 
-               while(rs.next())
-               {
-                   user = new User();
-                   user.setUsername(rs.getString(2));
-                   user.setPassword(rs.getString(3));
-                   user.setPlayerID(rs.getInt(1));
-                   user.setInGame(rs.getInt(4));
-               }
-           }
-           catch(SQLException e)
-           {
-               System.out.println(e.getMessage());
-           }
-           finally
-           {
-               if(stmt != null)
-                   stmt.close();
-               if (rs != null)
-                   rs.close();
-               db.closeTransaction(true);
-           }
-           return user;
-       }
+                while(rs.next())
+                {
+                    user = new User();
+                    user.setUsername(rs.getString(2));
+                    user.setPassword(rs.getString(3));
+                    user.setPlayerID(rs.getInt(1));
+                    user.setInGame(rs.getInt(4));
+                }
+            }
+            catch(SQLException e)
+            {
+                System.out.println(e.getMessage());
+            }
+            finally
+            {
+                if(stmt != null)
+                    stmt.close();
+                if (rs != null)
+                    rs.close();
+                db.closeTransaction(true);
+            }
+            return user;
+        }
 
         public User getUser(int playerid) throws SQLException
         {

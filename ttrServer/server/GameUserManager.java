@@ -173,6 +173,7 @@ public class GameUserManager
     }
 
 
+
     public TTRGame initializeGame(TTRGame game) {
         game.setMyTrainDeck( new TrainCardDeck());
         game.setMyDestDeck( new DestinationCardDeck());
@@ -185,7 +186,7 @@ public class GameUserManager
             for (int i = 0; i < 4; i++) {
                 game.dealTrainCard(u.getPlayerID());
             }
-            u.setmTrains(new PlasticTrainCollection(45));
+            u.setmTrains(new PlasticTrainCollection());
         }
 
         for(int i = 0; i < myUsers.size(); i++) {
