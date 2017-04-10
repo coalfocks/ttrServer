@@ -224,7 +224,7 @@ public class GameUserManager
             for(User u: game.getUsers()){
                 if(u.getPlayerID() == playerID){
                     path.setOwner(u);
-                    u.addPoints(path.getPoints());
+                    u.claimPath(path);
                 }
             }
 

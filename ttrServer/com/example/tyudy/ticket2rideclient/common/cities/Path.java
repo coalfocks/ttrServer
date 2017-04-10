@@ -69,8 +69,12 @@ public class Path implements Serializable {
      */
     public boolean containsCity(City city) {
 
-        TreeSet<City> cities = new TreeSet<>(connectedCities);
-        return cities.contains(city);
+        for (City c : connectedCities) {
+            if (c.getCityName().equals(city.getCityName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
