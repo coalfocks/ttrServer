@@ -5,6 +5,7 @@ import com.example.tyudy.ticket2rideclient.common.cards.TrainCardCollection;
 import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
 import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
+import server.TTRGameServer;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -26,11 +27,12 @@ public class TTRGame implements Serializable
     private DestinationCardDeck myDestDeck;
     private TrainCardDeck mTrainDiscardDeck;
     private DestinationCardDeck mDestDiscardDeck;
-    private Set<UserStats> mUserStats;
+    private ArrayList<UserStats> mUserStats;
 
     public TTRGame() {
         mTrainDiscardDeck = new TrainCardDeck();
         mDestDiscardDeck = new DestinationCardDeck();
+        mUserStats = new ArrayList<>();
     }
 
     public void setMyTrainDeck(TrainCardDeck myTrainDeck) {
@@ -202,7 +204,7 @@ public class TTRGame implements Serializable
         this.players = users;
     }
 
-    public Set<UserStats> getmUserStats()
+    public ArrayList<UserStats> getmUserStats()
     {
         return mUserStats;
     }

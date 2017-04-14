@@ -27,6 +27,13 @@ public final class LongestRoadFinder
         // check for that new path
 
         for (User u : game.getUsers()) {
+            if (u.getClaimedPaths().size() == 1) {
+                if (u.getClaimedPaths().get(0).getDistance() > longest) {
+                    longest = u.getClaimedPaths().get(0).getDistance();
+                    lUser = u;
+                }
+                continue;
+            }
             for (Path p : u.getClaimedPaths()) {
                 if (isEndpoint (p, u.getClaimedPaths())) {
                     int userLongest = followPath(p, u.getClaimedPaths(), 0);

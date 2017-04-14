@@ -1,9 +1,6 @@
 package server;
 
-import com.example.tyudy.ticket2rideclient.common.ColorENUM;
-import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
-import com.example.tyudy.ticket2rideclient.common.TTRGame;
-import com.example.tyudy.ticket2rideclient.common.User;
+import com.example.tyudy.ticket2rideclient.common.*;
 import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
 import com.example.tyudy.ticket2rideclient.common.cards.FaceUpCards;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCardCollection;
@@ -222,6 +219,15 @@ public class TTRGameServer implements iTTRServer
         }
 
         game.getMyTrainDeck().swapFaceUpCard(cardID);
+
+        if (!game.getMyTrainDeck().getFaceUpCards().wildsOkay()) {
+            game.getMyTrainDeck().swapFaceUpCard(1);
+            game.getMyTrainDeck().swapFaceUpCard(2);
+            game.getMyTrainDeck().swapFaceUpCard(3);
+            game.getMyTrainDeck().swapFaceUpCard(4);
+            game.getMyTrainDeck().swapFaceUpCard(5);
+        }
+
         dao.updateGame(game);
         return game.getMyTrainDeck().getFaceUpCards();
     }

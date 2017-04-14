@@ -13,7 +13,6 @@ public class PlasticTrainCollection implements Serializable {
 
     final int TRAIN_COLLECTION_MAX_SIZE = 10;
     ArrayList<PlasticTrain> mMyTrains;
-    int mCollectionColor;
 
     /**
      * Don't pass an ENUM in here. They're kind pointless. We should use Color.RED for example from here on out
@@ -25,9 +24,6 @@ public class PlasticTrainCollection implements Serializable {
         }
     }
 
-    public int getCollectionColor(){
-        return mCollectionColor;
-    }
     public int getSize(){
         return mMyTrains.size();
     }
