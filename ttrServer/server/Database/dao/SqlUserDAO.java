@@ -18,11 +18,35 @@ public class SqlUserDAO implements IUserDAO {
     private static IUserDAO instance;
     private static SqlDatabase db;
 
-    // DON'T HAVE THIS METHOD IN CURRENT DAO,
-    // (do we need it?)
     @Override
-    public boolean addPlayerToGame(int userID, String game) {
-        return false;
+    public boolean addPlayerToGame(int gameID, String game) {
+        if (gameID == 0 || game == null)
+        {
+            return false;
+        }
+
+        PreparedStatement stmt = null;
+        try
+        {
+            String sql = "UPDATE games" +
+                    " SET game = ?" +
+                    " WHERE gameID = ?";
+            db.startTransaction();
+            stmt = db.connection.prepareStatement(sql);
+            stmt.setString(1, game);
+            stmt.setInt(2, gameID);
+
+            stmt.executeUpdate();
+
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        db.closeTransaction(true);
+
+        return true;
     }
 
     @Override

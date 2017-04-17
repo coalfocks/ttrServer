@@ -6,6 +6,9 @@ import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
 import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
 import server.Database.DAO;
+import server.Database.dao.IGameDAO;
+import server.Database.dao.IUserDAO;
+import server.Database.dao.SqlGameDAO;
 
 import java.util.ArrayList;
 import java.util.TreeSet;
@@ -17,8 +20,15 @@ public class GameUserManager
 {
     private static GameUserManager instance;
     private DAO dao = DAO.getInstance();
+    
+    private IGameDAO gameDAO;
+    private IUserDAO userDAO;
 
     private GameUserManager(){}
+
+    public void setGameDAO(IGameDAO dao) { gameDAO = dao; }
+
+    public void setUserDAO(IUserDAO dao) { userDAO = dao; }
 
     public static GameUserManager getInstance()
     {
@@ -34,7 +44,7 @@ public class GameUserManager
         User user = null;
         try
         {
-             user = dao.getUser(s);
+             user = userDAO.getUser(s);
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
@@ -50,7 +60,7 @@ public class GameUserManager
             u.setUsername(username);
             u.setPassword(password);
 
-            dao.addUser(u);
+            userDAO.addUser(u);
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
@@ -63,8 +73,7 @@ public class GameUserManager
     {
         try
         {
-            int gameID = dao.createGame(ownerID);
-            return gameID;
+            return gameDAO.createGame(ownerID);
 
         } catch (Exception e)
         {
@@ -76,11 +85,11 @@ public class GameUserManager
     {
         try
         {
-            User u = dao.getUser(playerID);
-            return dao.getGames(u.getInGame());
+            User u = userDAO.getUser(playerID);
+            return gameDAO.getGames(u.getInGame());
         } catch (Exception e) {
             e.printStackTrace();
-            return new ArrayList<TTRGame>();
+            return new ArrayList<>();
         }
     }
 
@@ -91,15 +100,17 @@ public class GameUserManager
             TTRGame gameIn = (TTRGame) Serializer.deserialize(gstring);
             int gameID = gameIn.getGameID();
             //int gameID = dao.getGameID(gstring);
-            if (dao.getGameStatus(gameID) == 1)
+
+            if (gameDAO.getGameStatus(gameID) == 1)
             {
                 return false;
             }
-            TTRGame game = dao.getGame(gameID);
-            User player = dao.getUser(playerID);
+            TTRGame game = gameDAO.getGame(gameID);
+            User player = userDAO.getUser(playerID);
             game.addPlayer(player);
-            dao.addPlayerToGame(gameID, Serializer.serialize(game));
-            if (dao.updatePlayerGame(gameID, playerID))
+            userDAO.addPlayerToGame(gameID, Serializer.serialize(game));
+
+            if (userDAO.updatePlayerGame(gameID, playerID))
             {
                 player.setInGame(gameID);
             }
@@ -120,15 +131,15 @@ public class GameUserManager
         try
         {
             //int gameID = dao.getGameID(gstring);
-            if (dao.getGameStatus(gameID) == 1)
+            if (gameDAO.getGameStatus(gameID) == 1)
             {
                 return false;
             }
-            TTRGame game = dao.getGame(gameID);
-            User player = dao.getUser(playerID);
+            TTRGame game = gameDAO.getGame(gameID);
+            User player = userDAO.getUser(playerID);
             game.addPlayer(player);
-            dao.addPlayerToGame(gameID, Serializer.serialize(game));
-            if (dao.updatePlayerGame(gameID, playerID))
+            userDAO.addPlayerToGame(gameID, Serializer.serialize(game));
+            if (userDAO.updatePlayerGame(gameID, playerID))
             {
                 player.setInGame(gameID);
             }
@@ -146,7 +157,7 @@ public class GameUserManager
 
     public TTRGame getGame(int gameID)
     {
-        return dao.getGame(gameID);
+        return gameDAO.getGame(gameID);
     }
 
     public boolean startGame(int ownerID)
@@ -154,7 +165,7 @@ public class GameUserManager
         DataTransferObject dto = new DataTransferObject();
         try
         {
-            dao.startGame(ownerID);
+            gameDAO.startGame(ownerID);
         } catch (Exception e) {
             dto.setErrorMsg(e.getMessage());
             e.printStackTrace();
@@ -164,12 +175,12 @@ public class GameUserManager
 
     public boolean endGame(int ownerID)
     {
-        return dao.endGame(ownerID);
+        return gameDAO.endGame(ownerID);
     }
 
     public int getNumPlayers(int gameID)
     {
-        return dao.getNumPlayers(gameID);
+        return gameDAO.getNumPlayers(gameID);
     }
 
 
@@ -210,16 +221,16 @@ public class GameUserManager
         }
 
         game.setUsers(new TreeSet<User>(myUsers));
-        dao.updateGame(game);
+        gameDAO.updateGame(game);
         return game;
     }
 
     public Path claimPath(int playerID, Path path) {
         try
         {
-            User user = dao.getUser(playerID);
+            User user = userDAO.getUser(playerID);
             int gameID = user.getInGame();
-            TTRGame game = dao.getGame(gameID);
+            TTRGame game = gameDAO.getGame(gameID);
             for(User u: game.getUsers()){
                 if(u.getPlayerID() == playerID){
                     path.setOwner(u);
@@ -236,7 +247,7 @@ public class GameUserManager
 //                    u.addPoints(path.getPoints());
 //                }
 //            }
-            dao.updateGame(game);
+            gameDAO.updateGame(game);
         }
         catch (Exception e) {
             e.printStackTrace();

@@ -7,11 +7,11 @@ package server.factory;
 public class FactoryFactory {
 
     public static IDaoFactory createFactory(String type){
-        if (type.equals("m"))
+        if (type.equals("-m"))
         {
             return new MongoDaoFactory();
         }
-        else if (type.equals("s"))
+        else if (type.equals("-s"))
         {
             return new SqlDaoFactory();
         }

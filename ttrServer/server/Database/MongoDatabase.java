@@ -5,4 +5,8 @@ package server.Database;
  */
 
 public class MongoDatabase extends Database {
+
+    // THIS CLASS WILL NECESSARILY NEED TO BE DIFFERENT THAN
+    //  THE SQLDATABASE CLASS
+
 }

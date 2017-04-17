@@ -10,7 +10,7 @@ import server.Database.Database;
 
 public interface IUserDAO {
 
-    boolean addPlayerToGame(int userID, String game);
+    boolean addPlayerToGame(int gameID, String game);
     boolean addUser(User user);
     boolean reset();
     boolean setDB(Database database);
