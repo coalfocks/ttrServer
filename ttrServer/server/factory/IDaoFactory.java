@@ -1,4 +1,7 @@
-package com.example.tyudy.ticket2rideclient.common.factory;
+package server.factory;
+
+import server.Database.dao.IGameDAO;
+import server.Database.dao.IUserDAO;
 
 /**
  * Created by Trevor on 4/17/2017.
