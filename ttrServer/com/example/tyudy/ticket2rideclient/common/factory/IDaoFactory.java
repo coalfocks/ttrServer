@@ -5,4 +5,7 @@ package com.example.tyudy.ticket2rideclient.common.factory;
  */
 
 public interface IDaoFactory {
+
+    IUserDAO createUserDAO();
+    IGameDAO createGameDAO();
 }
