@@ -7,9 +7,18 @@ import java.sql.*;
  * Created by colefox on 2/6/17.
  */
 
+
+/*
+    IMPORTANT NOTE FOR PHASE 4:
+    This class needs to become a generic/abstract class
+    so that both the mongo & sql database classes
+    can use its methods (or something similar, etc.)
+    you know what I mean.
+ */
+
 public class Database
 {
-    Connection connection;
+    public Connection connection;
 
     public Database()
     {

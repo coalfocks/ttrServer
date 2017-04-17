@@ -11,11 +11,6 @@ import server.Database.Database;
 public class MongoUserDAO implements IUserDAO {
 
     @Override
-    public Database getDB() {
-        return null;
-    }
-
-    @Override
     public boolean addPlayerToGame(int userID, String game) {
         return false;
     }
@@ -52,6 +47,11 @@ public class MongoUserDAO implements IUserDAO {
 
     @Override
     public IUserDAO getInstance() {
+        return null;
+    }
+
+    @Override
+    public Database getDB() {
         return null;
     }
 }

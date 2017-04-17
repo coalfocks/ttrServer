@@ -17,14 +17,14 @@ public interface IGameDAO {
     boolean setDB(Database database);
     boolean endGame(int ownerID);
     boolean updateGame(TTRGame game);
-    TTRGame createGame(int ownerID);
+    boolean startGame(int ownerID);
     TTRGame getGame(int gameID);
     TTRGame getGameByOwner(int ownerID);
-    TTRGame startGame(int ownerID);
+    int createGame(int ownerID);
     int getGameID(String game);
     int getGameStatus(int gameID);
     int getNumPlayers(int gameID);
-    ArrayList<TTRGame> getGames();
+    ArrayList<TTRGame> getGames(int gameID);
     Database getDB();
     IGameDAO getInstance();
 }

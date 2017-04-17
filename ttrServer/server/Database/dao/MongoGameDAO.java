@@ -38,8 +38,8 @@ public class MongoGameDAO implements IGameDAO {
     }
 
     @Override
-    public TTRGame createGame(int ownerID) {
-        return null;
+    public boolean startGame(int ownerID) {
+        return false;
     }
 
     @Override
@@ -53,8 +53,8 @@ public class MongoGameDAO implements IGameDAO {
     }
 
     @Override
-    public TTRGame startGame(int ownerID) {
-        return null;
+    public int createGame(int ownerID) {
+        return 0;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class MongoGameDAO implements IGameDAO {
     }
 
     @Override
-    public ArrayList<TTRGame> getGames() {
+    public ArrayList<TTRGame> getGames(int gameID) {
         return null;
     }
 
