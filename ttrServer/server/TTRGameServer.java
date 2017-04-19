@@ -9,6 +9,7 @@ import com.example.tyudy.ticket2rideclient.common.cards.FaceUpCards;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCardCollection;
 import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
 import server.Database.DAO;
+import server.interfaces.iTTRServer;
 
 import java.util.ArrayList;
 

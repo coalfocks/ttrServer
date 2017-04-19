@@ -1,4 +1,4 @@
-package server;
+package server.interfaces;
 
 import com.example.tyudy.ticket2rideclient.common.DataTransferObject;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
