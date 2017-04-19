@@ -30,4 +30,24 @@ public class DAOHolder {
     {
         this.userDAO = userDAO;
     }
+
+    public IGameDAO getGameDAO()
+    {
+        return gameDAO;
+    }
+
+    public void setGameDAO(IGameDAO gameDAO)
+    {
+        this.gameDAO = gameDAO;
+    }
+
+    public DB getDb()
+    {
+        return db;
+    }
+
+    public void setDb(DB db)
+    {
+        this.db = db;
+    }
 }

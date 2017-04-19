@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4459e61-8664-49c9-8edc-0b81be54ebe2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ttrServer/server/Database/DAOHolder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ttrServer/server/Database/MongoGameDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ttrServer/server/Database/SQLGameDAO.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/iTTRServer.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/TTRGameServer.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/TTRGameServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/interfaces/IGameDAO.java" afterPath="$PROJECT_DIR$/ttrServer/server/interfaces/IGameDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/Database/DAOHolder.java" afterPath="$PROJECT_DIR$/ttrServer/server/Database/DAOHolder.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -114,17 +107,25 @@
       <file leaf-file-name="DAOHolder.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/DAOHolder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state relative-caret-position="446">
+              <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#347#348#0" expanded="true" />
                 <element signature="e#369#370#0" expanded="true" />
                 <element signature="e#407#408#0" expanded="true" />
                 <element signature="e#438#439#0" expanded="true" />
+                <element signature="e#478#479#0" expanded="true" />
                 <element signature="e#508#509#0" expanded="true" />
                 <element signature="e#560#561#0" expanded="true" />
                 <element signature="e#598#599#0" expanded="true" />
+                <element signature="e#668#669#0" expanded="true" />
+                <element signature="e#720#721#0" expanded="true" />
+                <element signature="e#758#759#0" expanded="true" />
+                <element signature="e#787#788#0" expanded="true" />
+                <element signature="e#812#813#0" expanded="true" />
+                <element signature="e#848#849#0" expanded="true" />
+                <element signature="e#876#877#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1053,17 +1054,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/DAOHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="446">
+          <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#347#348#0" expanded="true" />
             <element signature="e#369#370#0" expanded="true" />
             <element signature="e#407#408#0" expanded="true" />
             <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
             <element signature="e#508#509#0" expanded="true" />
             <element signature="e#560#561#0" expanded="true" />
             <element signature="e#598#599#0" expanded="true" />
+            <element signature="e#668#669#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#758#759#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#848#849#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
           </folding>
         </state>
       </provider>
