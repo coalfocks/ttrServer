@@ -110,8 +110,9 @@ public final class MongoTester {
         ty.setPlayerID(22);
 
         dao.addUser(ty);
+        dao.updatePlayerGame( 1700, ty.getPlayerID());
 
-        User retUser = dao.getUser(ty.getPlayerID());
+        User retUser = dao.getUser(ty.getUsername());
 
         System.out.print("Username: " + retUser.getUsername() + "\n");
         System.out.print("Password: " + retUser.getPassword() + "\n");
