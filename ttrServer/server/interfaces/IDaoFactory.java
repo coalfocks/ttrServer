@@ -1,4 +1,4 @@
-package server.factory;
+package server.interfaces;
 
 import server.Database.dao.IGameDAO;
 import server.Database.dao.IUserDAO;

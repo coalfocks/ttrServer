@@ -6,6 +6,7 @@ import server.Database.dao.IGameDAO;
 import server.Database.dao.IUserDAO;
 import server.Database.dao.MongoGameDAO;
 import server.Database.dao.MongoUserDAO;
+import server.interfaces.IDaoFactory;
 
 import java.net.UnknownHostException;
 

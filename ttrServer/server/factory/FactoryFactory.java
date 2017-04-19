@@ -1,6 +1,6 @@
 package server.factory;
 
-import com.sun.org.apache.bcel.internal.util.ClassLoader;
+import server.interfaces.IDaoFactory;
 
 /**
  * Created by Trevor on 4/17/2017.
@@ -13,10 +13,8 @@ public class FactoryFactory {
         {
 
             try {
-//                Class c = cl.loadClass("server.factory.MongoDaoFactory");
                 String className = "server.factory.MongoDaoFactory";
                 Class aClass = Class.forName(className);
-                System.out.print("YOU GUYS ARE SO SMART!");
                 return (MongoDaoFactory)aClass.newInstance();
             } catch (Exception e){
                 e.printStackTrace();
@@ -27,8 +25,15 @@ public class FactoryFactory {
         }
         else if (type.equals("-s"))
         {
-            System.out.print("Using SQLite\n");
-            return new SqlDaoFactory();
+            try {
+                String className = "server.factory.SqlDaoFactory";
+                Class aClass = Class.forName(className);
+                return (MongoDaoFactory)aClass.newInstance();
+            } catch (Exception e){
+                e.printStackTrace();
+                System.err.print("You aren't as smart as you thought...");
+            }
+            return null;
         }
         else
         {

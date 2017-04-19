@@ -1,20 +1,9 @@
-import com.example.tyudy.ticket2rideclient.common.*;
-import com.example.tyudy.ticket2rideclient.common.cards.DestinationCard;
-import com.example.tyudy.ticket2rideclient.common.cities.City;
-import com.example.tyudy.ticket2rideclient.common.cities.Path;
-import com.example.tyudy.ticket2rideclient.common.commands.SendChatCommand;
-import com.mongodb.*;
 import server.*;
-import server.Database.Database;
-import server.Database.MongoObjectConverter;
-import server.Utils.MongoTester;
 
-import java.net.UnknownHostException;
 import server.Database.dao.IGameDAO;
 import server.Database.dao.IUserDAO;
 import server.factory.FactoryFactory;
-import server.factory.IDaoFactory;
-import server.factory.MongoDaoFactory;
+import server.interfaces.IDaoFactory;
 
 /**
  * Created by colefox on 2/9/17.
@@ -40,8 +29,7 @@ public class main
 
         if (daoFactory != null)
         {
-            System.out.print("YOU ARE SERIOUSLY SO SMART!");
-//            IGameDAO gameDAO = daoFactory.createGameDAO();
+            IGameDAO gameDAO = daoFactory.createGameDAO();
 //            IUserDAO userDAO = daoFactory.createUserDAO();
 //
 //            GameUserManager.getInstance().setGameDAO(gameDAO);
