@@ -4,6 +4,7 @@ import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
 import server.Serializer;
 import server.interfaces.IGameDAO;
+import server.interfaces.IUserDAO;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -16,12 +17,13 @@ import java.util.ArrayList;
  */
 public class SQLGameDAO implements IGameDAO {
 
-    private SQLUserDAO userDAO;
+    private IUserDAO userDAO;
     private static Database db;
     private static SQLGameDAO instance;
 
     private SQLGameDAO () {
         this.db = new Database();
+        this.userDAO = DAOHolder.getInstance().getUserDAO();
     }
 
     public SQLGameDAO getInstance() {
@@ -50,7 +52,7 @@ public class SQLGameDAO implements IGameDAO {
         PreparedStatement stmt = null;
         try
         {
-            User u = getUser(ownerID);
+            User u = userDAO.getUser(ownerID);
             game.setOwnerUsername(u.getUsername());
             String g = Serializer.serialize(game);
             String sql = "INSERT OR IGNORE INTO games (owner, inProgress, game)" +

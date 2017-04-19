@@ -8,6 +8,7 @@ import server.interfaces.IUserDAO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by colefox on 4/18/17.
@@ -36,8 +37,12 @@ public class MongoGameDAO implements IGameDAO {
         if (ownerID == 0) {
             return 0;
         }
-
-        User u = userDAO.getUser(ownerID);
+        User u = null;
+        try {
+            u = userDAO.getUser(ownerID);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         TTRGame game = new TTRGame();
         game.setOwnerID(ownerID);
         game.setInProgress(0);
@@ -63,37 +68,56 @@ public class MongoGameDAO implements IGameDAO {
     {
         DBObject progressQuery = new BasicDBObject("inProgress", 0);
         DBObject idQuery = new BasicDBObject("game", gameID);
-        ArrayList<TTRGame> games = gamesCollection.find($or:)
+        BasicDBList or = new BasicDBList();
+        or.add(progressQuery);
+        or.add(idQuery);
+        DBObject query = new BasicDBObject("$or", or);
+        List<DBObject> dbgames = gamesCollection.find(query).toArray();
+        ArrayList<TTRGame> games = new ArrayList<>();
+        for (DBObject obj : dbgames) {
+            games.add(MongoObjectConverter.SINGLETON.dbObjectToGame(obj));
+        }
+        return games;
     }
 
     @Override
     public boolean startGame(int ownerID)
     {
-        return false;
+        gamesCollection.update(new BasicDBObject("owner", ownerID), new BasicDBObject("$set", new BasicDBObject("inProgress", 1)));
+        return true;
     }
 
     @Override
     public boolean endGame(int ownerID)
     {
-        return false;
+        gamesCollection.update(new BasicDBObject("owner", ownerID), new BasicDBObject("$set", new BasicDBObject("inProgress", 0)));
+        return true;
     }
 
     @Override
     public int getGameStatus(int gameID)
     {
-        return 0;
+         DBCursor cursor = gamesCollection.find(new BasicDBObject("_id", gameID));
+         DBObject obj = cursor.one();
+         TTRGame game = MongoObjectConverter.SINGLETON.dbObjectToGame(obj);
+         return game.getInProgress();
     }
 
     @Override
     public int getNumPlayers(int gameID)
     {
-        return 0;
+        DBCursor cursor = gamesCollection.find(new BasicDBObject("_id", gameID));
+        DBObject obj = cursor.one();
+        TTRGame game = MongoObjectConverter.SINGLETON.dbObjectToGame(obj);
+        return game.getUsers().size();
     }
 
     @Override
-    public int getGameID(String gstring) throws SQLException
-    {
-        return 0;
+    public int getGameID(String gstring) throws SQLException {
+        DBCursor cursor = gamesCollection.find(new BasicDBObject("game", gstring));
+        DBObject obj = cursor.one();
+        TTRGame game = MongoObjectConverter.SINGLETON.dbObjectToGame(obj);
+        return game.getGameID();
     }
 
     @Override
