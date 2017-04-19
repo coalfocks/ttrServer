@@ -52,7 +52,7 @@ public class UserStats implements Serializable {
     public int getLongestRoutePoints() { return mLongestRoutePoints; }
 
     public int getTotalPoints() {
-        return mRoutePoints + mDestPoints +
+        return mRoutePoints + mDestPoints -
                 mNegDestPoints + mLongestRoutePoints;
     }
 

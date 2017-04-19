@@ -81,14 +81,14 @@ public class TTRServerFacade implements iTTRServer
             User longestRoadUser = LongestRoadFinder.findLongestRoad(game);
 
             int winningScore = 0;
-            String winnerID = "";
+            String winnerID = "ME";
             for (UserStats stats : game.getmUserStats())
             {
                 int score = 0;
                 score += stats.getRoutePoints();
                 score += stats.getDestPoints();
                 score -= stats.getNegDestPoints();
-                if (stats.getName().equals(longestRoadUser.getUsername()))
+                if (longestRoadUser != null && stats.getName().equals(longestRoadUser.getUsername()))
                 {
                     score += 10;
                     stats.setLongestRoutePoints(10);

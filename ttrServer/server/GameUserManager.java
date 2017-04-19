@@ -187,7 +187,6 @@ public class GameUserManager
     public TTRGame initializeGame(TTRGame game) {
         game.setMyTrainDeck( new TrainCardDeck());
         game.setMyDestDeck( new DestinationCardDeck());
-//        game.setInProgress(1);
         ArrayList<User> myUsers = new ArrayList<User> (game.getUsers());
         for (User u : myUsers) {
             for (int i = 0; i < 3; i++) {
@@ -218,19 +217,17 @@ public class GameUserManager
                     break;
             }
         }
-        try {
-            game.setUsers(new TreeSet<User>(myUsers));
-            String gstring = Serializer.serialize(game);
-            TTRGame notInProg = (TTRGame) Serializer.deserialize(gstring);
+        game.setUsers(new TreeSet<User>(myUsers));
+        try
+        {
+            String gameString = Serializer.serialize(game);
+            TTRGame beforeInProgress = (TTRGame) Serializer.deserialize(gameString);
             game.setInProgress(1);
             gameDAO.updateGame(game);
-            return notInProg;
-
+            return beforeInProgress;
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        gameDAO.updateGame(game);
         return game;
     }
 
