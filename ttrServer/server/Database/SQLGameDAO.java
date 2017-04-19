@@ -524,6 +524,8 @@ public class SQLGameDAO implements IGameDAO {
             stmt3.executeUpdate();
         } catch(Exception e) {
             e.printStackTrace();
+        } finally {
+            db.closeTransaction(true);
         }
     }
 }

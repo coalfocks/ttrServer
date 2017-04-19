@@ -201,6 +201,8 @@ public class SQLUserDAO implements IUserDAO {
         } catch(Exception e)
         {
             e.printStackTrace();
+        } finally {
+            db.closeTransaction(true);
         }
     }
 }

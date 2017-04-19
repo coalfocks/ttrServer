@@ -54,7 +54,7 @@ public class main
             //GameUserManager.getInstance().setGameDAO(gameDAO);
             //GameUserManager.getInstance().setUserDAO(userDAO);
 
-            //server.run();
+            server.run();
         }
         else
         {
