@@ -3,6 +3,7 @@ package server.Database;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
 import com.mongodb.*;
+import server.Serializer;
 import server.interfaces.IGameDAO;
 import server.interfaces.IUserDAO;
 
@@ -123,18 +124,35 @@ public class MongoGameDAO implements IGameDAO {
     @Override
     public boolean addChatMessage(String username, int gameID, String chatMessage)
     {
-        return false;
+        DBObject chatDBObject = new BasicDBObject("gameID", gameID)
+                .append("player", username)
+                .append("chatMessage", chatMessage);//gameID       player      chatMessage
+        chatsCollection.insert(chatDBObject);
+        return true;
     }
 
     @Override
-    public boolean updateGame(TTRGame game)
+    public boolean updateGame(TTRGame newGame)
     {
+        String newGameData;
+        try {
+            newGameData = Serializer.serialize(newGame);
+            gamesCollection.update(new BasicDBObject("_id", newGame.getGameID()), new BasicDBObject("$set", new BasicDBObject("game", newGameData)));
+            return true;
+        } catch (Exception e){
+            System.err.print("SERIALIZATION ERROR: happened in updateGame func in MongoGameDAO");
+        }
+
         return false;
     }
 
     @Override
     public TTRGame getGameByOwner(int ownerID)
     {
-        return null;
+        DBObject gameQuery = new BasicDBObject("owner", ownerID);
+        DBCursor gameCursor = gamesCollection.find(gameQuery);
+        DBObject gameDBObject = gameCursor.one();
+        TTRGame game = MongoObjectConverter.SINGLETON.dbObjectToGame(gameDBObject);
+        return game;
     }
 }

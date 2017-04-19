@@ -42,6 +42,7 @@ public class MongoObjectConverter {
                 .append("inGame", user.getInGame());
     }
 
+
     public DBObject gameToDBObject(TTRGame game){
         String gameData = "";
         try {
