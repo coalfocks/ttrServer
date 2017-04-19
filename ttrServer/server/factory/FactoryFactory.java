@@ -28,7 +28,7 @@ public class FactoryFactory {
             try {
                 String className = "server.factory.SqlDaoFactory";
                 Class aClass = Class.forName(className);
-                return (MongoDaoFactory)aClass.newInstance();
+                return (SqlDaoFactory)aClass.newInstance();
             } catch (Exception e){
                 e.printStackTrace();
                 System.err.print("You aren't as smart as you thought...");

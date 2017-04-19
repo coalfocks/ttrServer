@@ -1,11 +1,13 @@
 package server.factory;
 
+import com.sun.jdi.ClassNotPreparedException;
 import server.Database.DAOHolder;
-import server.Database.dao.IGameDAO;
-import server.Database.dao.IUserDAO;
-import server.Database.dao.SqlGameDAO;
-import server.Database.dao.SqlUserDAO;
+import server.Database.MongoUserDAO;
+import server.Database.SQLGameDAO;
+import server.Database.SQLUserDAO;
 import server.interfaces.IDaoFactory;
+import server.interfaces.IGameDAO;
+import server.interfaces.IUserDAO;
 
 /**
  * Created by Trevor on 4/17/2017.
@@ -14,17 +16,25 @@ import server.interfaces.IDaoFactory;
 public class SqlDaoFactory implements IDaoFactory {
 
     public SqlDaoFactory() {
-        DAOHolder.getInstance().setUserDAO(server.Database.SQLUserDAO.getInstance());
         DAOHolder.getInstance().setGameDAO(server.Database.SQLGameDAO.getInstance());
+        DAOHolder.getInstance().setUserDAO(server.Database.SQLUserDAO.getInstance());
     }
 
     @Override
     public IGameDAO createGameDAO() {
-        return new SqlGameDAO();
+        IGameDAO gameDAO = (SQLGameDAO) DAOHolder.getInstance().getGameDAO();
+        if (gameDAO.getClass() != SQLGameDAO.class){
+            throw new ClassNotPreparedException();
+        }
+        return gameDAO;
     }
 
     @Override
     public IUserDAO createUserDAO() {
-        return new SqlUserDAO();
+        IUserDAO userDAO = (SQLUserDAO) DAOHolder.getInstance().getUserDAO();
+        if (userDAO.getClass() != SQLUserDAO.class){
+            throw new ClassNotPreparedException();
+        }
+        return userDAO;
     }
 }

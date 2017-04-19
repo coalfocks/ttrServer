@@ -13,7 +13,11 @@ import java.sql.SQLException;
 public class SQLUserDAO implements IUserDAO {
 
     private static Database db;
-    private static SQLUserDAO instance;
+    private static SQLUserDAO instance = new SQLUserDAO();
+
+    private SQLUserDAO(){
+
+    }
 
     public static IUserDAO getInstance() {
         return instance;

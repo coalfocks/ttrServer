@@ -1,9 +1,9 @@
 import server.*;
 
-import server.Database.dao.IGameDAO;
-import server.Database.dao.IUserDAO;
 import server.factory.FactoryFactory;
 import server.interfaces.IDaoFactory;
+import server.interfaces.IGameDAO;
+import server.interfaces.IUserDAO;
 
 /**
  * Created by colefox on 2/9/17.
@@ -29,7 +29,7 @@ public class main
 
         if (daoFactory != null)
         {
-            IGameDAO gameDAO = daoFactory.createGameDAO();
+//            IGameDAO gameDAO = daoFactory.createGameDAO();
 //            IUserDAO userDAO = daoFactory.createUserDAO();
 //
 //            GameUserManager.getInstance().setGameDAO(gameDAO);

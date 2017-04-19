@@ -1,12 +1,13 @@
 package server.factory;
 
 import com.mongodb.MongoClient;
+import com.sun.jdi.ClassNotPreparedException;
 import server.Database.DAOHolder;
-import server.Database.dao.IGameDAO;
-import server.Database.dao.IUserDAO;
-import server.Database.dao.MongoGameDAO;
-import server.Database.dao.MongoUserDAO;
+import server.Database.MongoGameDAO;
+import server.Database.MongoUserDAO;
 import server.interfaces.IDaoFactory;
+import server.interfaces.IGameDAO;
+import server.interfaces.IUserDAO;
 
 import java.net.UnknownHostException;
 
@@ -37,11 +38,19 @@ public class MongoDaoFactory implements IDaoFactory {
 
     @Override
     public IUserDAO createUserDAO() {
-        return new MongoUserDAO();
+        IUserDAO userDao = (MongoUserDAO) DAOHolder.getInstance().getUserDAO();
+        if (userDao.getClass() != MongoUserDAO.class){
+            throw new ClassNotPreparedException();
+        }
+        return userDao;
     }
 
     @Override
     public IGameDAO createGameDAO() {
-        return new MongoGameDAO();
+        IGameDAO gameDao = (MongoGameDAO) DAOHolder.getInstance().getGameDAO();
+        if (gameDao.getClass() != MongoGameDAO.class){
+            throw new ClassNotPreparedException();
+        }
+        return gameDao;
     }
 }
