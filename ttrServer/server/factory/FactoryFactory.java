@@ -11,7 +11,6 @@ public class FactoryFactory {
     public static IDaoFactory createFactory(String type){
         if (type.equals("-m"))
         {
-            ClassLoader cl = new ClassLoader();
 
             try {
 //                Class c = cl.loadClass("server.factory.MongoDaoFactory");
@@ -28,6 +27,7 @@ public class FactoryFactory {
         }
         else if (type.equals("-s"))
         {
+            System.out.print("Using SQLite\n");
             return new SqlDaoFactory();
         }
         else

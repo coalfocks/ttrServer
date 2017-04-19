@@ -6,9 +6,9 @@ import com.example.tyudy.ticket2rideclient.common.cities.Path;
 import com.example.tyudy.ticket2rideclient.common.decks.DestinationCardDeck;
 import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
 import server.Database.DAO;
-import server.Database.dao.IGameDAO;
-import server.Database.dao.IUserDAO;
-import server.Database.dao.SqlGameDAO;
+import server.Database.DAOHolder;
+import server.interfaces.IGameDAO;
+import server.interfaces.IUserDAO;
 
 import java.util.ArrayList;
 import java.util.TreeSet;
@@ -19,10 +19,9 @@ import java.util.TreeSet;
 public class GameUserManager
 {
     private static GameUserManager instance;
-    private DAO dao = DAO.getInstance();
-    
-    private IGameDAO gameDAO;
-    private IUserDAO userDAO;
+
+    private IGameDAO gameDAO = DAOHolder.getInstance().getGameDAO();
+    private IUserDAO userDAO = DAOHolder.getInstance().getUserDAO();
 
     private GameUserManager(){}
 
@@ -108,7 +107,7 @@ public class GameUserManager
             TTRGame game = gameDAO.getGame(gameID);
             User player = userDAO.getUser(playerID);
             game.addPlayer(player);
-            userDAO.addPlayerToGame(gameID, Serializer.serialize(game));
+            gameDAO.updateGame(game);
 
             if (userDAO.updatePlayerGame(gameID, playerID))
             {
@@ -138,7 +137,7 @@ public class GameUserManager
             TTRGame game = gameDAO.getGame(gameID);
             User player = userDAO.getUser(playerID);
             game.addPlayer(player);
-            userDAO.addPlayerToGame(gameID, Serializer.serialize(game));
+            gameDAO.updateGame(game);
             if (userDAO.updatePlayerGame(gameID, playerID))
             {
                 player.setInGame(gameID);
@@ -219,8 +218,18 @@ public class GameUserManager
                     break;
             }
         }
+        try {
+            game.setUsers(new TreeSet<User>(myUsers));
+            String gstring = Serializer.serialize(game);
+            TTRGame notInProg = (TTRGame) Serializer.deserialize(gstring);
+            game.setInProgress(1);
+            gameDAO.updateGame(game);
+            return notInProg;
 
-        game.setUsers(new TreeSet<User>(myUsers));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         gameDAO.updateGame(game);
         return game;
     }

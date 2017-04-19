@@ -48,6 +48,13 @@ public class main
 //            GameUserManager.getInstance().setUserDAO(userDAO);
 //
 //            server.run();
+            IGameDAO gameDAO = daoFactory.createGameDAO();
+            IUserDAO userDAO = daoFactory.createUserDAO();
+
+            //GameUserManager.getInstance().setGameDAO(gameDAO);
+            //GameUserManager.getInstance().setUserDAO(userDAO);
+
+            server.run();
         }
         else
         {

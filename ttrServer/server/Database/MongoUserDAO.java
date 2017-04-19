@@ -29,6 +29,8 @@ public class MongoUserDAO implements IUserDAO {
     // TESTED AND WORKS
     @Override
     public boolean addUser(User user) {
+        int count = (int) usersCollection.getCount() + 1;
+        user.setPlayerID(count);
         DBObject userDBObject = MongoObjectConverter.SINGLETON.userToDBObject(user);
         usersCollection.insert(userDBObject);
         return true;
@@ -56,8 +58,10 @@ public class MongoUserDAO implements IUserDAO {
 
     // TESTED AND WORKS
     @Override
-    public boolean updatePlayerGame(int newGameID, int userID){
-        usersCollection.update(new BasicDBObject("_id", userID), new BasicDBObject("$set", new BasicDBObject("inGame", newGameID)));
+    public boolean updatePlayerGame(int gameID, int userID){
+        // Get user out from the database
+        usersCollection.update(new BasicDBObject("_id", userID), new BasicDBObject("$set", new BasicDBObject("inGame", gameID)));
+
         return true;
     }
 }

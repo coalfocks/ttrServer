@@ -68,7 +68,7 @@ public class MongoGameDAO implements IGameDAO {
     public ArrayList<TTRGame> getGames(int gameID)
     {
         DBObject progressQuery = new BasicDBObject("inProgress", 0);
-        DBObject idQuery = new BasicDBObject("game", gameID);
+        DBObject idQuery = new BasicDBObject("_id", gameID);
         BasicDBList or = new BasicDBList();
         or.add(progressQuery);
         or.add(idQuery);
