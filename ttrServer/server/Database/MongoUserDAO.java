@@ -25,6 +25,7 @@ public class MongoUserDAO implements IUserDAO {
         return instance;
     }
 
+    // TESTED AND WORKS
     @Override
     public boolean addUser(User user) {
         DBObject userDBObject = MongoObjectConverter.SINGLETON.userToDBObject(user);
@@ -32,6 +33,7 @@ public class MongoUserDAO implements IUserDAO {
         return true;
     }
 
+    // TESTED AND WORKS
     @Override
     public User getUser(String username) {
         DBObject userQuery = new BasicDBObject("username", username);
@@ -40,6 +42,7 @@ public class MongoUserDAO implements IUserDAO {
         User user = MongoObjectConverter.SINGLETON.dbObjectToUser(userDBObject);
         return user;
     }
+
 
     @Override
     public User getUser(int playerID) {
