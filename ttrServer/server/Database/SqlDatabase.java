@@ -1,30 +1,23 @@
 package server.Database;
 
 import java.io.File;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
- * Created by colefox on 2/6/17.
+ * Created by Trevor on 4/17/2017.
  */
 
-
-/*
-    IMPORTANT NOTE FOR PHASE 4:
-    This class needs to become a generic/abstract class
-    so that both the mongo & sql database classes
-    can use its methods (or something similar, etc.)
-    you know what I mean.
- */
-
-public class Database
-{
+public class SqlDatabase extends Database {
     public Connection connection;
 
-    public Database()
+    public SqlDatabase()
     {
         loadDriver();
-        //DAO.getInstance().setDB(this);
     }
+
     /**
      * Load the driver to talk to the database
      */
@@ -162,6 +155,4 @@ public class Database
         stmt3.executeUpdate();
 
     }
-
 }
-

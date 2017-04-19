@@ -26,7 +26,7 @@ public class SQLGameDAO implements IGameDAO {
         this.userDAO = DAOHolder.getInstance().getUserDAO();
     }
 
-    public SQLGameDAO getInstance() {
+    public static SQLGameDAO getInstance() {
         if (instance == null) {
             instance = new SQLGameDAO();
         }
