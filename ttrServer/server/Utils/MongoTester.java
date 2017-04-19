@@ -3,7 +3,9 @@ package server.Utils;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
 import com.mongodb.*;
+import server.Database.DAOHolder;
 import server.Database.MongoObjectConverter;
+import server.Database.MongoUserDAO;
 
 import java.net.UnknownHostException;
 
@@ -90,5 +92,30 @@ public final class MongoTester {
 
         mongoClient.close(); // Closes the connection for good as long as the program is running, only do this after all read/writes
 
+    }
+
+    public static void runTysTest(){
+        MongoClient mongoClient = null;
+        try{
+            mongoClient = new MongoClient();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        DAOHolder.getInstance().setDb(mongoClient.getDB("TysTestDB"));
+        MongoUserDAO dao = (MongoUserDAO) MongoUserDAO.getInstance();
+        User ty = new User();
+        ty.setInGame(5);
+        ty.setUsername("Tyler");
+        ty.setPassword("myPass");
+        ty.setPlayerID(22);
+
+        dao.addUser(ty);
+
+        User retUser = dao.getUser(ty.getPlayerID());
+
+        System.out.print("Username: " + retUser.getUsername() + "\n");
+        System.out.print("Password: " + retUser.getPassword() + "\n");
+        System.out.print("inGame: " + retUser.getInGame() + "\n");
+        System.out.print("Player ID: " + retUser.getPlayerID() + "\n");
     }
 }

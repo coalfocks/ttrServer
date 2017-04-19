@@ -27,7 +27,8 @@ main
     public static void main(String[] args)
     {
         ServerCommunicator server = new ServerCommunicator();
-        MongoTester.runTest();
+        //MongoTester.runTest();
+        MongoTester.runTysTest();
         //server.run();
 
 
