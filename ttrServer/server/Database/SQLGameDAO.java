@@ -501,4 +501,29 @@ public class SQLGameDAO implements IGameDAO {
         }
         return game;
     }
+
+    @Override
+    public void removeAll() {
+        try
+        {
+            PreparedStatement stmt = null;
+            db.startTransaction();
+            String sql = "DROP TABLE IF EXISTS games;";
+            stmt = db.connection.prepareStatement(sql);
+            stmt.executeUpdate();
+
+            String sql2 = "CREATE TABLE IF NOT EXISTS games"+
+                    "("+
+                    "gameID INTEGER PRIMARY KEY autoincrement," +
+                    "owner varchar(64)," +
+                    "inProgress TINYINT," +
+                    "game TEXT" +
+                    ");";
+
+            PreparedStatement stmt3 = db.connection.prepareStatement(sql2);
+            stmt3.executeUpdate();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

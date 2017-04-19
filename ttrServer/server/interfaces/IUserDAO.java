@@ -19,4 +19,5 @@ public interface IUserDAO {
      * @return - true if successful, false otherwise
      */
     boolean updatePlayerGame(int gameID, int userID);
+    void removeAll();
 }

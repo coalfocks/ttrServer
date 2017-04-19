@@ -64,4 +64,10 @@ public class MongoUserDAO implements IUserDAO {
 
         return true;
     }
+
+    @Override
+    public void removeAll() {
+        BasicDBObject bo = new BasicDBObject();
+        usersCollection.remove(bo);
+    }
 }

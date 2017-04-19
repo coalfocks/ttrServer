@@ -176,4 +176,31 @@ public class SQLUserDAO implements IUserDAO {
 
         return true;
     }
+
+    @Override
+    public void removeAll() {
+        try
+        {
+            PreparedStatement stmt = null;
+            db.startTransaction();
+            String sql = "DROP TABLE IF EXISTS users;";
+            stmt = db.connection.prepareStatement(sql);
+            stmt.executeUpdate();
+
+            String sql3 = "CREATE TABLE IF NOT EXISTS users"+
+                    "("+
+                    "playerID INTEGER PRIMARY KEY autoincrement," +
+                    "username varchar(64),"+
+                    "password varchar(64),"+
+                    "inGame INTEGER" +
+                    ");";
+
+            PreparedStatement stmt2 = db.connection.prepareStatement(sql3);
+            stmt2.executeUpdate();
+
+        } catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 }

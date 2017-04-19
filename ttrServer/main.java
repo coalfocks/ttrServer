@@ -1,5 +1,7 @@
 import server.*;
 
+import server.Database.DAOHolder;
+import server.Utils.MongoTester;
 import server.factory.FactoryFactory;
 import server.interfaces.IDaoFactory;
 import server.interfaces.IGameDAO;
@@ -27,6 +29,8 @@ public class main
         String dbType = args[0];
         IDaoFactory daoFactory = FactoryFactory.createFactory(dbType);
 
+
+
         if (daoFactory != null)
         {
 //            IGameDAO gameDAO = daoFactory.createGameDAO();
@@ -36,17 +40,31 @@ public class main
 //            GameUserManager.getInstance().setUserDAO(userDAO);
 //
 //            server.run();
-            IGameDAO gameDAO = daoFactory.createGameDAO();
-            IUserDAO userDAO = daoFactory.createUserDAO();
+            // Store the new DAOs in the DAOHolder class singleton
+            daoFactory.createGameDAO();
+            daoFactory.createUserDAO();
+
+            MongoTester.runTysTest();
+
+            // Check to see if we need to clear the database
+            if (args.length >= 2 && args[1].equals("-w")){
+                clearDatabase();
+            }
 
             //GameUserManager.getInstance().setGameDAO(gameDAO);
             //GameUserManager.getInstance().setUserDAO(userDAO);
 
-            server.run();
+            //server.run();
         }
         else
         {
             System.out.println("Please enter the database type (-s or -m)");
         }
+    }
+
+    private static void clearDatabase(){
+        DAOHolder.getInstance().getGameDAO().removeAll();
+        DAOHolder.getInstance().getUserDAO().removeAll();
+        System.out.print("Cleared the database!");
     }
 }

@@ -37,4 +37,6 @@ public interface IGameDAO {
 
     TTRGame getGameByOwner(int ownerID);
 
+    void removeAll();
+
 }

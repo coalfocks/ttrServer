@@ -155,4 +155,11 @@ public class MongoGameDAO implements IGameDAO {
         TTRGame game = MongoObjectConverter.SINGLETON.dbObjectToGame(gameDBObject);
         return game;
     }
+
+    @Override
+    public void removeAll() {
+        BasicDBObject bo = new BasicDBObject();
+        gamesCollection.remove(bo);
+        chatsCollection.remove(bo);
+    }
 }
