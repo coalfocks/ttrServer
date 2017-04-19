@@ -32,7 +32,6 @@ public class MongoUserDAO implements IUserDAO {
         return true;
     }
 
-
     @Override
     public User getUser(String username) {
         DBObject userQuery = new BasicDBObject("username", username);
