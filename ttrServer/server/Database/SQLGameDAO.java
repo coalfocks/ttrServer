@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class SQLGameDAO implements IGameDAO {
 
-    private SQLUserDao userDAO;
+    private SQLUserDAO userDAO;
     private static Database db;
     private static SQLGameDAO instance;
 

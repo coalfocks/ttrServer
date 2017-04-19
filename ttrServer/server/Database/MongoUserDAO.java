@@ -21,7 +21,6 @@ public class MongoUserDAO implements IUserDAO {
         usersCollection = mongoDB.getCollection("users");
     }
 
-    @Override
     public IUserDAO getInstance() {
         return instance;
     }
@@ -45,11 +44,27 @@ public class MongoUserDAO implements IUserDAO {
 
     @Override
     public User getUser(int playerID) {
-        return null;
+        DBObject userQuery = new BasicDBObject("_id", playerID);
+        DBCursor userCursor = usersCollection.find(userQuery);
+        DBObject userDBObject = userCursor.one();
+        User user = MongoObjectConverter.SINGLETON.dbObjectToUser(userDBObject);
+        return user;
     }
 
     @Override
-    public boolean updatePlayerGame(int gameID, int userID) {
-        return false;
+    public boolean updatePlayerGame(int gameID, int userID){
+        // Get user out from the database
+        DBObject userQuery = new BasicDBObject("_id", userID);
+        DBCursor userCursor = usersCollection.find(userQuery);
+        DBObject userDBObject = userCursor.one();
+        User user = MongoObjectConverter.SINGLETON.dbObjectToUser(userDBObject);
+
+        // Change the user inGame field
+        user.setInGame(gameID);
+
+        // Put the user back in the database
+        userDBObject = MongoObjectConverter.SINGLETON.userToDBObject(user);
+        usersCollection.insert(userDBObject);
+        return true;
     }
 }

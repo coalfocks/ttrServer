@@ -24,13 +24,13 @@ public class MongoObjectConverter {
         int playerID = (int)obj.get("_id");
         String username = (String)obj.get("username");
         String password = (String)obj.get("password");
-        //int inGame = (int)obj.get("inGame");
+        int inGame = (int)obj.get("inGame");
 
         User u = new User();
         u.setUsername(username);
         u.setPlayerID(playerID);
         u.setPassword(password);
-        //u.setInGame(inGame);
+        u.setInGame(inGame);
 
         return u;
     }
