@@ -31,7 +31,7 @@ public class main
     {
         ServerCommunicator server = new ServerCommunicator();
         //MongoTester.runTest();
-        MongoTester.runTysTest();
+        //MongoTester.runTysTest();
         //server.run();
 
         String dbType = args[0];
@@ -42,8 +42,8 @@ public class main
             IGameDAO gameDAO = daoFactory.createGameDAO();
             IUserDAO userDAO = daoFactory.createUserDAO();
 
-            GameUserManager.getInstance().setGameDAO(gameDAO);
-            GameUserManager.getInstance().setUserDAO(userDAO);
+            //GameUserManager.getInstance().setGameDAO(gameDAO);
+            //GameUserManager.getInstance().setUserDAO(userDAO);
 
             server.run();
         }

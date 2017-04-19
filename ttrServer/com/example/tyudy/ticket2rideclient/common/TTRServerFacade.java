@@ -15,6 +15,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.Gson;
 import server.*;
 import server.Database.DAO;
+import server.Database.DAOHolder;
 import server.interfaces.iTTRServer;
 
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class TTRServerFacade implements iTTRServer
         {
             try
             {
-                TTRGame game = DAO.getInstance().getGameByOwner(data.getPlayerID());
+                TTRGame game = DAOHolder.getInstance().getGameDAO().getGameByOwner(data.getPlayerID());
                 if (game.getInProgress() == 0)
                 {
                     game = gameUserManager.initializeGame(game);
@@ -344,7 +345,7 @@ public class TTRServerFacade implements iTTRServer
                     cards.get(2) == null) {
                 cards = null;
             }
-            DAO.getInstance().updateGame(game);
+            DAOHolder.getInstance().getGameDAO().updateGame(game);
             if (cards != null)
             {
                 data.setData(Serializer.serialize(cards));
@@ -368,7 +369,7 @@ public class TTRServerFacade implements iTTRServer
             int gameID = Integer.parseInt(data.getData());
             TTRGame game = GameUserManager.getInstance().getGame(gameID);
             TrainCardCollection card = game.dealTrainCard(data.getPlayerID());
-            DAO.getInstance().updateGame(game);
+            DAOHolder.getInstance().getGameDAO().updateGame(game);
             if (card != null)
             {
                 data.setData(Serializer.serialize(card));
@@ -441,7 +442,7 @@ public class TTRServerFacade implements iTTRServer
             int gameID = Integer.parseInt(data.getData());
             TTRGame game = gameUserManager.getGame(gameID);
             game.changeTurn();
-            DAO.getInstance().updateGame(game);
+            DAOHolder.getInstance().getGameDAO().updateGame(game);
             String gstring = Serializer.serialize(game);
             data.setData(gstring);
             ChangeTurnCommand command = new ChangeTurnCommand();
@@ -462,7 +463,7 @@ public class TTRServerFacade implements iTTRServer
             int gameID = Integer.parseInt(data.getData());
             TTRGame game = gameUserManager.getGame(gameID);
             game.changeTurn();
-            DAO.getInstance().updateGame(game);
+            DAOHolder.getInstance().getGameDAO().updateGame(game);
             String gstring = Serializer.serialize(game);
             data.setData(gstring);
             LastTurnCommand command = new LastTurnCommand();
@@ -485,7 +486,7 @@ public class TTRServerFacade implements iTTRServer
             if (game.getmUserStats().size() == game.getUsers().size()) {
                 endGame(data, game);//send game object instead
             }
-            DAO.getInstance().updateGame(game);
+            DAOHolder.getInstance().getGameDAO().updateGame(game);
         } catch (Exception e) {
             data.setErrorMsg(e.getMessage());
             e.printStackTrace();
@@ -495,7 +496,7 @@ public class TTRServerFacade implements iTTRServer
 
     public DataTransferObject discardTrainCards (DataTransferObject data) {
         try {
-            User user = DAO.getInstance().getUser(data.getPlayerID());
+            User user = DAOHolder.getInstance().getUserDAO().getUser(data.getPlayerID());
             TTRGame game = gameUserManager.getGame(user.getInGame());
             TrainCardDeck toDiscard = (TrainCardDeck) Serializer.deserialize(data.getData());
             gameServer.discardTrainCards(game, toDiscard, data.getPlayerID());

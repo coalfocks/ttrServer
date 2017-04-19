@@ -1,5 +1,7 @@
 package com.example.tyudy.ticket2rideclient.common.cards;
 
+import com.example.tyudy.ticket2rideclient.common.ColorENUM;
+
 import java.io.Serializable;
 
 /**
@@ -61,5 +63,28 @@ public class FaceUpCards implements Serializable {
     public void setCard5(TrainCardCollection card5)
     {
         this.card5 = card5;
+    }
+
+    public boolean wildsOkay () {
+        int wilds = 0;
+        if (card1.getColor() == ColorENUM.WILD) {
+            wilds++;
+        }
+        if (card2.getColor() == ColorENUM.WILD) {
+            wilds++;
+        }
+        if (card3.getColor() == ColorENUM.WILD) {
+            wilds++;
+        }
+        if (card4.getColor() == ColorENUM.WILD) {
+            wilds++;
+        }
+        if (card5.getColor() == ColorENUM.WILD) {
+            wilds++;
+        }
+        if (wilds > 2) {
+            return false;
+        }
+        return true;
     }
 }

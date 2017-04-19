@@ -9,6 +9,9 @@ import com.example.tyudy.ticket2rideclient.common.cards.FaceUpCards;
 import com.example.tyudy.ticket2rideclient.common.cards.TrainCardCollection;
 import com.example.tyudy.ticket2rideclient.common.decks.TrainCardDeck;
 import server.Database.DAO;
+import server.Database.DAOHolder;
+import server.interfaces.IGameDAO;
+import server.interfaces.IUserDAO;
 import server.interfaces.iTTRServer;
 
 import java.util.ArrayList;
@@ -20,8 +23,9 @@ public class TTRGameServer implements iTTRServer
 {
 
     private static TTRGameServer instance;
-    private DAO dao = DAO.getInstance();
 
+    private IGameDAO gameDAO = DAOHolder.getInstance().getGameDAO();
+    private IUserDAO userDAO = DAOHolder.getInstance().getUserDAO();
     private TTRGameServer() {}
 
     public static TTRGameServer getInstance()
@@ -120,10 +124,10 @@ public class TTRGameServer implements iTTRServer
     public void addChat(String chatMessage, int playerID) {
         try
         {
-            User u = dao.getUser(playerID);
+            User u = userDAO.getUser(playerID);
             String username = u.getUsername();
             int gameID = u.getInGame();
-            dao.addChatMessage(username, gameID, chatMessage);
+            gameDAO.addChatMessage(username, gameID, chatMessage);
         }
         catch (Exception e)
         {
@@ -132,14 +136,14 @@ public class TTRGameServer implements iTTRServer
     }
 
     public TrainCardCollection addTrainCard(int playerID, int gameID) {
-        TTRGame game = dao.getGame(gameID);
+        TTRGame game = gameDAO.getGame(gameID);
         TrainCardCollection card = null;
         for (User u : game.getUsers()) {
             if (u.getPlayerID() == playerID) {
                 game.dealTrainCard(u.getPlayerID());
             }
         }
-        dao.updateGame(game);
+        gameDAO.updateGame(game);
         return card;
     }
 
@@ -188,12 +192,12 @@ public class TTRGameServer implements iTTRServer
     }
 
     public FaceUpCards getFaceUps(int gameID) {
-        TTRGame game = dao.getGame(gameID);
+        TTRGame game = gameDAO.getGame(gameID);
         return game.getMyTrainDeck().getFaceUpCards();
     }
 
     public FaceUpCards selectTrainCard(int gameID, int playerID, int cardID) {
-        TTRGame game = dao.getGame(gameID);
+        TTRGame game = gameDAO.getGame(gameID);
         TrainCardCollection card;
         switch (cardID) {
             case 1 :
@@ -223,7 +227,7 @@ public class TTRGameServer implements iTTRServer
         }
 
         game.getMyTrainDeck().swapFaceUpCard(cardID);
-        dao.updateGame(game);
+        gameDAO.updateGame(game);
         return game.getMyTrainDeck().getFaceUpCards();
     }
 
@@ -237,6 +241,6 @@ public class TTRGameServer implements iTTRServer
                 }
             }
         }
-        dao.updateGame(game);
+        gameDAO.updateGame(game);
     }
 }
