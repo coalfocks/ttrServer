@@ -10,12 +10,15 @@ import server.Database.MongoObjectConverter;
 import server.Utils.MongoTester;
 
 import java.net.UnknownHostException;
+import server.Database.dao.IGameDAO;
+import server.Database.dao.IUserDAO;
+import server.factory.FactoryFactory;
+import server.factory.IDaoFactory;
 
 /**
  * Created by colefox on 2/9/17.
  */
-public class
-main
+public class main
 {
     /* add username to User data field,
        only list games not in progress,
@@ -31,6 +34,22 @@ main
         MongoTester.runTysTest();
         //server.run();
 
+        String dbType = args[0];
+        IDaoFactory daoFactory = FactoryFactory.createFactory(dbType);
 
+        if (daoFactory != null)
+        {
+            IGameDAO gameDAO = daoFactory.createGameDAO();
+            IUserDAO userDAO = daoFactory.createUserDAO();
+
+            GameUserManager.getInstance().setGameDAO(gameDAO);
+            GameUserManager.getInstance().setUserDAO(userDAO);
+
+            server.run();
+        }
+        else
+        {
+            System.out.println("Please enter the database type (-s or -m)");
+        }
     }
 }

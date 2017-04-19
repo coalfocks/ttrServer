@@ -28,7 +28,7 @@ public class MongoGameDAO implements IGameDAO {
         chatsCollection = mongoDB.getCollection("chats");
     }
 
-    public IGameDAO getInstance () {
+    public static IGameDAO getInstance () {
         return instance;
     }
 

@@ -84,6 +84,7 @@ public class DAO
                     stmt.close();
                 if (rs != null)
                     rs.close();
+
                 db.closeTransaction(true);
             }
             return user;
