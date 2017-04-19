@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4459e61-8664-49c9-8edc-0b81be54ebe2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/Database/DAOHolder.java" afterPath="$PROJECT_DIR$/ttrServer/server/Database/DAOHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/Database/SQLGameDAO.java" afterPath="$PROJECT_DIR$/ttrServer/server/Database/SQLGameDAO.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,9 +23,23 @@
       <file leaf-file-name="DAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/DAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="217" column="0" lean-forward="true" selection-start-line="171" selection-start-column="11" selection-end-line="217" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="234" column="25" lean-forward="true" selection-start-line="220" selection-start-column="11" selection-end-line="234" selection-end-column="25" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQLGameDAO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/SQLGameDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#572#573#0" expanded="true" />
+                <element signature="e#612#613#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/MongoGameDAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+              <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#328#329#0" expanded="true" />
@@ -92,19 +108,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SQLGameDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/SQLGameDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DAOHolder.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DAOHolder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/DAOHolder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="446">
@@ -212,8 +216,8 @@
         <option value="$PROJECT_DIR$/ttrServer/server/Database/GameDAO.java" />
         <option value="$PROJECT_DIR$/ttrServer/server/Database/MongoGameDAO.java" />
         <option value="$PROJECT_DIR$/ttrServer/server/Database/SQLGameDao.java" />
-        <option value="$PROJECT_DIR$/ttrServer/server/Database/SQLGameDAO.java" />
         <option value="$PROJECT_DIR$/ttrServer/server/Database/DAOHolder.java" />
+        <option value="$PROJECT_DIR$/ttrServer/server/Database/SQLGameDAO.java" />
       </list>
     </option>
   </component>
@@ -335,7 +339,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
     <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
@@ -994,20 +998,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/server/interfaces/IGameDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/MongoGameDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#328#329#0" expanded="true" />
@@ -1034,24 +1028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/DAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="217" column="0" lean-forward="true" selection-start-line="171" selection-start-column="11" selection-end-line="217" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/SQLGameDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/DAOHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
@@ -1073,6 +1049,36 @@
             <element signature="e#812#813#0" expanded="true" />
             <element signature="e#848#849#0" expanded="true" />
             <element signature="e#876#877#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/server/interfaces/IGameDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="234" column="25" lean-forward="true" selection-start-line="220" selection-start-column="11" selection-end-line="234" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/SQLGameDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
           </folding>
         </state>
       </provider>
