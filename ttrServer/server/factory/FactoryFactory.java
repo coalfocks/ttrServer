@@ -1,5 +1,7 @@
 package server.factory;
 
+import com.sun.org.apache.bcel.internal.util.ClassLoader;
+
 /**
  * Created by Trevor on 4/17/2017.
  */
@@ -9,8 +11,19 @@ public class FactoryFactory {
     public static IDaoFactory createFactory(String type){
         if (type.equals("-m"))
         {
-            System.out.print("Using MongoDB\n");
-            return new MongoDaoFactory();
+
+            try {
+//                Class c = cl.loadClass("server.factory.MongoDaoFactory");
+                String className = "server.factory.MongoDaoFactory";
+                Class aClass = Class.forName(className);
+                System.out.print("YOU GUYS ARE SO SMART!");
+                return (MongoDaoFactory)aClass.newInstance();
+            } catch (Exception e){
+                e.printStackTrace();
+                System.err.print("You aren't as smart as you thought...");
+            }
+            return null;
+
         }
         else if (type.equals("-s"))
         {

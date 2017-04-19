@@ -14,6 +14,7 @@ import server.Database.dao.IGameDAO;
 import server.Database.dao.IUserDAO;
 import server.factory.FactoryFactory;
 import server.factory.IDaoFactory;
+import server.factory.MongoDaoFactory;
 
 /**
  * Created by colefox on 2/9/17.
@@ -39,6 +40,14 @@ public class main
 
         if (daoFactory != null)
         {
+            System.out.print("YOU ARE SERIOUSLY SO SMART!");
+//            IGameDAO gameDAO = daoFactory.createGameDAO();
+//            IUserDAO userDAO = daoFactory.createUserDAO();
+//
+//            GameUserManager.getInstance().setGameDAO(gameDAO);
+//            GameUserManager.getInstance().setUserDAO(userDAO);
+//
+//            server.run();
             IGameDAO gameDAO = daoFactory.createGameDAO();
             IUserDAO userDAO = daoFactory.createUserDAO();
 
