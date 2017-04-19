@@ -18,12 +18,20 @@ import java.sql.*;
 
 public class Database
 {
+    public static Database instance;
     public Connection connection;
 
-    public Database()
+    private Database()
     {
         loadDriver();
         //DAO.getInstance().setDB(this);
+    }
+
+    public static Database getInstance() {
+        if (instance == null) {
+            instance = new Database();
+        }
+        return instance;
     }
     /**
      * Load the driver to talk to the database

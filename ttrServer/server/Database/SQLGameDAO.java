@@ -22,7 +22,7 @@ public class SQLGameDAO implements IGameDAO {
     private static SQLGameDAO instance;
 
     private SQLGameDAO () {
-        this.db = new Database();
+        this.db = Database.getInstance();
         this.userDAO = DAOHolder.getInstance().getUserDAO();
     }
 
@@ -52,7 +52,7 @@ public class SQLGameDAO implements IGameDAO {
         PreparedStatement stmt = null;
         try
         {
-            User u = userDAO.getUser(ownerID);
+            User u = DAOHolder.getInstance().getUserDAO().getUser(ownerID);
             game.setOwnerUsername(u.getUsername());
             String g = Serializer.serialize(game);
             String sql = "INSERT OR IGNORE INTO games (owner, inProgress, game)" +

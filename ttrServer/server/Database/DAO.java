@@ -20,7 +20,7 @@ public class DAO
 
         private DAO()
         {
-            this.db = new Database();
+            this.db = Database.getInstance();
         }
 
         /**
