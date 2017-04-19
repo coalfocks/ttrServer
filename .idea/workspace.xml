@@ -2,26 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4459e61-8664-49c9-8edc-0b81be54ebe2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/main.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/Database/MongoGameDAO.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/Database/MongoGameDAO.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/GameUserManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/Utils/MongoTester.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/Database/MongoUserDAO.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/Database/MongoUserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/Database/SQLGameDAO.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/Database/SQLGameDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/GameUserManager.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/GameUserManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/TTRGameServer.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/TTRGameServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/factory/FactoryFactory.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/factory/FactoryFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/factory/MongoDaoFactory.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/factory/MongoDaoFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ttrServer/server/factory/SqlDaoFactory.class" afterPath="$PROJECT_DIR$/out/production/ttrServer/server/factory/SqlDaoFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cards/FaceUpCards.java" afterPath="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/cards/FaceUpCards.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/main.java" afterPath="$PROJECT_DIR$/ttrServer/main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/Database/MongoGameDAO.java" afterPath="$PROJECT_DIR$/ttrServer/server/Database/MongoGameDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/Database/MongoUserDAO.java" afterPath="$PROJECT_DIR$/ttrServer/server/Database/MongoUserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/GameUserManager.java" afterPath="$PROJECT_DIR$/ttrServer/server/GameUserManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/TTRGameServer.java" afterPath="$PROJECT_DIR$/ttrServer/server/TTRGameServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/factory/FactoryFactory.java" afterPath="$PROJECT_DIR$/ttrServer/server/factory/FactoryFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/factory/MongoDaoFactory.java" afterPath="$PROJECT_DIR$/ttrServer/server/factory/MongoDaoFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttrServer/server/Utils/MongoTester.java" afterPath="$PROJECT_DIR$/ttrServer/server/Utils/MongoTester.java" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameUserManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameUserManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ttrServer/server/GameUserManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -93,13 +79,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MongoUserDAO.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MongoUserDAO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/MongoUserDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="60" column="129" lean-forward="false" selection-start-line="60" selection-start-column="129" selection-end-line="60" selection-end-column="129" />
+            <state relative-caret-position="606">
+              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#650#651#0" expanded="true" />
+                <element signature="e#681#682#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,18 +143,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ttrServer/server/Utils/MongoTester.java" />
-        <option value="$PROJECT_DIR$/ttrServer/server/factory/SqlDaoFactory.java" />
-        <option value="$PROJECT_DIR$/ttrServer/server/Database/SQLGameDAO.java" />
-        <option value="$PROJECT_DIR$/ttrServer/server/factory/FactoryFactory.java" />
-        <option value="$PROJECT_DIR$/ttrServer/server/factory/MongoDaoFactory.java" />
-        <option value="$PROJECT_DIR$/ttrServer/server/TTRGameServer.java" />
-        <option value="$PROJECT_DIR$/ttrServer/main.java" />
         <option value="$PROJECT_DIR$/ttrServer/server/Database/MongoUserDAO.java" />
-        <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRGame.java" />
-        <option value="$PROJECT_DIR$/ttrServer/server/Database/MongoGameDAO.java" />
-        <option value="$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/TTRServerFacade.java" />
-        <option value="$PROJECT_DIR$/ttrServer/server/GameUserManager.java" />
       </list>
     </option>
   </component>
@@ -305,9 +282,6 @@
         </subPane>
       </pane>
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="FullScreen" value="true" />
   </component>
   <component name="RunManager" selected="Application.main">
     <configuration default="false" name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -542,13 +516,6 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="d4459e61-8664-49c9-8edc-0b81be54ebe2" name="Default" comment="" />
-      <created>1491413960505</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1491413960505</updated>
-    </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -575,7 +542,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34935522" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34935522" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -652,13 +619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="67" lean-forward="true" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -968,16 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/MongoUserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="60" column="129" lean-forward="false" selection-start-line="60" selection-start-column="129" selection-end-line="60" selection-end-column="129" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ttrServer/com/example/tyudy/ticket2rideclient/common/commands/CreateGameCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
@@ -1030,6 +980,26 @@
           <caret line="229" column="32" lean-forward="true" selection-start-line="229" selection-start-column="32" selection-end-line="229" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="67" lean-forward="false" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttrServer/server/Database/MongoUserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+            <element signature="e#681#682#0" expanded="true" />
           </folding>
         </state>
       </provider>

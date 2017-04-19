@@ -2,6 +2,7 @@ package server.Database;
 
 import com.example.tyudy.ticket2rideclient.common.User;
 import com.mongodb.*;
+import server.Serializer;
 import server.interfaces.IGameDAO;
 import server.interfaces.IUserDAO;
 
@@ -45,7 +46,7 @@ public class MongoUserDAO implements IUserDAO {
         return user;
     }
 
-
+    // TESTED AND WORKS
     @Override
     public User getUser(int playerID) {
         DBObject userQuery = new BasicDBObject("_id", playerID);
@@ -55,10 +56,12 @@ public class MongoUserDAO implements IUserDAO {
         return user;
     }
 
+    // TESTED AND WORKS
     @Override
     public boolean updatePlayerGame(int gameID, int userID){
         // Get user out from the database
         usersCollection.update(new BasicDBObject("_id", userID), new BasicDBObject("$set", new BasicDBObject("inGame", gameID)));
+
         return true;
     }
 }
