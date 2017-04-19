@@ -3,9 +3,13 @@ package server.Utils;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
 import com.example.tyudy.ticket2rideclient.common.User;
 import com.mongodb.*;
+import server.Database.DAOHolder;
+import server.Database.MongoGameDAO;
 import server.Database.MongoObjectConverter;
+import server.Database.MongoUserDAO;
 
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 /**
  * Created by tyudy on 4/17/17.
@@ -37,32 +41,28 @@ public final class MongoTester {
 
 
         // CREATE (first time) OR GET A NEW DATABASE--------------------------------------------------------------------
-        DB mongoDB = mongoClient.getDB("TysTestDB"); // Will be created if it doesn't already exist
+        //DB mongoDB = mongoClient.getDB("TysTestDB"); // Will be created if it doesn't already exist
         //TODO: Figure out where the above DB was created.
 
         // CREATE (first time)OR GET A NEW COLLECTION (like a table but not)--------------------------------------------
-        DBCollection tysUserCollection = mongoDB.getCollection("users");
-        DBCollection tysGameCollection = mongoDB.getCollection("games");
+        //DBCollection tysUserCollection = mongoDB.getCollection("users");
+        //DBCollection tysGameCollection = mongoDB.getCollection("games");
 
         // Create user and game that we will store in the database
-        User ty = new User();
-        TTRGame tysGame = new TTRGame();
-
         // Set all the fields the user that we end up storing in the database
-        ty.setInGame(1);
-        ty.setPlayerID(5);
-        ty.setPassword("pass");
-        ty.setUsername("T-swizzle");
-
-        tysGame.setGameID(1738);
-        tysGame.setOwnerID(5);
-        tysGame.setInProgress(1);
-
+        DAOHolder.getInstance().setDb(mongoClient.getDB("TysTestDB"));
+        DAOHolder.getInstance().setUserDAO(MongoUserDAO.getInstance());
+        User cole = new User();
+        cole.setUsername("cole");
+        cole.setPlayerID(69);
+        User ty = new User();
+        ty.setUsername("ty");
+        ty.setPlayerID(17);
+        MongoUserDAO.getInstance().addUser(cole);
+        MongoUserDAO.getInstance().addUser(ty);
+        MongoGameDAO.getInstance().createGame(69);
+        MongoGameDAO.getInstance().createGame(17);
         // Use custom made class to convert user to a DBObject and insert it into the table
-        DBObject userDBObject = MongoObjectConverter.SINGLETON.userToDBObject(ty);
-        DBObject gameDBObject = MongoObjectConverter.SINGLETON.gameToDBObject(tysGame);
-        tysUserCollection.insert(userDBObject);
-        tysGameCollection.insert(gameDBObject);
 
         /**
          * =========================================================================================
@@ -72,23 +72,12 @@ public final class MongoTester {
          * =========================================================================================
          */
 
-        DBObject userQuery = new BasicDBObject("_id", ty.getPlayerID());
-        DBObject gameQuery = new BasicDBObject("_id", tysGame.getGameID());
 
-        DBCursor userCursor = tysUserCollection.find(userQuery); // position the cursor at the user with the given id
-        DBCursor gameCursor = tysGameCollection.find(gameQuery);
-
-        DBObject userDBObjectFromDB = userCursor.one();
-        DBObject gameDBObjectFromDB = gameCursor.one();
-
-        User userFromDB = MongoObjectConverter.SINGLETON.dbObjectToUser(userDBObjectFromDB);
-        TTRGame gameFromDB = MongoObjectConverter.SINGLETON.dbObjectToGame(gameDBObjectFromDB);
-
-        System.out.print(userFromDB.getUsername() + " found in the database!\n");
-        System.out.print("Game " + gameFromDB.getGameID() + " found in the database!\n");
+        ArrayList<TTRGame> games = MongoGameDAO.getInstance().getGames(12);
+        System.out.print(games.size());
 
 
-        mongoClient.close(); // Closes the connection for good as long as the program is running, only do this after all read/writes
+       // mongoClient.close(); // Closes the connection for good as long as the program is running, only do this after all read/writes
 
     }
 }
