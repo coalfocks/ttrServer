@@ -13,12 +13,12 @@ import java.net.UnknownHostException;
 public class MongoUserDAO implements IUserDAO {
 
     private final MongoUserDAO instance = new MongoUserDAO();
-    private DB mongoDB = DAOHolder.getInstance().getUserDAO();
+    private DB mongoDB;
     private DBCollection usersCollection;
 
     private MongoUserDAO(){
-      mongoDB = DAOHolder.getInstance().getUserDAO();
-      usersCollection = mongoDB.getCollection("users");
+        mongoDB = DAOHolder.getInstance().getDb();
+        usersCollection = mongoDB.getCollection("users");
     }
 
     @Override

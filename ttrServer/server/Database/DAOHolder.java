@@ -8,7 +8,7 @@ import server.interfaces.IUserDAO;
  * Created by colefox on 4/18/17.
  */
 public class DAOHolder {
-    private final DAOHolder instance = new DAOHolder();
+    private static final DAOHolder instance = new DAOHolder();
     private IUserDAO userDAO;
     private IGameDAO gameDAO;
     private DB db;
@@ -17,7 +17,7 @@ public class DAOHolder {
         return;
     }
 
-    public DAOHolder getInstance() {
+    public static DAOHolder getInstance() {
         return instance;
     }
 

@@ -1,13 +1,8 @@
 package server.interfaces;
 
-import com.example.tyudy.ticket2rideclient.common.User;
 import com.example.tyudy.ticket2rideclient.common.TTRGame;
-import server.Database.DAO;
-import server.Database.Database;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
->>>>>>> origin/mongo-branch
 
 /**
  * Created by tyudy on 4/18/17.
